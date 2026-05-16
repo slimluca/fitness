@@ -1,0 +1,278 @@
+import Link from "next/link";
+import { notFound, redirect } from "next/navigation";
+import { ArrowRight } from "lucide-react";
+
+import { Reveal } from "@/components/motion/reveal";
+import { CTASection } from "@/components/site/cta-section";
+import { FAQAccordion } from "@/components/site/faq-accordion";
+import { Hero } from "@/components/site/hero";
+import { JsonLd } from "@/components/site/json-ld";
+import { ReviewGrid } from "@/components/site/review-grid";
+import { SectionHeader } from "@/components/site/section-header";
+import { WhatsAppButton } from "@/components/site/whatsapp-button";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import {
+  landingPageTestimonials,
+  pageHeroAssets,
+  resolveProofAssetAlt,
+  resolveProofAssetObjectPosition,
+  resolveProofAssetSrc,
+  siteConfig,
+} from "@/content";
+import { breadcrumbSchema, faqSchema, landingPageSchema, localBusinessSchema } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
+
+type PageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+const slug = "personal-trainer-mauritius";
+
+const faqs = [
+  {
+    question: "Is this a public gym?",
+    answer:
+      "No. Fitness Grand Baie operates as an appointment-only private gym in a home residence in Grand Baie, Mauritius.",
+  },
+  {
+    question: "Why choose a private personal trainer in Mauritius?",
+    answer:
+      "Private coaching gives you more attention, more privacy, and a calmer environment than a busy commercial gym, which often makes consistency easier.",
+  },
+  {
+    question: "Do you work with beginners?",
+    answer:
+      "Yes. The private environment is especially helpful for beginners who want to build confidence without training in a crowded public space.",
+  },
+  {
+    question: "Do you offer online coaching in Mauritius?",
+    answer:
+      "Yes. Online coaching is available for Mauritius-based clients and travel-heavy clients who want structured support remotely.",
+  },
+];
+
+const whoItIsFor = [
+  "Residents in Mauritius looking for a private premium coaching environment",
+  "Grand Baie clients who want one-to-one training instead of a public gym",
+  "Busy professionals who need structure and fast communication",
+  "Expats and villa guests who value privacy and a discreet training setup",
+];
+
+const nextLinks = [
+  { label: "Private Personal Training", href: "/personal-training" },
+  { label: "Online Coaching", href: "/online-coaching" },
+  { label: "Results", href: "/results" },
+  { label: "Reviews", href: "/reviews" },
+  { label: "Contact", href: "/contact" },
+];
+
+export async function generateStaticParams() {
+  return [{ slug }];
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const current = (await params).slug;
+
+  if (current !== slug) {
+    return {};
+  }
+
+  return buildMetadata({
+    title: "Personal Trainer Mauritius | Private Premium Coaching in Grand Baie",
+    description:
+      "Personal trainer in Mauritius for private premium coaching in Grand Baie. Appointment-only private gym in a home residence, online coaching support, and a direct consultation-first path.",
+    path: "/personal-trainer-mauritius",
+    keywords: [
+      "Personal Trainer Mauritius",
+      "Private Personal Trainer Mauritius",
+      "Private Gym Mauritius",
+      "Personal Trainer Grand Baie",
+      "Online Personal Trainer Mauritius",
+    ],
+  });
+}
+
+export default async function SeoLandingPage({ params }: PageProps) {
+  const current = (await params).slug;
+
+  if (current === "personal-trainer-grand-baie") {
+    redirect("/personal-trainer-mauritius");
+  }
+
+  if (current !== slug) {
+    notFound();
+  }
+
+  return (
+    <>
+      <JsonLd data={localBusinessSchema()} />
+      <JsonLd
+        data={landingPageSchema({
+          slug,
+          title: "Personal Trainer Mauritius",
+          metaTitle: "Personal Trainer Mauritius | Private Premium Coaching in Grand Baie",
+          metaDescription:
+            "Personal trainer in Mauritius for private premium coaching in Grand Baie.",
+          heroTitle: "Personal Trainer Mauritius",
+          heroDescription:
+            "Private premium coaching in Grand Baie, Mauritius for clients who want privacy, results, and a calmer environment.",
+          intro: [],
+          sections: [],
+          faq: faqs,
+        })}
+      />
+      <JsonLd data={faqSchema(faqs)} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { label: "Home", href: "/" },
+          { label: "Personal Trainer Mauritius", href: "/personal-trainer-mauritius" },
+        ])}
+      />
+
+      <div className="space-y-16 py-6 sm:space-y-20 sm:py-8">
+        <section className="page-section">
+          <Hero
+            eyebrow="Personal Trainer Mauritius"
+            title="Private premium coaching in Mauritius, built to convert serious enquiries"
+            description="This page exists for people searching for a personal trainer in Mauritius and wanting a direct answer. Fitness by Fabrizio offers appointment-only private coaching in Grand Baie, inside a home residence gym, with online coaching available for clients who want remote structure."
+            image={resolveProofAssetSrc(pageHeroAssets["personal-trainer-mauritius"])}
+            imageAlt={resolveProofAssetAlt(
+              pageHeroAssets["personal-trainer-mauritius"],
+              "Personal trainer Mauritius private coaching image in Grand Baie",
+            )}
+            imageObjectPosition={resolveProofAssetObjectPosition(
+              pageHeroAssets["personal-trainer-mauritius"],
+            )}
+            actions={
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Button asChild size="lg">
+                  <Link href={siteConfig.primaryCtaHref} data-track-location="mauritius-hero">
+                    Book Consultation
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+                <WhatsAppButton size="lg" label="WhatsApp Now" trackLocation="mauritius-hero" />
+                <Button asChild size="lg" variant="ghost">
+                  <Link href={siteConfig.availabilityCtaHref}>Request Availability</Link>
+                </Button>
+              </div>
+            }
+            aside={
+              <div className="space-y-4 text-sm leading-7 text-white/72">
+                <p>Private gym in a home residence in Grand Baie, Mauritius.</p>
+                <p>Not a public commercial gym. No walk-ins. Appointment only.</p>
+                <p>Best next step: book consultation or message on WhatsApp for quick clarity.</p>
+              </div>
+            }
+          />
+        </section>
+
+        <section className="page-section">
+          <div className="grid gap-6 lg:grid-cols-[0.96fr_1.04fr]">
+            <Reveal>
+              <Card className="space-y-5">
+                <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
+                  Why choose this service in Mauritius
+                </p>
+                <h2 className="font-display text-4xl text-white sm:text-5xl">
+                  A more private, focused alternative to the usual gym route
+                </h2>
+                <p className="text-base leading-8 text-white/72">
+                  The offer is built for people who want more than generic gym access.
+                  They want private coaching, a premium atmosphere, and a business that
+                  communicates clearly from the first message.
+                </p>
+                <p className="text-base leading-8 text-white/72">
+                  That is why the whole site is designed to move visitors quickly into the
+                  right commercial page, the right enquiry form, and the right next step.
+                </p>
+              </Card>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <div className="grid gap-5">
+                {whoItIsFor.map((item) => (
+                  <Card key={item} className="space-y-3">
+                    <h3 className="font-display text-3xl text-white">Who it is for</h3>
+                    <p className="text-sm leading-7 text-white/70">{item}</p>
+                  </Card>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="page-section">
+          <Reveal>
+            <SectionHeader
+              eyebrow="Best next pages"
+              title="Move from broad Mauritius intent into the right action"
+              description="These are the most relevant routes for visitors who start broad and then want to make a decision quickly."
+            />
+          </Reveal>
+          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
+            {nextLinks.map((item, index) => (
+              <Reveal key={item.href} delay={index * 0.04}>
+                <Card className="h-full">
+                  <Link href={item.href} className="text-sm font-semibold leading-7 text-white">
+                    {item.label}
+                  </Link>
+                </Card>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        <section className="page-section">
+          <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
+            <Reveal>
+              <SectionHeader
+                eyebrow="Selected reviews"
+                title="Proof that supports a commercial decision"
+                description="The strongest testimonials on this page should make the private environment, professionalism, and results feel credible at a glance."
+              />
+              <div className="mt-8">
+                <ReviewGrid
+                  items={landingPageTestimonials["personal-trainer-mauritius"]}
+                  compact
+                />
+              </div>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <div className="space-y-6">
+                <SectionHeader
+                  eyebrow="Compact FAQ"
+                  title="Answer the core objections, then move forward"
+                  description="This page stays commercially focused, so the FAQ only covers the questions that usually matter before enquiry."
+                />
+                <FAQAccordion items={faqs} />
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="page-section">
+          <CTASection
+            eyebrow="Take the next step"
+            title="Book consultation or message on WhatsApp about private coaching in Mauritius"
+            description="If the private coaching model feels like the right fit, move into consultation now or request availability directly."
+            actions={[
+              { label: "Book Consultation", href: siteConfig.primaryCtaHref },
+              {
+                label: "WhatsApp Now",
+                href: siteConfig.availabilityCtaHref,
+                variant: "outline",
+                messageKey: "consultation",
+              },
+              {
+                label: "Request Availability",
+                href: siteConfig.availabilityCtaHref,
+                variant: "ghost",
+              },
+            ]}
+          />
+        </section>
+      </div>
+    </>
+  );
+}
