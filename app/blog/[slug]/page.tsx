@@ -149,7 +149,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
               <p className="text-sm leading-7 text-white/72">
                 If this topic matches your situation, move next into the page that best
                 fits your goal. That usually means reviewing the relevant service, landing
-                page, or contact route while the question is still clear in your mind.
+                page, or contact option while the question is still clear in your mind.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Button asChild>
@@ -200,7 +200,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
                 Helpful next links
               </p>
               <p className="mt-3 text-sm leading-7 text-white/68">
-                Continue into the most relevant service, landing page, or booking route
+                Continue into the most relevant service, landing page, or booking option
                 from this topic.
               </p>
               <div className="mt-4 flex flex-wrap gap-3">

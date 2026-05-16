@@ -169,8 +169,8 @@ export default function OnlineCoachingPage() {
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-start">
-            <Reveal>
+          <div className="balanced-split grid gap-6 lg:grid-cols-[1fr_1fr]">
+            <Reveal className="h-full">
               <Card className="flex h-full flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                   Who it is for
@@ -187,7 +187,7 @@ export default function OnlineCoachingPage() {
                 </div>
               </Card>
             </Reveal>
-            <Reveal delay={0.05}>
+            <Reveal className="h-full" delay={0.05}>
               <Card className="flex h-full flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                   Why clients choose it

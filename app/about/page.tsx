@@ -91,9 +91,9 @@ export default function AboutPage() {
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-            <Reveal>
-              <Card className="space-y-5">
+          <div className="balanced-split grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+            <Reveal className="h-full">
+              <Card className="flex h-full flex-col justify-center gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                   Brand story
                 </p>
@@ -112,7 +112,7 @@ export default function AboutPage() {
                 </p>
               </Card>
             </Reveal>
-            <Reveal delay={0.05}>
+            <Reveal className="h-full" delay={0.05}>
               <div className="grid grid-equal gap-5">
                 {philosophyCards.map((item) => (
                   <Card key={item.title} className="flex h-full flex-col gap-3">
@@ -153,8 +153,8 @@ export default function AboutPage() {
           <Reveal>
             <SectionHeader
               eyebrow="Credibility"
-              title="A compact authority story with room for real assets"
-              description="The site is prepared for real portraits, credentials, and approved proof without needing to rely on filler or overbuilt pages."
+              title="A compact authority story built around trust"
+              description="The credibility layer stays focused on coaching standards, private service, clear communication, and proof that supports confident enquiries."
             />
           </Reveal>
           <div className="mt-7 grid grid-equal gap-5 md:grid-cols-2 xl:grid-cols-4 sm:mt-8">

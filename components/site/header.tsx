@@ -49,10 +49,10 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden items-center gap-3 xl:flex">
-          <WhatsAppButton label="WhatsApp Now" />
           <Button asChild>
             <Link href="/contact?intent=consultation">Book Consultation</Link>
           </Button>
+          <WhatsAppButton label="WhatsApp Now" />
         </div>
         <Dialog>
           <DialogTrigger asChild className="lg:hidden">
@@ -82,10 +82,10 @@ export function Header() {
                 ))}
               </div>
               <div className="space-y-3">
-                <WhatsAppButton className="w-full" label="WhatsApp Now" />
                 <Button asChild className="w-full">
                   <Link href="/contact?intent=consultation">Book Consultation</Link>
                 </Button>
+                <WhatsAppButton className="w-full" label="WhatsApp Now" />
               </div>
             </div>
           </DialogContent>

@@ -78,7 +78,7 @@ export const faqGroups: FAQGroup[] = [
   {
     title: "Pricing and availability questions",
     description:
-      "How pricing, package guidance, availability requests, and future payment activation are handled.",
+      "How pricing, package guidance, consultation, and WhatsApp enquiries are handled.",
     items: [
       {
         question: "How much does a personal trainer cost in Mauritius?",
@@ -88,12 +88,12 @@ export const faqGroups: FAQGroup[] = [
       {
         question: "Can I pay online right now?",
         answer:
-          "Not through the public website flow right now. The current website is lead-generation first, with consultation, WhatsApp, and availability requests as the active paths while the payment architecture remains parked for future activation.",
+          "No. The public website flow is consultation first. Use the consultation form or WhatsApp so service fit, schedule, and the right package can be confirmed personally.",
       },
       {
         question: "Do I have to start with a package?",
         answer:
-          "No. Single sessions, consultation-first enquiries, and service-specific availability requests make it easy to start without overcommitting before the right fit is confirmed.",
+          "No. Consultation-first enquiries make it easy to start without overcommitting before the right fit is confirmed.",
       },
       {
         question: "Which package is usually the best value?",
@@ -109,11 +109,6 @@ export const faqGroups: FAQGroup[] = [
         question: "Is private personal training better than a gym membership?",
         answer:
           "For many clients, yes. A private coaching model often offers more attention, more privacy, and a much stronger chance of consistency than an unused membership.",
-      },
-      {
-        question: "Is there a bank transfer fallback for later?",
-        answer:
-          "Yes. The payment architecture already leaves room for future payment activation, including alternative methods such as bank transfer if they are introduced later.",
       },
     ],
   },

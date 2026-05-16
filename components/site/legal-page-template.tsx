@@ -8,7 +8,7 @@ type LegalPageTemplateProps = {
 
 export function LegalPageTemplate({ document }: LegalPageTemplateProps) {
   return (
-    <div className="space-y-20 py-8 sm:py-10">
+    <div className="page-flow">
       <section className="page-section">
         <Hero
           eyebrow="Legal"

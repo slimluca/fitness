@@ -24,18 +24,18 @@ export function ReviewGrid({ items, compact = false }: ReviewGridProps) {
 
   const gridClass = compact
     ? items.length <= 2
-      ? "grid grid-equal gap-4 md:grid-cols-2"
+      ? "grid grid-equal premium-card-grid gap-4 md:grid-cols-2"
       : items.length === 4
-        ? "grid grid-equal gap-4 md:grid-cols-2"
-        : "grid grid-equal gap-4 md:grid-cols-2 xl:grid-cols-3"
+        ? "grid grid-equal premium-card-grid gap-4 md:grid-cols-2"
+        : "grid grid-equal premium-card-grid gap-4 md:grid-cols-2 xl:grid-cols-3"
     : items.length <= 2
-      ? "grid grid-equal gap-4 md:grid-cols-2"
-      : "grid grid-equal gap-4 md:grid-cols-2 xl:grid-cols-3";
+      ? "grid grid-equal premium-card-grid gap-4 md:grid-cols-2"
+      : "grid grid-equal premium-card-grid gap-4 md:grid-cols-2 xl:grid-cols-3";
 
   return (
     <div className={gridClass}>
       {items.map((item) => (
-        <Card key={`${item.name}-${item.quote}`} className="flex h-full flex-col gap-5">
+        <Card key={`${item.name}-${item.quote}`} className="flex h-full min-w-0 flex-col gap-4">
           <div className="grid min-h-[3.2rem] grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
             <div className="flex min-w-0 flex-wrap content-start gap-2">
               {item.sourceLabel ? <Badge variant="muted">{item.sourceLabel}</Badge> : null}
@@ -55,8 +55,8 @@ export function ReviewGrid({ items, compact = false }: ReviewGridProps) {
               <h3
                 className={
                   compact
-                    ? "font-display text-[1.45rem] leading-[1.08] text-white"
-                    : "font-display text-[1.7rem] leading-[1.06] text-white sm:text-[1.95rem]"
+                    ? "font-display text-[1.35rem] leading-[1.12] text-white"
+                    : "font-display text-[1.5rem] leading-[1.1] text-white sm:text-[1.72rem]"
                 }
               >
                 {item.headline}

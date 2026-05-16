@@ -4,7 +4,7 @@ import { MessageCircle } from "lucide-react";
 
 import { Button, type ButtonProps } from "@/components/ui/button";
 import { siteConfig } from "@/content/site";
-import { buildWhatsAppLink } from "@/lib/utils";
+import { buildWhatsAppLink, cn } from "@/lib/utils";
 
 type WhatsAppButtonProps = ButtonProps & {
   messageKey?: keyof typeof siteConfig.whatsappMessages;
@@ -15,12 +15,21 @@ type WhatsAppButtonProps = ButtonProps & {
 export function WhatsAppButton({
   messageKey = "consultation",
   label = "WhatsApp Now",
-  variant = "outline",
+  variant = "dark",
   trackLocation = "whatsapp-button",
+  className,
   ...props
 }: WhatsAppButtonProps) {
   return (
-    <Button asChild variant={variant} {...props}>
+    <Button
+      asChild
+      variant={variant}
+      className={cn(
+        "border border-white/16 bg-black text-white shadow-none hover:-translate-y-0.5 hover:border-[color:var(--brand-gold)] hover:bg-black/90",
+        className,
+      )}
+      {...props}
+    >
       <a
         href={buildWhatsAppLink(
           siteConfig.phone,

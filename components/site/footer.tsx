@@ -20,10 +20,10 @@ const footerLinks = [
 export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-[#030303]">
-      <div className="page-section grid gap-7 py-7 sm:py-8 lg:grid-cols-[1.2fr_0.8fr_0.8fr] lg:items-start lg:gap-8">
-        <div className="space-y-4">
+      <div className="page-section grid gap-6 py-6 sm:py-7 lg:grid-cols-[1.08fr_0.96fr_0.96fr] lg:items-start lg:gap-8">
+        <div className="space-y-3.5">
           <Logo className="opacity-95" />
-          <p className="max-w-lg text-sm leading-7 text-white/68">
+          <p className="max-w-md text-sm leading-6 text-white/66">
             Private premium coaching in Grand Baie, Mauritius for clients who want an
             appointment-only gym experience in a home residence, not a public
             commercial gym.
@@ -37,7 +37,7 @@ export function Footer() {
               </a>
             </p>
           </div>
-          <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
+          <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center">
             <Button asChild>
               <Link
                 href={siteConfig.primaryCtaHref}
@@ -51,9 +51,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="space-y-3">
-          <h3 className="font-display text-[1.38rem] leading-tight text-white">Navigation</h3>
-          <div className="grid gap-2 text-sm text-white/62">
+        <div className="space-y-3 lg:pt-1">
+          <h3 className="font-display text-[1.22rem] leading-tight text-white">Navigation</h3>
+          <div className="grid gap-x-5 gap-y-2 text-sm text-white/62 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
             {footerLinks.map((link) => (
               <Link key={link.href} href={link.href} className="transition hover:text-white">
                 {link.label}
@@ -62,14 +62,14 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="space-y-3">
-          <h3 className="font-display text-[1.38rem] leading-tight text-white">Explore</h3>
-          <div className="space-y-3 text-sm leading-7 text-white/62">
+        <div className="space-y-3 lg:pt-1">
+          <h3 className="font-display text-[1.22rem] leading-tight text-white">Explore</h3>
+          <div className="space-y-3 text-sm leading-6 text-white/62">
             <p>
               Appointment-only private gym in a home residence. No walk-ins. Access is
               shared only after confirmation.
             </p>
-            <div className="grid gap-2">
+            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               {legalLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="transition hover:text-white">
                   {link.label}
@@ -79,7 +79,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10 px-4 py-3.5 text-center text-[11px] uppercase tracking-[0.22em] text-white/42 sm:text-xs">
+      <div className="border-t border-white/10 px-4 py-3 text-center text-[11px] uppercase tracking-[0.18em] text-white/42 sm:text-xs">
         Appointment-only private gym in Grand Baie, Mauritius. Copyright 2026
         Fitness by Fabrizio.
       </div>

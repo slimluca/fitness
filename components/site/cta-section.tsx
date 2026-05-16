@@ -39,8 +39,12 @@ export function CTASection({
             <Button
               key={`${action.label}-${action.href}`}
               asChild
-              variant={action.variant ?? "default"}
-              className="w-full sm:w-auto lg:w-full"
+              variant={action.messageKey ? "dark" : action.variant ?? "default"}
+              className={
+                action.messageKey
+                  ? "w-full border border-white/16 bg-black text-white shadow-none hover:border-[color:var(--brand-gold)] hover:bg-black/90 sm:w-auto lg:w-full"
+                  : "w-full sm:w-auto lg:w-full"
+              }
             >
               {action.messageKey ? (
                 <a

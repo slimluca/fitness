@@ -30,7 +30,7 @@ export function BlogHubClient({ posts, categories }: BlogHubClientProps) {
   });
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-7">
       <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
         <div className="relative">
           <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
@@ -54,7 +54,7 @@ export function BlogHubClient({ posts, categories }: BlogHubClientProps) {
           ))}
         </div>
       </div>
-      <div className="grid grid-equal gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-equal premium-card-grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post) => <BlogCard key={post.slug} post={post} />)
         ) : (

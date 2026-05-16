@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Camera, ImagePlus } from "lucide-react";
+import { ImagePlus } from "lucide-react";
 
 import type { MediaAsset } from "@/content/types";
 import { Badge } from "@/components/ui/badge";
@@ -38,9 +38,6 @@ export function ProofMedia({
   showMeta = true,
 }: ProofMediaProps) {
   const aspectClass = aspectClasses[asset.aspect ?? "landscape"];
-  const status = asset.status ?? (asset.src ? "live" : "reserved");
-  const reservedLabel = "Prepared visual";
-  const noteLabel = status === "live" ? "Asset brief" : "Replacement brief";
 
   return (
     <Card className={cn("group overflow-hidden p-0", className)}>
@@ -71,9 +68,6 @@ export function ProofMedia({
         )}
 
         <div className="absolute left-4 top-4 flex flex-wrap gap-2">
-          <Badge variant={status === "live" ? "default" : "muted"}>
-            {status === "live" ? "Live Asset" : reservedLabel}
-          </Badge>
           <Badge variant="muted">{categoryLabels[asset.category]}</Badge>
         </div>
 
@@ -89,7 +83,7 @@ export function ProofMedia({
               <div className="flex items-center gap-3 text-[color:var(--brand-gold)]">
                 <ImagePlus className="h-4 w-4" />
                 <span className="text-xs uppercase tracking-[0.22em]">
-                  Ready for approved real photography
+                  Private coaching visual
                 </span>
               </div>
               <p className="mt-3 font-display text-2xl leading-tight text-white">
@@ -107,17 +101,6 @@ export function ProofMedia({
             <p className="text-xs uppercase tracking-[0.2em] text-white/38">
               Credit: {asset.credit}
             </p>
-          ) : null}
-          {asset.note ? (
-            <div className="rounded-[22px] border border-white/10 bg-black/20 p-4 text-sm leading-7 text-white/58">
-              <div className="mb-2 flex items-center gap-2 text-white/40">
-                <Camera className="h-4 w-4 text-[color:var(--brand-gold)]" />
-                <span className="text-xs uppercase tracking-[0.22em]">
-                  {noteLabel}
-                </span>
-              </div>
-              {asset.note}
-            </div>
           ) : null}
         </div>
       ) : null}

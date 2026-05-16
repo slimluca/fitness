@@ -440,7 +440,7 @@ export const seoLandingPages: SeoLandingPage[] = [
       {
         question: "Can I book and pay online?",
         answer:
-          "You can book a consultation, message on WhatsApp, and request availability online now. The payment architecture is kept in place for future activation, but the current public flow is lead-generation focused.",
+          "You can book a consultation or message on WhatsApp now. Payment is handled only after the right coaching path is confirmed personally.",
       },
       {
         question: "Do you offer house calls and online coaching in Mauritius?",
@@ -460,7 +460,7 @@ export const seoLandingPages: SeoLandingPage[] = [
       {
         question: "How much does a personal trainer cost in Mauritius?",
         answer:
-          "Pricing depends on format and frequency. Fitness Grand Baie publishes clear pricing guidance online, then confirms the best-fit route through consultation, WhatsApp, or an availability request.",
+          "Pricing depends on format and frequency. Fitness Grand Baie publishes clear pricing guidance online, then confirms the best-fit route through consultation or WhatsApp.",
       },
       {
         question: "Do you work with busy professionals in Mauritius?",

@@ -82,7 +82,7 @@ export default async function BlogCategoryPage({ params }: PageProps) {
           { label: category.name, href: category.href },
         ])}
       />
-      <div className="space-y-24 py-8 sm:py-10">
+      <div className="page-flow">
         <section className="page-section">
           <Hero
             eyebrow="Blog category"
@@ -128,20 +128,20 @@ export default async function BlogCategoryPage({ params }: PageProps) {
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-            <Reveal>
+          <div className="balanced-split grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+            <Reveal className="h-full">
               <AuthorBox />
             </Reveal>
-            <Reveal delay={0.05}>
-              <Card className="h-full space-y-5">
+            <Reveal className="h-full" delay={0.05}>
+              <Card className="flex h-full flex-col justify-center gap-5">
                 <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
                   Start here
                 </p>
                 <div className="space-y-4 text-sm leading-7 text-white/72">
                   <p>
-                    This category is designed for readers who want a cleaner route into the
-                    most useful articles first, then into the relevant service or contact
-                    page when they are ready to act.
+                    This category gives readers a clean path through the most useful
+                    articles first, then into the relevant service or contact page when
+                    they are ready to act.
                   </p>
                   <p>{category.intro}</p>
                   <div className="grid gap-3 sm:grid-cols-1">
@@ -200,7 +200,7 @@ export default async function BlogCategoryPage({ params }: PageProps) {
               />
             </div>
           </Reveal>
-          <div className="mt-10 grid grid-equal gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-7 grid grid-equal premium-card-grid gap-5 md:grid-cols-2 xl:grid-cols-3 sm:mt-8">
             {starterPosts.map((post, index) => (
               <Reveal key={post.slug} delay={index * 0.04}>
                 <BlogCard post={post} />
@@ -218,7 +218,7 @@ export default async function BlogCategoryPage({ params }: PageProps) {
                 description="Explore the rest of the published article set in this category once you have covered the strongest entry points."
               />
             </Reveal>
-            <div className="mt-10 grid grid-equal gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-7 grid grid-equal premium-card-grid gap-5 md:grid-cols-2 xl:grid-cols-3 sm:mt-8">
               {archivePosts.map((post, index) => (
                 <Reveal key={post.slug} delay={index * 0.04}>
                   <BlogCard post={post} />
@@ -237,7 +237,7 @@ export default async function BlogCategoryPage({ params }: PageProps) {
                 description="These related categories help readers move from one useful question into the next article or service that fits."
               />
             </Reveal>
-            <div className="mt-10 grid grid-equal gap-6 md:grid-cols-3">
+            <div className="mt-7 grid grid-equal premium-card-grid gap-5 md:grid-cols-3 sm:mt-8">
               {relatedCategories.map((entry, index) => (
                 <Reveal key={entry.slug} delay={index * 0.04}>
                   <Card className="flex h-full flex-col gap-4">

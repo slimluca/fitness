@@ -12,8 +12,8 @@ export function RelatedPosts({ posts }: RelatedPostsProps) {
 
   const gridClass =
     posts.length <= 2
-      ? "grid grid-equal gap-6 md:grid-cols-2"
-      : "grid grid-equal gap-6 md:grid-cols-2 xl:grid-cols-3";
+      ? "grid grid-equal premium-card-grid gap-5 md:grid-cols-2"
+      : "grid grid-equal premium-card-grid gap-5 md:grid-cols-2 xl:grid-cols-3";
 
   return (
     <div className={gridClass}>

@@ -150,7 +150,11 @@ export default async function ThankYouPage({ searchParams }: PageProps) {
             <p className="text-sm leading-7 text-white/70">
               Use WhatsApp if availability is your main question or if the enquiry is time sensitive.
             </p>
-            <Button asChild variant="outline">
+            <Button
+              asChild
+              variant="dark"
+              className="border border-white/16 bg-black text-white shadow-none hover:border-[color:var(--brand-gold)] hover:bg-black/90"
+            >
               <a
                 href={buildWhatsAppLink(siteConfig.phone, followUpMessage)}
                 target="_blank"

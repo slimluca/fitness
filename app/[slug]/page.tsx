@@ -159,9 +159,9 @@ export default async function SeoLandingPage({ params }: PageProps) {
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 lg:grid-cols-[0.96fr_1.04fr] lg:items-start">
-            <Reveal>
-              <Card className="space-y-5">
+          <div className="balanced-split grid gap-6 lg:grid-cols-[0.96fr_1.04fr]">
+            <Reveal className="h-full">
+              <Card className="flex h-full flex-col justify-center gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                   Why choose this service in Mauritius
                 </p>
@@ -174,12 +174,12 @@ export default async function SeoLandingPage({ params }: PageProps) {
                   communicates clearly from the first message.
                 </p>
                 <p className="card-copy text-base leading-8 text-white/72">
-                  That is why the whole site is designed to move visitors quickly into the
-                  right commercial page, the right enquiry form, and the right next step.
+                  The experience is designed to move visitors into the right service,
+                  the right enquiry form, and the right next step without unnecessary noise.
                 </p>
               </Card>
             </Reveal>
-            <Reveal delay={0.05}>
+            <Reveal className="h-full" delay={0.05}>
               <div className="grid grid-equal gap-4 sm:grid-cols-2">
                 {whoItIsFor.map((item) => (
                   <Card key={item} className="flex h-full gap-3">
@@ -200,7 +200,7 @@ export default async function SeoLandingPage({ params }: PageProps) {
               description="These are the most relevant routes for visitors who start broad and then want to make a decision quickly."
             />
           </Reveal>
-          <div className="mt-7 grid grid-equal gap-5 md:grid-cols-2 xl:grid-cols-5 sm:mt-8">
+          <div className="mt-7 grid grid-equal gap-5 md:grid-cols-2 xl:grid-cols-3 sm:mt-8">
             {nextLinks.map((item, index) => (
               <Reveal key={item.href} delay={index * 0.04}>
                 <Card className="flex h-full items-center">
@@ -214,11 +214,11 @@ export default async function SeoLandingPage({ params }: PageProps) {
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr] xl:items-start">
-            <Reveal>
+          <div className="balanced-split grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
+            <Reveal className="h-full">
               <SectionHeader
                 eyebrow="Selected reviews"
-                title="Proof that supports a commercial decision"
+                title="Proof that supports a confident enquiry"
                 description="The strongest testimonials on this page should make the private environment, professionalism, and results feel credible at a glance."
               />
               <div className="mt-8">
@@ -228,12 +228,12 @@ export default async function SeoLandingPage({ params }: PageProps) {
                 />
               </div>
             </Reveal>
-            <Reveal delay={0.05}>
-              <div className="space-y-6">
+            <Reveal className="h-full" delay={0.05}>
+              <div className="flex h-full flex-col justify-center space-y-6">
                 <SectionHeader
                   eyebrow="Compact FAQ"
                   title="Answer the core objections, then move forward"
-                  description="This page stays commercially focused, so the FAQ only covers the questions that usually matter before enquiry."
+                  description="The FAQ covers the questions that usually matter before enquiry."
                 />
                 <FAQAccordion items={faqs} />
               </div>

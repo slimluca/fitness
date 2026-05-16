@@ -164,7 +164,7 @@ export default async function HomePage() {
             <SectionHeader
               eyebrow="Core offers"
               title="Choose the coaching format that fits your life"
-              description="The public site stays intentionally tight. The two main offers below are the clearest commercial routes for this brand."
+              description="The offer stays intentionally clear: private personal training in Grand Baie and online coaching for clients who want structure from anywhere."
             />
           </Reveal>
           <div className="mt-7 grid grid-equal gap-5 lg:grid-cols-2 sm:mt-8">
@@ -258,8 +258,8 @@ export default async function HomePage() {
           <Reveal>
             <SectionHeader
               eyebrow="Journal"
-              title="A curated blog that stays useful and commercially focused"
-              description="The journal is built for readers comparing coaching options in Mauritius, not for publishing filler. Start with the strongest articles below."
+              title="A curated blog that stays practical and selective"
+              description="The journal is built for readers comparing coaching options in Mauritius and looking for clear, useful guidance before they enquire."
             />
           </Reveal>
           <div className="mt-7 grid grid-equal gap-5 md:grid-cols-2 xl:grid-cols-3 sm:mt-8">

@@ -105,8 +105,8 @@ export default async function ContactPage({ searchParams }: PageProps) {
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 lg:grid-cols-[0.84fr_1.16fr] lg:items-start">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 sm:gap-5">
+          <div className="balanced-split grid gap-6 lg:grid-cols-[0.84fr_1.16fr]">
+            <div className="grid h-full gap-4 sm:grid-cols-2 lg:grid-cols-1 sm:gap-5">
               <Reveal>
                 <ContactCard
                   icon={<MessageCircleMore className="h-5 w-5" />}
@@ -136,7 +136,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
               </Reveal>
             </div>
 
-            <Reveal delay={0.05}>
+            <Reveal className="h-full" delay={0.05}>
               <div id="contact-form" className="scroll-mt-32">
                 <BookingForm type={formType} defaultService={defaultService} />
               </div>

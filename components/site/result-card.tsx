@@ -195,11 +195,6 @@ export function ResultCard({ item }: ResultCardProps) {
           </div>
         ) : null}
 
-        {item.proofNote ? (
-          <div className="rounded-[24px] border border-dashed border-white/12 bg-black/10 p-4 text-sm leading-7 text-white/55">
-            {item.proofNote}
-          </div>
-        ) : null}
       </div>
     </Card>
   );

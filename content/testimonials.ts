@@ -226,7 +226,7 @@ export const privateFatLossStory: ResultStory = {
   whatChanged:
     "The client developed a repeatable weekly routine, improved nutrition consistency, and saw body-composition changes without needing public gym exposure.",
   proofNote:
-    "Ready for future waist, body-weight, and progress-photo proof once approved for publication.",
+    "Progress details are presented conservatively and only where they are suitable for public display.",
   outcomes: [
     "Noticeable drop in waist measurement and body-fat trend",
     "Better session adherence and less stop-start behaviour",
@@ -269,7 +269,7 @@ export const coupleAccountabilityStory: ResultStory = {
   whatChanged:
     "Training became a protected calendar commitment, both clients improved confidence, and the routine became easier to maintain outside the studio as well.",
   proofNote:
-    "Ready for future joint progress metrics, session attendance data, and approved testimonial photography.",
+    "Progress details are kept privacy-safe and focused on the coaching pattern.",
   outcomes: [
     "More consistent weekly attendance",
     "Visible strength gains and better general energy",
@@ -313,7 +313,7 @@ export const posturePerformanceStory: ResultStory = {
   whatChanged:
     "The client moved with better control, experienced less day-to-day tightness, and developed a far stronger relationship with resistance training.",
   proofNote:
-    "Ready for future mobility-screen snapshots, posture comparison imagery, and approved narrative proof.",
+    "Progress details are kept focused on posture, confidence, and training consistency.",
   outcomes: [
     "Better shoulder position and more confident movement",
     "Reduced stiffness from long workdays",
@@ -356,7 +356,7 @@ export const villaGuestContinuityStory: ResultStory = {
   whatChanged:
     "The client maintained training standards during travel, avoided losing momentum, and left with a clearer structure for continuing afterwards.",
   proofNote:
-    "Ready for future concierge referral proof, stay-duration context, and approved service imagery.",
+    "Progress details are kept relevant to short-stay coaching and privacy-safe service context.",
   outcomes: [
     "Consistency maintained during travel",
     "No need for commercial gym access during the stay",

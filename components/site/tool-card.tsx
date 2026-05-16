@@ -30,7 +30,7 @@ export function ToolCard({ tool }: ToolCardProps) {
     <Card className="group h-full overflow-hidden p-0">
       <Link
         href={`/tools/${tool.slug}`}
-        className="flex h-full flex-col gap-4 p-5 sm:p-6"
+        className="flex h-full min-w-0 flex-col gap-4 p-5"
       >
         <div className="flex items-start justify-between gap-3">
           <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/20 text-[color:var(--brand-gold)]">
@@ -40,7 +40,7 @@ export function ToolCard({ tool }: ToolCardProps) {
         </div>
 
         <div className="space-y-3">
-          <h3 className="font-display text-[1.52rem] leading-tight text-white sm:text-[1.72rem]">
+          <h3 className="font-display text-[1.45rem] leading-tight text-white sm:text-[1.62rem]">
             {tool.title}
           </h3>
           <p className="text-sm leading-7 text-white/70">{tool.summary}</p>

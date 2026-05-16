@@ -322,7 +322,12 @@ function ToolResultPanel({
           <Button asChild size="sm">
             <Link href={siteConfig.primaryCtaHref}>Book Consultation</Link>
           </Button>
-          <Button asChild size="sm" variant="outline">
+          <Button
+            asChild
+            size="sm"
+            variant="dark"
+            className="border border-white/16 bg-black text-white shadow-none hover:border-[color:var(--brand-gold)] hover:bg-black/90"
+          >
             <a
               href={buildWhatsAppLink(
                 siteConfig.phone,

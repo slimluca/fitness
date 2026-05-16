@@ -22,8 +22,7 @@ export const proofAssets = {
     title: "Clean studio atmosphere and quiet session flow",
     alt: "Private training environment detail at Fitness Grand Baie in Mauritius",
     caption:
-      "A tighter crop from the current live asset that helps the site feel more editorial and less template-driven.",
-    note: "Ready to swap for a dedicated environment detail once new photography is available.",
+      "A quiet detail view that reinforces the calm, appointment-only studio atmosphere.",
     seoTitle: "Private gym studio detail at Fitness Grand Baie",
     filenameHint: "fitness-grand-baie-private-studio-detail.jpg",
     src: "/training-session.jpeg",
@@ -37,8 +36,7 @@ export const proofAssets = {
     title: "Close coaching attention in a premium private setting",
     alt: "Close-up coaching detail inside the private Fitness Grand Baie gym",
     caption:
-      "A second crop from the live session image, useful as a believable stop-gap until more original photography is approved.",
-    note: "Intended to be replaced later by a dedicated coaching-detail image rather than remain permanent.",
+      "Close coaching attention in a private setting where the session can stay focused and personal.",
     seoTitle: "Close coaching detail inside the Grand Baie private gym",
     filenameHint: "fitness-grand-baie-coaching-detail.jpg",
     src: "/training-session.jpeg",
@@ -52,8 +50,7 @@ export const proofAssets = {
     title: "Approved Fabrizio portrait",
     alt: "Reserved slot for a future trainer portrait at Fitness Grand Baie",
     caption:
-      "Prepared for a professionally shot portrait that matches the calm black-and-gold brand direction.",
-    note: "Best replaced with a waist-up portrait inside the private studio or just outside the residence entrance.",
+      "A calm trainer portrait area that keeps the about page personal without crowding the layout.",
     seoTitle: "Trainer portrait at Fitness Grand Baie",
     filenameHint: "fabrizio-fitness-grand-baie-portrait.jpg",
     category: "trainer",
@@ -66,8 +63,7 @@ export const proofAssets = {
     title: "Qualifications and certification detail",
     alt: "Reserved slot for future Fitness Grand Baie credentials or certification imagery",
     caption:
-      "Prepared for approved certifications, qualifications, or workshop credentials presented in a clean editorial style.",
-    note: "Use a sharp, glare-free image or scan with one clear qualification focus rather than a cluttered collage.",
+      "A clean credentials area for qualifications and professional trust signals.",
     seoTitle: "Fitness Grand Baie credentials and certifications",
     filenameHint: "fitness-grand-baie-credentials.jpg",
     category: "credentials",
@@ -80,8 +76,7 @@ export const proofAssets = {
     title: "Private gym equipment detail",
     alt: "Reserved slot for future private gym equipment photography",
     caption:
-      "Prepared for a clean detail image showing the quality, order, and upkeep of the private gym environment.",
-    note: "A low-clutter strength or cable detail would work well here.",
+      "A focused equipment detail that supports the premium private gym atmosphere.",
     seoTitle: "Private gym equipment detail in Grand Baie",
     filenameHint: "fitness-grand-baie-equipment-detail.jpg",
     category: "equipment",
@@ -94,8 +89,7 @@ export const proofAssets = {
     title: "Couple coaching session",
     alt: "Reserved slot for future couple training photography",
     caption:
-      "Prepared for approved imagery showing two clients training together without losing the premium private feel.",
-    note: "Ideal for a calm, well-lit session image rather than an energetic class-style shot.",
+      "A couple coaching visual area for clients who prefer shared private training.",
     seoTitle: "Couple training session at Fitness Grand Baie",
     filenameHint: "fitness-grand-baie-couple-training.jpg",
     category: "lifestyle",
@@ -108,8 +102,7 @@ export const proofAssets = {
     title: "House call coaching at a villa or private residence",
     alt: "Reserved slot for future house call training photography in Mauritius",
     caption:
-      "Prepared for a tasteful image that communicates premium convenience for villa guests and private residence clients.",
-    note: "A clean terrace, garden, or indoor villa setting would support this service well.",
+      "A house call visual area for villa guests and private residence clients who want coaching brought to them.",
     seoTitle: "House call personal training in Mauritius",
     filenameHint: "fitness-grand-baie-house-call-training.jpg",
     category: "travel",
@@ -122,8 +115,7 @@ export const proofAssets = {
     title: "Online coaching check-in and programme review",
     alt: "Reserved slot for future online coaching progress review imagery",
     caption:
-      "Prepared for approved screenshots or device photography showing the monthly online coaching process.",
-    note: "A tablet or phone review scene would work better than generic laptop imagery.",
+      "A remote coaching visual area for programme reviews, check-ins, and travel-friendly support.",
     seoTitle: "Online coaching progress review at Fitness Grand Baie",
     filenameHint: "fitness-grand-baie-online-coaching-review.jpg",
     category: "online",
@@ -136,8 +128,7 @@ export const proofAssets = {
     title: "Approved progress imagery",
     alt: "Reserved slot for future client progress photography",
     caption:
-      "Prepared for client-approved progress imagery or anonymised before-and-after presentation where appropriate.",
-    note: "Only publish with written approval and consistent lighting or matching-angle standards.",
+      "A privacy-safe progress area for approved client outcomes and measured change.",
     seoTitle: "Client progress proof for private coaching in Mauritius",
     filenameHint: "fitness-grand-baie-client-progress-proof.jpg",
     category: "results",
@@ -150,8 +141,7 @@ export const proofAssets = {
     title: "Measured progress and session-proof detail",
     alt: "Reserved slot for future measurable progress proof content",
     caption:
-      "Prepared for body-composition summaries, mobility comparisons, or other measurable proof that feels clean and credible.",
-    note: "Use only real, client-approved data and keep presentation minimal.",
+      "A clean space for measured progress, mobility changes, or other client-approved proof.",
     seoTitle: "Measured progress proof for private fitness coaching",
     filenameHint: "fitness-grand-baie-progress-metrics.jpg",
     category: "results",
@@ -164,8 +154,7 @@ export const proofAssets = {
     title: "Arrival and consultation moment",
     alt: "Reserved slot for future consultation welcome imagery at Fitness Grand Baie",
     caption:
-      "Prepared for a discreet image that communicates how calm and intentional the appointment-only arrival experience feels.",
-    note: "A subtle entry, seating, or consultation setup image would reinforce trust well.",
+      "A discreet consultation visual that reflects the calm appointment-only arrival experience.",
     seoTitle: "Consultation arrival moment at Fitness Grand Baie",
     filenameHint: "fitness-grand-baie-consultation-arrival.jpg",
     category: "lifestyle",

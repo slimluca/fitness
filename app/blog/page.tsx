@@ -45,12 +45,12 @@ export default function BlogPage() {
           { label: "Blog", href: "/blog" },
         ])}
       />
-      <div className="space-y-24 py-8 sm:py-10">
+      <div className="page-flow">
         <section className="page-section">
           <Hero
             eyebrow="Journal"
             title="Useful fitness advice for Mauritius readers who want better coaching decisions"
-            description="A curated resource for people comparing private coaching, online support, weight loss strategy, and beginner-friendly training in Mauritius. The focus is clarity and useful guidance, not filler."
+            description="A curated resource for people comparing private coaching, online support, weight loss strategy, and beginner-friendly training in Mauritius. The focus is clarity, useful guidance, and confident next steps."
             image={featuredPost?.featuredImage ?? "/training-session.jpeg"}
             actions={
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -106,7 +106,7 @@ export default function BlogPage() {
               description="Each category helps readers find the right article quickly, then move naturally into the service or next step that fits."
             />
           </Reveal>
-          <div className="mt-10 grid grid-equal gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-7 grid grid-equal premium-card-grid gap-5 md:grid-cols-2 xl:grid-cols-3 sm:mt-8">
             {categorySummaries.map((category, index) => (
               <Reveal key={category.slug} delay={index * 0.03}>
                 <Card className="flex h-full flex-col gap-4">
@@ -132,12 +132,12 @@ export default function BlogPage() {
         </section>
 
         <section className="page-section">
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-            <Reveal>
+          <div className="balanced-split grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+            <Reveal className="h-full">
               <AuthorBox />
             </Reveal>
-            <Reveal delay={0.05}>
-              <Card className="space-y-5">
+            <Reveal className="h-full" delay={0.05}>
+              <Card className="flex h-full flex-col justify-center gap-5">
                 <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
                   Why this journal exists
                 </p>
@@ -153,12 +153,12 @@ export default function BlogPage() {
                     right service rather than burying them in volume.
                   </p>
                   <p>
-                    The strongest pages to pair with the journal are Personal Trainer
-                    Mauritius, Personal Training, Online Coaching, and Contact.
+                    The strongest next pages are Personal Trainer Mauritius, Personal
+                    Training, Online Coaching, and Contact.
                   </p>
                   <p>
-                    The blog stays selective on purpose so it supports trust and organic
-                    reach without making the main site feel bloated or noisy.
+                    The blog stays selective so it supports trust without making the main
+                    site feel bloated or noisy.
                   </p>
                 </div>
                 <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">

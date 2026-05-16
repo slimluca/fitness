@@ -83,11 +83,11 @@ export default function ResultsPage() {
           <Reveal>
             <SectionHeader
               eyebrow="Case-study highlights"
-              title="Three proof stories with clearer commercial relevance"
+              title="Three proof stories with clear coaching relevance"
               description="Each story below supports the same core brand message: focused private coaching, better adherence, and a calmer environment."
             />
           </Reveal>
-          <div className="mt-7 grid grid-equal gap-6 xl:grid-cols-3 sm:mt-8">
+          <div className="mt-7 grid grid-equal premium-card-grid gap-5 xl:grid-cols-3 sm:mt-8">
             {resultStories.map((story, index) => (
               <Reveal key={story.slug} delay={index * 0.05}>
                 <ResultCard item={story} />
@@ -97,11 +97,11 @@ export default function ResultsPage() {
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr] xl:items-start">
-            <Reveal>
+          <div className="balanced-split grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
+            <Reveal className="h-full">
               <Card className="flex h-full flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
-                  What this page should prove
+                  What better conditions change
                 </p>
                 <h2 className="font-display text-4xl text-white sm:text-5xl">
                   Better results usually follow better conditions
@@ -112,13 +112,13 @@ export default function ResultsPage() {
                   reduced friction around turning up consistently.
                 </p>
                 <p className="text-base leading-8 text-white/72">
-                  That is why this page stays compact. It should help visitors trust the
-                  business quickly and then move into contact or consultation.
+                  A compact results page should make progress feel believable, relevant,
+                  and easy to connect with the next private coaching step.
                 </p>
               </Card>
             </Reveal>
-            <Reveal delay={0.05}>
-              <div className="space-y-6">
+            <Reveal className="h-full" delay={0.05}>
+              <div className="flex h-full flex-col justify-center space-y-6">
                 <SectionHeader
                   eyebrow="Selected client feedback"
                   title="Reviews that reinforce the progress story"
