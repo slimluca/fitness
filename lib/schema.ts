@@ -6,6 +6,7 @@ import type {
   LinkItem,
   SeoLandingPage,
   ServiceItem,
+  ToolDefinition,
 } from "@/content/types";
 
 export function localBusinessSchema() {
@@ -214,5 +215,41 @@ export function landingPageSchema(page: SeoLandingPage) {
     mainEntity: {
       "@id": `${siteConfig.domain}#business`,
     },
+  };
+}
+
+export function toolSchema(tool: ToolDefinition) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: tool.title,
+    description: tool.metaDescription,
+    url: absoluteUrl(`/tools/${tool.slug}`),
+    applicationCategory: "HealthApplication",
+    operatingSystem: "Any",
+    isAccessibleForFree: true,
+    browserRequirements: "Requires JavaScript enabled",
+    creator: {
+      "@id": `${siteConfig.domain}#business`,
+    },
+    publisher: {
+      "@id": `${siteConfig.domain}#business`,
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    about: [
+      {
+        "@type": "Thing",
+        name: tool.title,
+      },
+      {
+        "@type": "Thing",
+        name: "Personal Trainer Mauritius",
+      },
+    ],
+    keywords: tool.keywords.join(", "),
   };
 }

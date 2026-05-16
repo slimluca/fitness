@@ -117,7 +117,7 @@ export default function OnlineCoachingPage() {
           { label: "Online Coaching", href: "/online-coaching" },
         ])}
       />
-      <div className="space-y-16 py-6 sm:space-y-20 sm:py-8">
+      <div className="page-flow">
         <section className="page-section">
           <Hero
             eyebrow="Online coaching"
@@ -132,7 +132,7 @@ export default function OnlineCoachingPage() {
               pageHeroAssets["online-coaching"],
             )}
             actions={
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Button asChild size="lg">
                   <Link href={siteConfig.primaryCtaHref} data-track-location="online-coaching-hero">
                     Book Consultation
@@ -181,7 +181,7 @@ export default function OnlineCoachingPage() {
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {coachingIncludes.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.04}>
-                <Card className="h-full space-y-3">
+                <Card className="flex h-full flex-col gap-3">
                   <h2 className="font-display text-3xl text-white">{item.title}</h2>
                   <p className="text-sm leading-7 text-white/70">{item.description}</p>
                 </Card>
@@ -193,7 +193,7 @@ export default function OnlineCoachingPage() {
         <section className="page-section">
           <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
             <Reveal>
-              <Card className="space-y-5">
+              <Card className="flex h-full flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                   Who it is for
                 </p>
@@ -210,7 +210,7 @@ export default function OnlineCoachingPage() {
               </Card>
             </Reveal>
             <Reveal delay={0.05}>
-              <Card className="space-y-5">
+              <Card className="flex h-full flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                   Why clients choose it
                 </p>

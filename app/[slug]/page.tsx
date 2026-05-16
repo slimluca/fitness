@@ -130,7 +130,7 @@ export default async function SeoLandingPage({ params }: PageProps) {
         ])}
       />
 
-      <div className="space-y-16 py-6 sm:space-y-20 sm:py-8">
+      <div className="page-flow">
         <section className="page-section">
           <Hero
             eyebrow="Personal Trainer Mauritius"
@@ -145,7 +145,7 @@ export default async function SeoLandingPage({ params }: PageProps) {
               pageHeroAssets["personal-trainer-mauritius"],
             )}
             actions={
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Button asChild size="lg">
                   <Link href={siteConfig.primaryCtaHref} data-track-location="mauritius-hero">
                     Book Consultation
@@ -178,12 +178,12 @@ export default async function SeoLandingPage({ params }: PageProps) {
                 <h2 className="font-display text-4xl text-white sm:text-5xl">
                   A more private, focused alternative to the usual gym route
                 </h2>
-                <p className="text-base leading-8 text-white/72">
+                  <p className="card-copy text-base leading-8 text-white/72">
                   The offer is built for people who want more than generic gym access.
                   They want private coaching, a premium atmosphere, and a business that
                   communicates clearly from the first message.
                 </p>
-                <p className="text-base leading-8 text-white/72">
+                  <p className="card-copy text-base leading-8 text-white/72">
                   That is why the whole site is designed to move visitors quickly into the
                   right commercial page, the right enquiry form, and the right next step.
                 </p>
@@ -192,7 +192,7 @@ export default async function SeoLandingPage({ params }: PageProps) {
             <Reveal delay={0.05}>
               <div className="grid gap-5">
                 {whoItIsFor.map((item) => (
-                  <Card key={item} className="space-y-3">
+                  <Card key={item} className="flex h-full flex-col gap-3">
                     <h3 className="font-display text-3xl text-white">Who it is for</h3>
                     <p className="text-sm leading-7 text-white/70">{item}</p>
                   </Card>
@@ -213,7 +213,7 @@ export default async function SeoLandingPage({ params }: PageProps) {
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
             {nextLinks.map((item, index) => (
               <Reveal key={item.href} delay={index * 0.04}>
-                <Card className="h-full">
+                <Card className="flex h-full items-center">
                   <Link href={item.href} className="text-sm font-semibold leading-7 text-white">
                     {item.label}
                   </Link>

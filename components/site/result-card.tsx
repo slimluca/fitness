@@ -48,13 +48,13 @@ export function ResultCard({ item }: ResultCardProps) {
         </div>
       ) : null}
 
-      <div className="space-y-5 p-6">
+      <div className="space-y-5 p-5 sm:p-6">
         {!item.image ? (
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
               {item.category}
             </p>
-            <h3 className="font-display text-3xl text-white">{item.title}</h3>
+            <h3 className="font-display text-[2rem] leading-tight text-white">{item.title}</h3>
           </div>
         ) : null}
 

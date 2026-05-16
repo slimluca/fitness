@@ -53,7 +53,7 @@ export default function ResultsPage() {
           { label: "Results", href: "/results" },
         ])}
       />
-      <div className="space-y-16 py-6 sm:space-y-20 sm:py-8">
+      <div className="page-flow">
         <section className="page-section">
           <Hero
             eyebrow="Results"
@@ -66,7 +66,7 @@ export default function ResultsPage() {
             )}
             imageObjectPosition={resolveProofAssetObjectPosition(pageHeroAssets.results)}
             actions={
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Button asChild size="lg">
                   <Link href={siteConfig.primaryCtaHref} data-track-location="results-hero">
                     Book Consultation
@@ -114,7 +114,7 @@ export default function ResultsPage() {
         <section className="page-section">
           <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
             <Reveal>
-              <Card className="space-y-5">
+              <Card className="flex h-full flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                   What this page should prove
                 </p>

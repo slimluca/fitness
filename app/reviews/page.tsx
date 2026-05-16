@@ -65,7 +65,7 @@ export default function ReviewsPage() {
           { label: "Reviews", href: "/reviews" },
         ])}
       />
-      <div className="space-y-16 py-6 sm:space-y-20 sm:py-8">
+      <div className="page-flow">
         <section className="page-section">
           <Hero
             eyebrow="Reviews"
@@ -78,7 +78,7 @@ export default function ReviewsPage() {
             )}
             imageObjectPosition={resolveProofAssetObjectPosition(pageHeroAssets.reviews)}
             actions={
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Button asChild size="lg">
                   <Link href={siteConfig.primaryCtaHref} data-track-location="reviews-hero">
                     Book Consultation
@@ -133,7 +133,7 @@ export default function ReviewsPage() {
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {reviewTrustNotes.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.04}>
-                <Card className="h-full space-y-3">
+                <Card className="flex h-full flex-col gap-3">
                   <h2 className="font-display text-3xl text-white">{item.title}</h2>
                   <p className="text-sm leading-7 text-white/70">{item.description}</p>
                 </Card>

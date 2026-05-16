@@ -14,13 +14,13 @@ export function GoogleReviewSummary({ feed }: GoogleReviewSummaryProps) {
   const live = feed.averageRating !== null && feed.reviewCount !== null;
 
   return (
-    <Card className="space-y-5">
+    <Card className="flex h-full flex-col gap-5">
       <div className="space-y-3">
         <Badge>Google reviews</Badge>
-        <h2 className="font-display text-4xl text-white sm:text-5xl">
+        <h2 className="font-display text-3xl leading-tight text-white sm:text-[2.6rem]">
           {live ? "Google review trust, shown cleanly" : "Ready for live Google review sync"}
         </h2>
-        <p className="text-sm leading-7 text-white/72">
+        <p className="max-w-[38rem] text-sm leading-7 text-white/72">
           {live
             ? "The Google Business Profile summary and selected client feedback are shown together so visitors can trust the quality of the coaching quickly."
             : "The review system is prepared for Google Business Profile data. Until live review sync is connected, selected privacy-safe client feedback remains the main trust layer on the site."}
@@ -53,7 +53,7 @@ export function GoogleReviewSummary({ feed }: GoogleReviewSummaryProps) {
         {feed.note}
       </div>
 
-      <div className="flex flex-col gap-3 sm:flex-row">
+      <div className="mt-auto flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         {feed.profileUrl ? (
           <Button asChild variant="outline">
             <a href={feed.profileUrl} target="_blank" rel="noreferrer">

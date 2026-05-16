@@ -262,6 +262,7 @@ export const footerSeoLinks: LinkItem[] = [
   { label: "Personal Training", href: "/personal-training" },
   { label: "Online Coaching", href: "/online-coaching" },
   { label: "Results", href: "/results" },
+  { label: "Free Tools", href: "/tools" },
 ];
 
 export const serviceAreaNotes = [

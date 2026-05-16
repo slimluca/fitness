@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { siteConfig } from "@/content/site";
+import { getAllTools, siteConfig } from "@/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/results", priority: 0.78, changeFrequency: "monthly" as const },
     { route: "/reviews", priority: 0.78, changeFrequency: "monthly" as const },
     { route: "/contact", priority: 0.84, changeFrequency: "monthly" as const },
+    { route: "/tools", priority: 0.76, changeFrequency: "monthly" as const },
     {
       route: "/personal-trainer-mauritius",
       priority: 0.94,
@@ -20,7 +21,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/terms", priority: 0.3, changeFrequency: "yearly" as const },
   ];
 
-  return routes.map((entry) => ({
+  const toolRoutes = getAllTools().map((tool) => ({
+    route: `/tools/${tool.slug}`,
+    priority: 0.68,
+    changeFrequency: "monthly" as const,
+  }));
+
+  return [...routes, ...toolRoutes].map((entry) => ({
     url: `${siteConfig.domain}${entry.route}`,
     lastModified: new Date(),
     changeFrequency: entry.changeFrequency,

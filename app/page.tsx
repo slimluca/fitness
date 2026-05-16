@@ -98,7 +98,7 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={localBusinessSchema()} />
-      <div className="space-y-16 py-6 sm:space-y-20 sm:py-8">
+      <div className="page-flow">
         <section className="page-section">
           <Hero
             eyebrow="Personal Trainer Mauritius"
@@ -112,7 +112,7 @@ export default function HomePage() {
             imageObjectPosition={resolveProofAssetObjectPosition(pageHeroAssets.home)}
             actions={
               <div className="space-y-4">
-                <div className="flex flex-col gap-3 sm:flex-row">
+                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <Button asChild size="lg">
                     <Link href={siteConfig.primaryCtaHref} data-track-location="home-hero">
                       Book Consultation
@@ -164,7 +164,7 @@ export default function HomePage() {
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {whyChooseCards.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.04}>
-                <Card className="h-full space-y-3">
+                <Card className="flex h-full flex-col gap-3">
                   <h2 className="font-display text-3xl text-white">{item.title}</h2>
                   <p className="text-sm leading-7 text-white/70">{item.description}</p>
                 </Card>
@@ -184,7 +184,7 @@ export default function HomePage() {
           <div className="mt-8 grid gap-5 lg:grid-cols-2">
             {offers.map((offer, index) => (
               <Reveal key={offer.href} delay={index * 0.05}>
-                <Card className="h-full space-y-5">
+                <Card className="flex h-full flex-col gap-5">
                   <div className="space-y-3">
                     <h2 className="font-display text-4xl text-white">{offer.title}</h2>
                     <p className="text-base leading-8 text-white/72">{offer.description}</p>
@@ -192,7 +192,7 @@ export default function HomePage() {
                   <div className="rounded-[24px] border border-white/10 bg-black/20 p-4 text-sm leading-7 text-white/68">
                     {offer.fit}
                   </div>
-                  <div className="flex flex-col gap-3 sm:flex-row">
+                  <div className="mt-auto flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                     <Button asChild>
                       <Link href={offer.href}>View Service</Link>
                     </Button>
@@ -217,7 +217,7 @@ export default function HomePage() {
           <div className="mt-8 grid gap-5 lg:grid-cols-2">
             {resultsPreview.map((story, index) => (
               <Reveal key={story.slug} delay={index * 0.04}>
-                <Card className="h-full space-y-4">
+                <Card className="flex h-full flex-col gap-4">
                   <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                     {story.category}
                   </p>
@@ -226,7 +226,10 @@ export default function HomePage() {
                   <div className="rounded-[24px] border border-white/10 bg-black/20 p-4 text-sm leading-7 text-white/66">
                     {story.visibleResult}
                   </div>
-                  <Link href="/results" className="text-sm font-semibold text-[color:var(--brand-gold)]">
+                  <Link
+                    href="/results"
+                    className="mt-auto text-sm font-semibold text-[color:var(--brand-gold)]"
+                  >
                     View results
                   </Link>
                 </Card>
@@ -248,7 +251,7 @@ export default function HomePage() {
                   description="The first live reviews should reinforce privacy, professionalism, and why this feels different from a commercial gym experience."
                 />
                 <ReviewGrid items={homepageReviews} compact />
-                <div className="flex flex-col gap-3 sm:flex-row">
+                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <Button asChild>
                     <Link href="/reviews">View Reviews</Link>
                   </Button>

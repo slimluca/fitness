@@ -240,3 +240,49 @@ export type LegalDocument = {
     body: string[];
   }[];
 };
+
+export type ToolGroupSlug =
+  | "body-health"
+  | "nutrition"
+  | "strength-training"
+  | "planning-progress";
+
+export type ToolKind = "calculator" | "planner" | "checklist" | "guide";
+
+export type ToolIconKey =
+  | "activity"
+  | "badge-percent"
+  | "beef"
+  | "calculator"
+  | "droplets"
+  | "flame"
+  | "heart-pulse"
+  | "line-chart"
+  | "notebook-pen"
+  | "ruler"
+  | "scale"
+  | "utensils-crossed"
+  | "dumbbell";
+
+export type ToolGroup = {
+  slug: ToolGroupSlug;
+  title: string;
+  description: string;
+};
+
+export type ToolDefinition = {
+  slug: string;
+  title: string;
+  metaTitle: string;
+  metaDescription: string;
+  intro: string;
+  summary: string;
+  group: ToolGroupSlug;
+  kind: ToolKind;
+  icon: ToolIconKey;
+  keywords: string[];
+  highlights: string[];
+  faq?: FAQItem[];
+  relatedToolSlugs: string[];
+  commercialLinks: LinkItem[];
+};

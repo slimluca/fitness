@@ -265,17 +265,17 @@ export function BookingForm({
   return (
     <form
       action={handleSubmit}
-      className="grid gap-5 rounded-[32px] border border-white/10 bg-white/6 p-6 backdrop-blur-sm"
+      className="grid gap-6 rounded-[28px] border border-white/10 bg-white/6 p-5 backdrop-blur-sm sm:p-6 lg:p-7"
     >
-      <div className="space-y-2">
+      <div className="space-y-3">
         <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
           Private enquiry form
         </p>
         <p className="text-sm leading-7 text-white/72">{formIntros[type]}</p>
       </div>
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2">
         <div className="space-y-2">
-          <label htmlFor={`${type}-name`} className="text-sm text-white/72">
+          <label htmlFor={`${type}-name`} className="text-sm font-medium text-white/78">
             Full name
           </label>
           <Input
@@ -287,7 +287,7 @@ export function BookingForm({
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor={`${type}-phone`} className="text-sm text-white/72">
+          <label htmlFor={`${type}-phone`} className="text-sm font-medium text-white/78">
             Phone / WhatsApp
           </label>
           <Input
@@ -299,7 +299,7 @@ export function BookingForm({
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor={`${type}-email`} className="text-sm text-white/72">
+          <label htmlFor={`${type}-email`} className="text-sm font-medium text-white/78">
             Email (optional)
           </label>
           <Input
@@ -311,7 +311,7 @@ export function BookingForm({
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor={`${type}-service`} className="text-sm text-white/72">
+          <label htmlFor={`${type}-service`} className="text-sm font-medium text-white/78">
             Preferred service
           </label>
           <Select value={service} onValueChange={setService}>
@@ -328,9 +328,9 @@ export function BookingForm({
           </Select>
         </div>
       </div>
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         <div className="space-y-2">
-          <label htmlFor={`${type}-experience`} className="text-sm text-white/72">
+          <label htmlFor={`${type}-experience`} className="text-sm font-medium text-white/78">
             Experience level
           </label>
           <Select value={experience} onValueChange={setExperience}>
@@ -347,7 +347,7 @@ export function BookingForm({
           </Select>
         </div>
         <div className="space-y-2">
-          <label htmlFor={`${type}-client-context`} className="text-sm text-white/72">
+          <label htmlFor={`${type}-client-context`} className="text-sm font-medium text-white/78">
             Client context
           </label>
           <Select value={clientContext} onValueChange={setClientContext}>
@@ -364,7 +364,7 @@ export function BookingForm({
           </Select>
         </div>
         <div className="space-y-2">
-          <label htmlFor={`${type}-schedule`} className="text-sm text-white/72">
+          <label htmlFor={`${type}-schedule`} className="text-sm font-medium text-white/78">
             Preferred schedule
           </label>
           <Input
@@ -375,7 +375,7 @@ export function BookingForm({
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor={`${type}-contact-preference`} className="text-sm text-white/72">
+          <label htmlFor={`${type}-contact-preference`} className="text-sm font-medium text-white/78">
             Preferred reply method
           </label>
           <Select value={contactPreference} onValueChange={setContactPreference}>
@@ -392,9 +392,9 @@ export function BookingForm({
           </Select>
         </div>
       </div>
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2">
         <div className="space-y-2">
-          <label htmlFor={`${type}-start-timeline`} className="text-sm text-white/72">
+          <label htmlFor={`${type}-start-timeline`} className="text-sm font-medium text-white/78">
             Preferred start timing
           </label>
           <Select value={startTimeline} onValueChange={setStartTimeline}>
@@ -411,7 +411,7 @@ export function BookingForm({
           </Select>
         </div>
         <div className="space-y-2">
-          <label htmlFor={`${type}-location-context`} className="text-sm text-white/72">
+          <label htmlFor={`${type}-location-context`} className="text-sm font-medium text-white/78">
             Area or stay location (optional)
           </label>
           <Input
@@ -423,7 +423,7 @@ export function BookingForm({
         </div>
       </div>
       <div className="space-y-2">
-        <label htmlFor={`${type}-goals`} className="text-sm text-white/72">
+        <label htmlFor={`${type}-goals`} className="text-sm font-medium text-white/78">
           Goals
         </label>
         <Textarea
@@ -434,7 +434,7 @@ export function BookingForm({
         />
       </div>
       <div className="space-y-2">
-        <label htmlFor={`${type}-limitations`} className="text-sm text-white/72">
+        <label htmlFor={`${type}-limitations`} className="text-sm font-medium text-white/78">
           Injuries or limitations (optional)
         </label>
         <Textarea
@@ -451,7 +451,7 @@ export function BookingForm({
           <p role="alert" className="text-sm leading-7 text-red-200">
             {error}
           </p>
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <WhatsAppButton
               label="WhatsApp Now"
               variant="outline"
@@ -462,7 +462,7 @@ export function BookingForm({
         </div>
       ) : null}
       <div className="space-y-3">
-        <Button type="submit" disabled={pending}>
+        <Button type="submit" disabled={pending} className="w-full sm:w-auto">
           {pending ? "Sending..." : submitLabels[type]}
         </Button>
         <p className="text-sm leading-6 text-white/60">

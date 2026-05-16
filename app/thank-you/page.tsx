@@ -64,7 +64,7 @@ export default async function ThankYouPage({ searchParams }: PageProps) {
     service === "Online Coaching" ? "/online-coaching" : "/personal-training";
 
   return (
-    <div className="space-y-16 py-6 sm:space-y-20 sm:py-8">
+    <div className="page-flow">
       <JsonLd
         data={breadcrumbSchema([
           { label: "Home", href: "/" },
@@ -120,7 +120,7 @@ export default async function ThankYouPage({ searchParams }: PageProps) {
       <section className="page-section">
         <div className="grid gap-6 lg:grid-cols-3">
           {bookingJourney.map((step) => (
-            <Card key={step.title} className="h-full space-y-3">
+            <Card key={step.title} className="flex h-full flex-col gap-3">
               <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                 {step.title}
               </p>
@@ -132,7 +132,7 @@ export default async function ThankYouPage({ searchParams }: PageProps) {
 
       <section className="page-section">
         <div className="grid gap-6 lg:grid-cols-3">
-          <Card className="space-y-4">
+          <Card className="flex h-full flex-col gap-4">
             <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
               While you wait
             </p>
@@ -143,7 +143,7 @@ export default async function ThankYouPage({ searchParams }: PageProps) {
               <Link href={serviceLink}>View service</Link>
             </Button>
           </Card>
-          <Card className="space-y-4">
+          <Card className="flex h-full flex-col gap-4">
             <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
               Need speed?
             </p>
@@ -160,7 +160,7 @@ export default async function ThankYouPage({ searchParams }: PageProps) {
               </a>
             </Button>
           </Card>
-          <Card className="space-y-4">
+          <Card className="flex h-full flex-col gap-4">
             <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
               More proof
             </p>

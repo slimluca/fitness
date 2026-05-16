@@ -13,7 +13,7 @@ const legalLinks = [
 export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-[#030303]">
-      <div className="mx-auto grid max-w-[1240px] gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.15fr_0.9fr_0.95fr] lg:px-8">
+      <div className="page-section grid gap-8 py-10 sm:py-12 lg:grid-cols-[1.15fr_0.9fr_0.95fr]">
         <div className="space-y-5">
           <Logo className="opacity-95" />
           <p className="max-w-md text-sm leading-7 text-white/70">
@@ -89,7 +89,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10 px-4 py-5 text-center text-xs uppercase tracking-[0.28em] text-white/45">
+      <div className="border-t border-white/10 px-4 py-4 text-center text-[11px] uppercase tracking-[0.22em] text-white/45 sm:text-xs">
         Appointment-only private gym in Grand Baie, Mauritius. Copyright 2026
         Fitness by Fabrizio.
       </div>

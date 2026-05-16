@@ -30,6 +30,7 @@ body {
   background: var(--bg-base);
   color: var(--text-main);
   font-family: var(--font-body-stack);
+  line-height: 1.5;
 }
 
 h1,
@@ -55,13 +56,47 @@ button {
 
 .page-section {
   margin-inline: auto;
-  width: min(1240px, calc(100% - 2rem));
+  width: min(1180px, calc(100% - 1.5rem));
 }
 
 @media (min-width: 640px) {
   .page-section {
-    width: min(1240px, calc(100% - 3rem));
+    width: min(1180px, calc(100% - 2.5rem));
   }
+}
+
+@media (min-width: 1024px) {
+  .page-section {
+    width: min(1180px, calc(100% - 4rem));
+  }
+}
+
+.page-flow {
+  display: grid;
+  gap: 3.75rem;
+  padding-block: 1.25rem 4rem;
+}
+
+@media (min-width: 640px) {
+  .page-flow {
+    gap: 4.5rem;
+    padding-block: 1.5rem 4.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-flow {
+    gap: 5rem;
+    padding-block: 1.75rem 5.5rem;
+  }
+}
+
+.text-measure {
+  max-width: 42rem;
+}
+
+.card-copy {
+  max-width: 38rem;
 }
 
 @keyframes accordion-down {

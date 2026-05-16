@@ -122,7 +122,7 @@ export default function PersonalTrainingPage() {
           { label: "Personal Training", href: "/personal-training" },
         ])}
       />
-      <div className="space-y-16 py-6 sm:space-y-20 sm:py-8">
+      <div className="page-flow">
         <section className="page-section">
           <Hero
             eyebrow="Private personal training"
@@ -137,7 +137,7 @@ export default function PersonalTrainingPage() {
               pageHeroAssets["personal-training"],
             )}
             actions={
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Button asChild size="lg">
                   <Link href={siteConfig.primaryCtaHref} data-track-location="personal-training-hero">
                     Book Consultation
@@ -181,7 +181,7 @@ export default function PersonalTrainingPage() {
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {benefits.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.04}>
-                <Card className="h-full space-y-3">
+                <Card className="flex h-full flex-col gap-3">
                   <h2 className="font-display text-3xl text-white">{item.title}</h2>
                   <p className="text-sm leading-7 text-white/70">{item.description}</p>
                 </Card>
@@ -252,7 +252,7 @@ export default function PersonalTrainingPage() {
         <section className="page-section">
           <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
             <Reveal>
-              <Card className="space-y-5">
+              <Card className="flex h-full flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                   Results snapshot
                 </p>
@@ -261,7 +261,10 @@ export default function PersonalTrainingPage() {
                 <div className="rounded-[24px] border border-white/10 bg-black/20 p-4 text-sm leading-7 text-white/68">
                   {privateFatLossStory.visibleResult}
                 </div>
-                <Link href="/results" className="text-sm font-semibold text-[color:var(--brand-gold)]">
+                <Link
+                  href="/results"
+                  className="mt-auto text-sm font-semibold text-[color:var(--brand-gold)]"
+                >
                   View full results
                 </Link>
               </Card>

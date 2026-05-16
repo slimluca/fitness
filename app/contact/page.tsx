@@ -81,7 +81,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
           { label: "Contact", href: "/contact" },
         ])}
       />
-      <div className="space-y-16 py-6 sm:space-y-20 sm:py-8">
+      <div className="page-flow">
         <section className="page-section">
           <Hero
             eyebrow="Contact"
@@ -94,7 +94,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
             )}
             imageObjectPosition={resolveProofAssetObjectPosition(pageHeroAssets.contact)}
             actions={
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Button asChild size="lg">
                   <Link href="#contact-form" data-track-location="contact-hero">
                     Book Consultation
@@ -123,7 +123,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
 
         <section className="page-section">
           <div className="grid gap-6 lg:grid-cols-[0.88fr_1.12fr]">
-            <div className="grid gap-5">
+            <div className="grid gap-4 sm:gap-5">
               <Reveal>
                 <ContactCard
                   icon={<MessageCircleMore className="h-5 w-5" />}

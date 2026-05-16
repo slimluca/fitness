@@ -6,3 +6,4 @@ export * from "@/content/pricing";
 export * from "@/content/services";
 export * from "@/content/site";
 export * from "@/content/testimonials";
+export * from "@/content/tools";

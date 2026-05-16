@@ -32,14 +32,17 @@ export function Header() {
           : "bg-transparent",
       )}
     >
-      <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+      <div className="page-section flex items-center justify-between gap-4 py-3.5">
         <Logo />
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {primaryNavigation.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-white/72 transition hover:text-white"
+              className={cn(
+                "text-sm font-medium transition",
+                pathname === link.href ? "text-white" : "text-white/72 hover:text-white",
+              )}
             >
               {link.label}
             </Link>
@@ -62,14 +65,17 @@ export function Header() {
             </button>
           </DialogTrigger>
           <DialogContent>
-            <div className="mt-10 space-y-8">
+            <div className="mt-8 space-y-6">
               <Logo />
               <div className="space-y-3">
                 {primaryNavigation.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="block rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-lg text-white/80"
+                    className={cn(
+                      "block rounded-[20px] border border-white/10 bg-white/5 px-4 py-3.5 text-base text-white/80",
+                      pathname === link.href && "border-[color:var(--brand-gold)]/30 text-white",
+                    )}
                   >
                     {link.label}
                   </Link>

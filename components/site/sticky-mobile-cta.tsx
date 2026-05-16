@@ -6,13 +6,13 @@ import { buildWhatsAppLink } from "@/lib/utils";
 
 export function StickyMobileCTA() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-black/85 p-3 backdrop-blur-xl lg:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-black/85 px-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] pt-3 backdrop-blur-xl lg:hidden">
       <div className="grid grid-cols-3 gap-2">
         <Button
           asChild
           size="sm"
           variant="outline"
-          className="min-h-11 px-2 text-[11px] leading-tight sm:text-xs"
+          className="min-h-11 px-1.5 text-[10px] leading-[1.15] sm:px-2 sm:text-xs"
         >
           <a
             href={buildWhatsAppLink(
@@ -28,7 +28,7 @@ export function StickyMobileCTA() {
             WhatsApp Now
           </a>
         </Button>
-        <Button asChild size="sm" className="min-h-11 px-2 text-[11px] leading-tight sm:text-xs">
+        <Button asChild size="sm" className="min-h-11 px-1.5 text-[10px] leading-[1.15] sm:px-2 sm:text-xs">
           <Link
             href={siteConfig.primaryCtaHref}
             data-track-label="Book Consultation"
@@ -41,7 +41,7 @@ export function StickyMobileCTA() {
           asChild
           size="sm"
           variant="dark"
-          className="min-h-11 px-2 text-[11px] leading-tight sm:text-xs"
+          className="min-h-11 px-1.5 text-[10px] leading-[1.15] sm:px-2 sm:text-xs"
         >
           <Link
             href="/contact"
