@@ -36,15 +36,15 @@ export function ReviewGrid({ items, compact = false }: ReviewGridProps) {
     <div className={gridClass}>
       {items.map((item) => (
         <Card key={`${item.name}-${item.quote}`} className="flex h-full min-w-0 flex-col gap-4">
-          <div className="grid min-h-[3.2rem] grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
-            <div className="flex min-w-0 flex-wrap content-start gap-2">
+          <div className="grid min-h-[3rem] gap-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
+            <div className="flex min-w-0 flex-wrap content-start gap-1.5">
               {item.sourceLabel ? <Badge variant="muted">{item.sourceLabel}</Badge> : null}
               {item.serviceUsed ? <Badge variant="muted">{item.serviceUsed}</Badge> : null}
             </div>
             {item.rating ? (
-              <div className="flex shrink-0 items-center gap-1 self-start pt-0.5 text-[color:var(--brand-gold)]">
+              <div className="flex h-5 shrink-0 items-center gap-1 self-start text-[color:var(--brand-gold)]">
                 {Array.from({ length: item.rating }).map((_, index) => (
-                  <Star key={index} className="h-4 w-4 fill-current" />
+                  <Star key={index} className="h-3.5 w-3.5 fill-current" />
                 ))}
               </div>
             ) : null}
@@ -55,8 +55,8 @@ export function ReviewGrid({ items, compact = false }: ReviewGridProps) {
               <h3
                 className={
                   compact
-                    ? "font-display text-[1.35rem] leading-[1.12] text-white"
-                    : "font-display text-[1.5rem] leading-[1.1] text-white sm:text-[1.72rem]"
+                    ? "font-display text-[1.28rem] leading-[1.14] text-white sm:text-[1.38rem]"
+                    : "font-display text-[1.42rem] leading-[1.12] text-white sm:text-[1.62rem]"
                 }
               >
                 {item.headline}
@@ -66,8 +66,8 @@ export function ReviewGrid({ items, compact = false }: ReviewGridProps) {
             <blockquote
               className={
                 compact
-                  ? "text-sm leading-7 text-white/74"
-                  : "text-base leading-8 text-white/76"
+                  ? "text-sm leading-6 text-white/74"
+                  : "text-[0.95rem] leading-7 text-white/76"
               }
             >
               &quot;{item.quote}&quot;
@@ -81,7 +81,7 @@ export function ReviewGrid({ items, compact = false }: ReviewGridProps) {
           </div>
 
           <div className="mt-auto space-y-1 border-t border-white/10 pt-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--brand-gold)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
               {getDisplayName(item)}
             </p>
             <p className="text-sm text-white/65">

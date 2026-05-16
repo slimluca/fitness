@@ -31,7 +31,7 @@ export function BlogHubClient({ posts, categories }: BlogHubClientProps) {
 
   return (
     <div className="space-y-7">
-      <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
+      <div className="grid gap-4 xl:grid-cols-[minmax(18rem,0.82fr)_minmax(0,1.18fr)] xl:items-start">
         <div className="relative">
           <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
           <Input
@@ -41,13 +41,14 @@ export function BlogHubClient({ posts, categories }: BlogHubClientProps) {
             className="pl-11"
           />
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex min-w-0 flex-wrap gap-2 xl:justify-end">
           {["All", ...categories].map((category) => (
             <Button
               key={category}
               variant={activeCategory === category ? "default" : "outline"}
               size="sm"
               onClick={() => setActiveCategory(category)}
+              className="max-w-full whitespace-normal px-3 text-[11px] leading-tight sm:whitespace-normal"
             >
               {category}
             </Button>

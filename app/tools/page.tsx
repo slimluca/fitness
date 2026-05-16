@@ -40,7 +40,7 @@ export default function ToolsHubPage() {
       />
       <div className="page-flow">
         <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(255,215,0,0.13),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.035),rgba(255,255,255,0.015))]">
-          <div className="hero-shell grid gap-7 py-10 sm:py-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(300px,0.74fr)] lg:items-center lg:gap-10 lg:py-14 xl:gap-12">
+          <div className="hero-shell grid gap-7 py-10 sm:py-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(300px,0.72fr)] lg:items-center lg:gap-10 lg:py-14 xl:gap-12">
             <div className="space-y-4">
               <Breadcrumbs
                 items={[
@@ -50,13 +50,12 @@ export default function ToolsHubPage() {
               />
               <Badge>Free fitness tools</Badge>
               <div className="space-y-3">
-                <h1 className="max-w-[58rem] font-display text-[2.35rem] leading-[0.96] text-white sm:text-[3.4rem] lg:text-[4.35rem] xl:text-[4.85rem]">
-                  Premium tools that make the site more useful without making it noisy
+                <h1 className="max-w-[62rem] font-display text-[2.35rem] leading-[0.96] text-white sm:text-[3.4rem] lg:text-[4.35rem] xl:text-[4.85rem]">
+                  Premium fitness tools for clearer training and nutrition decisions
                 </h1>
-                <p className="max-w-[46rem] text-[15px] leading-7 text-white/72 sm:text-lg sm:leading-8">
-                  These free tools are built to help with body-weight context, calories,
-                  nutrition structure, training clarity, and progress tracking. They are
-                  designed to feel clean, fast, and genuinely useful, not gimmicky.
+                <p className="max-w-[50rem] text-[15px] leading-7 text-white/72 sm:text-lg sm:leading-8">
+                  These free tools help with body-weight context, calories, nutrition
+                  structure, training clarity, and progress tracking in a clean, practical format.
                 </p>
               </div>
             </div>

@@ -154,7 +154,7 @@ export default function OnlineCoachingPage() {
               description="The online offer stays compact on purpose. What matters most is clarity, accountability, and a plan you can actually follow."
             />
           </Reveal>
-          <div className="mt-7 grid grid-equal gap-5 md:grid-cols-2 xl:grid-cols-4 sm:mt-8">
+          <div className="mt-7 compact-card-grid sm:mt-8">
             {coachingIncludes.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.04}>
                 <Card className="flex h-full flex-col gap-3">

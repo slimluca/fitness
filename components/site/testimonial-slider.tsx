@@ -34,9 +34,9 @@ export function TestimonialSlider({ items }: TestimonialSliderProps) {
   return (
     <Card className="overflow-hidden">
       <div className="flex items-center justify-between gap-3">
-        <div className="flex items-center gap-3 text-white/60">
+        <div className="flex min-w-0 items-center gap-3 text-white/60">
           <Quote className="h-5 w-5 text-[color:var(--brand-gold)]" />
-          <span className="text-sm uppercase tracking-[0.24em]">Client feedback</span>
+          <span className="text-xs uppercase tracking-[0.16em] sm:text-sm">Client feedback</span>
         </div>
         <div className="flex gap-2">
           <Button variant="outline" size="sm" onClick={() => cycle(-1)}>
@@ -83,7 +83,7 @@ export function TestimonialSlider({ items }: TestimonialSliderProps) {
               </div>
             ) : null}
 
-            <div className="space-y-6">
+            <div className="min-w-0 space-y-5">
               {activeItem.rating ? (
                 <div className="flex items-center gap-1 text-[color:var(--brand-gold)]">
                   {Array.from({ length: activeItem.rating }).map((_, index) => (
@@ -113,7 +113,7 @@ export function TestimonialSlider({ items }: TestimonialSliderProps) {
                 ) : null}
               </div>
 
-              <p className="font-display text-3xl leading-tight text-white sm:text-4xl">
+              <p className="font-display text-2xl leading-tight text-white sm:text-3xl">
                 &quot;{activeItem.quote}&quot;
               </p>
 
@@ -149,7 +149,7 @@ export function TestimonialSlider({ items }: TestimonialSliderProps) {
               ) : null}
 
               {activeItem.metrics?.length ? (
-                <div className="grid gap-4 sm:grid-cols-3">
+                <div className="metric-grid">
                   {activeItem.metrics.map((metric) => (
                     <div
                       key={`${metric.label}-${metric.value}`}

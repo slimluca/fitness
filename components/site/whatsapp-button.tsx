@@ -25,7 +25,7 @@ export function WhatsAppButton({
       asChild
       variant={variant}
       className={cn(
-        "border border-white/16 bg-black text-white shadow-none hover:-translate-y-0.5 hover:border-[color:var(--brand-gold)] hover:bg-black/90",
+        "border border-[color:var(--whatsapp-green)]/35 bg-black text-[color:var(--whatsapp-green)] shadow-none hover:-translate-y-0.5 hover:border-[color:var(--whatsapp-green)] hover:bg-black/90",
         className,
       )}
       {...props}

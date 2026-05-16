@@ -10,6 +10,7 @@
   --brand-gold: #ffd700;
   --brand-gold-soft: #d9ba4d;
   --brand-cream: #f3ecde;
+  --whatsapp-green: #25d366;
   --border-soft: rgba(255, 255, 255, 0.12);
   --font-body-stack: "Aptos", "Segoe UI", "Helvetica Neue", sans-serif;
   --font-display-stack: "Bahnschrift", "Aptos Display", "Trebuchet MS", sans-serif;
@@ -139,8 +140,8 @@ button {
   height: 100%;
 }
 
-.balanced-split [class*="rounded-"],
-.balanced-split .grid-equal {
+.balanced-split > * > * {
+  min-width: 0;
   height: 100%;
 }
 
@@ -149,6 +150,34 @@ button {
 }
 
 .premium-card-grid > * {
+  min-width: 0;
+  height: 100%;
+}
+
+.responsive-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.compact-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15.5rem), 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12.5rem), 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.metric-grid > *,
+.responsive-card-grid > *,
+.compact-card-grid > * {
   min-width: 0;
   height: 100%;
 }

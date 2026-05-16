@@ -84,9 +84,9 @@ export default async function BlogArticlePage({ params }: PageProps) {
           { label: post.title, href: `/blog/${post.slug}` },
         ])}
       />
-      <div className="page-section py-10">
-        <div className="grid gap-12 xl:grid-cols-[1fr_320px]">
-          <article className="space-y-10">
+      <div className="page-section py-8 sm:py-10">
+        <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_300px]">
+          <article className="min-w-0 space-y-9">
             <div className="space-y-5">
               <Breadcrumbs
                 items={[
@@ -103,7 +103,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
                 >
                   {post.category}
                 </Link>
-                <h1 className="font-display text-5xl tracking-tight text-white sm:text-6xl">
+                <h1 className="font-display text-[2.55rem] leading-[0.98] tracking-tight text-white sm:text-5xl lg:text-[3.65rem]">
                   {post.title}
                 </h1>
                 <div className="flex flex-wrap gap-4 text-sm text-white/55">
@@ -114,7 +114,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
               </div>
             </div>
 
-            <div className="relative aspect-[16/9] overflow-hidden rounded-[36px] border border-white/10">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-[24px] border border-white/10">
               <Image
                 src={post.featuredImage}
                 alt={post.title}
@@ -131,7 +131,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
               ))}
             </div>
 
-            <div className="rounded-[32px] border border-white/10 bg-white/5 p-6">
+            <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
               <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
                 Key takeaways
               </p>
@@ -175,10 +175,12 @@ export default async function BlogArticlePage({ params }: PageProps) {
               </div>
             </Card>
 
-            <div className="space-y-14">
+            <div className="space-y-11">
               {post.sections.map((section) => (
                 <section key={section.id} id={section.id} className="scroll-mt-32 space-y-5">
-                  <h2 className="font-display text-4xl text-white">{section.title}</h2>
+                  <h2 className="font-display text-3xl leading-tight text-white sm:text-4xl">
+                    {section.title}
+                  </h2>
                   {section.paragraphs.map((paragraph) => (
                     <p key={paragraph} className="text-base leading-8 text-white/76">
                       {paragraph}
@@ -195,7 +197,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
               ))}
             </div>
 
-            <div className="rounded-[32px] border border-white/10 bg-white/5 p-6">
+            <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
               <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
                 Helpful next links
               </p>
@@ -248,7 +250,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
             </div>
           </article>
 
-          <aside className="space-y-6 xl:sticky xl:top-28 xl:self-start">
+          <aside className="min-w-0 space-y-5 xl:sticky xl:top-28 xl:self-start">
             <AuthorBox compact />
             <TableOfContents
               items={post.sections.map((section) => ({

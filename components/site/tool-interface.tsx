@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { buildWhatsAppLink, cn } from "@/lib/utils";
+import { buildWhatsAppLink } from "@/lib/utils";
 
 type ToolInterfaceProps = {
   tool: ToolDefinition;
@@ -247,23 +247,16 @@ function ToolResultPanel({
       <p className="max-w-[40rem] text-sm leading-7 text-white/72">{outcome.summary}</p>
 
       {outcome.stats.length ? (
-        <div
-          className={cn(
-            "grid gap-3",
-            outcome.stats.length === 1
-              ? "sm:grid-cols-1"
-              : outcome.stats.length === 2
-                ? "sm:grid-cols-2"
-                : "sm:grid-cols-2 xl:grid-cols-3",
-          )}
-        >
+        <div className="metric-grid">
           {outcome.stats.map((stat) => (
             <div
               key={`${stat.label}-${stat.value}`}
               className="flex h-full flex-col rounded-[22px] border border-white/10 bg-black/20 p-4"
             >
-              <p className="font-display text-2xl text-white">{stat.value}</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/46">
+              <p className="font-display text-xl leading-tight text-white sm:text-2xl">
+                {stat.value}
+              </p>
+              <p className="mt-2 text-[10px] uppercase leading-5 tracking-[0.14em] text-white/46">
                 {stat.label}
               </p>
               {stat.note ? (
@@ -326,7 +319,7 @@ function ToolResultPanel({
             asChild
             size="sm"
             variant="dark"
-            className="border border-white/16 bg-black text-white shadow-none hover:border-[color:var(--brand-gold)] hover:bg-black/90"
+            className="border border-[color:var(--whatsapp-green)]/35 bg-black text-[color:var(--whatsapp-green)] shadow-none hover:border-[color:var(--whatsapp-green)] hover:bg-black/90"
           >
             <a
               href={buildWhatsAppLink(
@@ -1458,7 +1451,7 @@ function WorkoutSplitPlanner({ tool }: ToolInterfaceProps) {
       outcome={outcome}
       form={
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid gap-4 lg:grid-cols-3">
             <Field label="Experience">
               <ToolSelect value={experience} onChange={setExperience}>
                 <option value="beginner">Beginner</option>
@@ -1701,7 +1694,7 @@ function ProgressTrackerGuide({ tool }: ToolInterfaceProps) {
       outcome={outcome}
       form={
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid gap-4 lg:grid-cols-3">
             <Field label="Primary goal">
               <ToolSelect value={goal} onChange={setGoal}>
                 <option value="fat-loss">Fat loss</option>

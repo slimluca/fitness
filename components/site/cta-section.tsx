@@ -20,7 +20,7 @@ export function CTASection({
   description,
   actions,
 }: CTASectionProps) {
-  const visibleActions = actions.filter((action) => action.label !== "Request Availability");
+  const visibleActions = actions;
 
   return (
     <Card className="overflow-hidden border-[color:var(--brand-gold)]/15 bg-[radial-gradient(circle_at_top_left,rgba(255,215,0,0.14),transparent_38%),linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]">
@@ -42,7 +42,7 @@ export function CTASection({
               variant={action.messageKey ? "dark" : action.variant ?? "default"}
               className={
                 action.messageKey
-                  ? "w-full border border-white/16 bg-black text-white shadow-none hover:border-[color:var(--brand-gold)] hover:bg-black/90 sm:w-auto lg:w-full"
+                  ? "w-full border border-[color:var(--whatsapp-green)]/35 bg-black text-[color:var(--whatsapp-green)] shadow-none hover:border-[color:var(--whatsapp-green)] hover:bg-black/90 sm:w-auto lg:w-full"
                   : "w-full sm:w-auto lg:w-full"
               }
             >

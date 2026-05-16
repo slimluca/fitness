@@ -153,7 +153,7 @@ export default async function ThankYouPage({ searchParams }: PageProps) {
             <Button
               asChild
               variant="dark"
-              className="border border-white/16 bg-black text-white shadow-none hover:border-[color:var(--brand-gold)] hover:bg-black/90"
+              className="border border-[color:var(--whatsapp-green)]/35 bg-black text-[color:var(--whatsapp-green)] shadow-none hover:border-[color:var(--whatsapp-green)] hover:bg-black/90"
             >
               <a
                 href={buildWhatsAppLink(siteConfig.phone, followUpMessage)}

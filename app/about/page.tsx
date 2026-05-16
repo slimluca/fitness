@@ -135,7 +135,7 @@ export default function AboutPage() {
               description="A premium private gym experience is not about exclusivity for its own sake. It is about creating a better training environment."
             />
           </Reveal>
-          <div className="mt-7 grid grid-equal gap-5 md:grid-cols-2 xl:grid-cols-4 sm:mt-8">
+          <div className="mt-7 compact-card-grid sm:mt-8">
             {privateCoachingAdvantages.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.04}>
                 <Card className="flex h-full flex-col gap-3">
@@ -157,7 +157,7 @@ export default function AboutPage() {
               description="The credibility layer stays focused on coaching standards, private service, clear communication, and proof that supports confident enquiries."
             />
           </Reveal>
-          <div className="mt-7 grid grid-equal gap-5 md:grid-cols-2 xl:grid-cols-4 sm:mt-8">
+          <div className="mt-7 compact-card-grid sm:mt-8">
             {coachCredibility.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.04}>
                 <Card className="flex h-full flex-col gap-3">
@@ -176,7 +176,7 @@ export default function AboutPage() {
             <SectionHeader
               eyebrow="Client reassurance"
               title="Selected proof that supports the brand story"
-              description="About-page reviews should reassure serious visitors that the professionalism and private environment feel strong in practice, not just in the copy."
+              description="Client feedback adds practical reassurance around professionalism, privacy, communication, and the training environment."
             />
           </Reveal>
           <div className="mt-8">

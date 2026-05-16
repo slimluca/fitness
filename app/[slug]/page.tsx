@@ -174,8 +174,8 @@ export default async function SeoLandingPage({ params }: PageProps) {
                   communicates clearly from the first message.
                 </p>
                 <p className="card-copy text-base leading-8 text-white/72">
-                  The experience is designed to move visitors into the right service,
-                  the right enquiry form, and the right next step without unnecessary noise.
+                  From the first message, the service stays practical: clarify your goal,
+                  choose the right coaching format, and move forward without pressure.
                 </p>
               </Card>
             </Reveal>

@@ -38,29 +38,31 @@ export function ResultCard({ item }: ResultCardProps) {
           ) : (
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,215,0,0.14),transparent_36%),linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))]" />
           )}
-          <div className="absolute left-4 top-4 flex flex-wrap gap-2">
+          <div className="absolute left-4 right-4 top-4 flex flex-wrap gap-1.5">
             <Badge>{item.category}</Badge>
             {item.serviceUsed ? <Badge variant="muted">{item.serviceUsed}</Badge> : null}
           </div>
           <div className="absolute inset-x-0 bottom-0 p-5">
-            <p className="font-display text-3xl leading-tight text-white">{item.title}</p>
+            <p className="font-display text-2xl leading-tight text-white sm:text-[1.85rem]">
+              {item.title}
+            </p>
           </div>
         </div>
       ) : null}
 
-      <div className="space-y-4 p-5 sm:p-6">
+      <div className="space-y-4 p-5">
         {!item.image ? (
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
               {item.category}
             </p>
-            <h3 className="font-display text-[1.8rem] leading-tight text-white sm:text-[2rem]">
+            <h3 className="font-display text-[1.55rem] leading-tight text-white sm:text-[1.75rem]">
               {item.title}
             </h3>
           </div>
         ) : null}
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5">
           <Badge variant="muted">{item.timeline}</Badge>
           {item.clientProfile ? <Badge variant="muted">{item.clientProfile}</Badge> : null}
           {item.privateLabel ? <Badge variant="muted">{item.privateLabel}</Badge> : null}
@@ -80,7 +82,7 @@ export function ResultCard({ item }: ResultCardProps) {
         <p className="text-sm leading-7 text-white/72">{item.summary}</p>
 
         {(item.goal || item.startingPoint || item.challenge) ? (
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="compact-card-grid">
             {item.goal ? (
               <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
@@ -122,14 +124,16 @@ export function ResultCard({ item }: ResultCardProps) {
         ) : null}
 
         {item.metrics?.length ? (
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="metric-grid">
             {item.metrics.map((metric) => (
               <div
                 key={`${metric.label}-${metric.value}`}
-                className="rounded-[24px] border border-white/10 bg-black/20 p-4"
+                className="rounded-[22px] border border-white/10 bg-black/20 p-4"
               >
-                <p className="font-display text-2xl text-white">{metric.value}</p>
-                <p className="mt-1 text-xs uppercase tracking-[0.2em] text-white/48">
+                <p className="font-display text-xl leading-tight text-white sm:text-2xl">
+                  {metric.value}
+                </p>
+                <p className="mt-2 text-[10px] uppercase leading-5 tracking-[0.14em] text-white/48">
                   {metric.label}
                 </p>
                 {metric.note ? (
@@ -141,7 +145,7 @@ export function ResultCard({ item }: ResultCardProps) {
         ) : null}
 
         {item.whatTheyWanted || item.whatChanged ? (
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="compact-card-grid">
             {item.whatTheyWanted ? (
               <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">

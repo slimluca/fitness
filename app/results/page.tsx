@@ -120,7 +120,7 @@ export default function ResultsPage() {
             <Reveal className="h-full" delay={0.05}>
               <div className="flex h-full flex-col justify-center space-y-6">
                 <SectionHeader
-                  eyebrow="Selected client feedback"
+                  eyebrow="Client outcomes"
                   title="Reviews that reinforce the progress story"
                   description="Reviews work best on the results page when they connect directly to confidence, consistency, and the private-gym experience."
                 />

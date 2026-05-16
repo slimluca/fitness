@@ -57,7 +57,7 @@ export default async function ReviewsPage() {
           <Hero
             eyebrow="Reviews"
             title="Client feedback that reinforces the private premium coaching standard"
-            description="This page is designed to show clean, trust-building client feedback without turning the brand into a noisy testimonial wall."
+            description="Read privacy-safe client feedback focused on training quality, consistency, confidence, and the coaching experience in Grand Baie and online."
             image={resolveProofAssetSrc(pageHeroAssets.reviews)}
             imageAlt={resolveProofAssetAlt(
               pageHeroAssets.reviews,

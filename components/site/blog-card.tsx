@@ -24,9 +24,9 @@ export function BlogCard({ post }: BlogCardProps) {
           />
         </div>
         <div className="flex h-full flex-col gap-4 p-5">
-          <div className="grid min-h-[3.1rem] grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
+          <div className="grid min-h-[3rem] gap-2 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-3">
             <Badge variant="muted">{post.category}</Badge>
-            <div className="shrink-0 text-right text-[11px] uppercase leading-5 tracking-[0.18em] text-white/45">
+            <div className="shrink-0 text-left text-[10px] uppercase leading-5 tracking-[0.14em] text-white/45 sm:text-right">
               <div>{post.readTime}</div>
               <div className="mt-1">{formatBlogDate(post.publishAt)}</div>
             </div>

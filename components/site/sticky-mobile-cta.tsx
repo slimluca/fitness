@@ -21,7 +21,7 @@ export function StickyMobileCTA() {
           asChild
           size="sm"
           variant="dark"
-          className="min-h-12 border border-white/16 bg-black px-1.5 text-[11px] leading-[1.15] text-white shadow-none hover:border-[color:var(--brand-gold)] hover:bg-black/90 sm:px-2 sm:text-xs"
+          className="min-h-12 border border-[color:var(--whatsapp-green)]/35 bg-black px-1.5 text-[11px] leading-[1.15] text-[color:var(--whatsapp-green)] shadow-none hover:border-[color:var(--whatsapp-green)] hover:bg-black/90 sm:px-2 sm:text-xs"
         >
           <a
             href={buildWhatsAppLink(

@@ -161,7 +161,7 @@ export default function PersonalTrainingPage() {
               description="Private coaching works well because the environment, the attention, and the scheduling all support the goal instead of getting in the way."
             />
           </Reveal>
-          <div className="mt-7 grid grid-equal gap-5 md:grid-cols-2 xl:grid-cols-4 sm:mt-8">
+          <div className="mt-7 compact-card-grid sm:mt-8">
             {benefits.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.04}>
                 <Card className="flex h-full flex-col gap-3">

@@ -185,7 +185,7 @@ export const fourthWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "Private Personal Training", href: "/services/private-personal-training" },
       { label: "FAQ", href: "/faq" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "beginner-personal-training-in-mauritius-where-to-start",
@@ -375,7 +375,7 @@ export const fourthWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "Private Personal Training", href: "/services/private-personal-training" },
       { label: "Online Coaching", href: "/services/online-coaching" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "personal-trainer-mauritius-for-busy-professionals",
@@ -565,7 +565,7 @@ export const fourthWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "View Pricing", href: "/pricing" },
       { label: "Personal Trainer Mauritius", href: "/personal-trainer-mauritius" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "private-gym-vs-commercial-gym-in-mauritius",
@@ -755,7 +755,7 @@ export const fourthWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "Personal Trainer Grand Baie", href: "/personal-trainer-grand-baie" },
       { label: "House Calls", href: "/services/house-calls" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "private-fitness-coaching-for-expats-and-tourists-in-grand-baie",
@@ -945,7 +945,7 @@ export const fourthWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "Private Personal Training", href: "/services/private-personal-training" },
       { label: "FAQ", href: "/faq" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "how-to-start-fitness-again-after-a-long-break",
@@ -1135,7 +1135,7 @@ export const fourthWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "Online Coaching", href: "/services/online-coaching" },
       { label: "Private Personal Training", href: "/services/private-personal-training" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "can-online-coaching-replace-in-person-training",

@@ -237,7 +237,7 @@ export default async function BlogCategoryPage({ params }: PageProps) {
                 description="These related categories help readers move from one useful question into the next article or service that fits."
               />
             </Reveal>
-            <div className="mt-7 grid grid-equal premium-card-grid gap-5 md:grid-cols-3 sm:mt-8">
+            <div className="mt-7 responsive-card-grid sm:mt-8">
               {relatedCategories.map((entry, index) => (
                 <Reveal key={entry.slug} delay={index * 0.04}>
                   <Card className="flex h-full flex-col gap-4">
@@ -262,7 +262,7 @@ export default async function BlogCategoryPage({ params }: PageProps) {
           <CTASection
             eyebrow="From content to enquiry"
             title="Book consultation or message on WhatsApp"
-            description="Once the content answers the key question, the next move should feel simple, premium, and easy to trust."
+            description="Move from the article topic into a clear service page, consultation request, or WhatsApp conversation."
             actions={[
               { label: "Book Consultation", href: "/contact?intent=consultation" },
               {

@@ -31,18 +31,18 @@ export function GoogleReviewSummary({ feed }: GoogleReviewSummaryProps) {
         </p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="metric-grid">
         <div className="flex h-full flex-col rounded-[24px] border border-white/10 bg-black/20 p-5">
           <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
             Average rating
           </p>
-          <div className="mt-3 flex items-end gap-3">
-            <p className="font-display text-[3.4rem] leading-none text-white">
+          <div className="mt-3 flex flex-wrap items-end gap-3">
+            <p className="font-display text-[2.8rem] leading-none text-white sm:text-[3.2rem]">
               {feed.averageRating?.toFixed(1)}
             </p>
             <div className="flex items-center gap-1 pb-1 text-[color:var(--brand-gold)]">
               {Array.from({ length: 5 }).map((_, index) => (
-                <Star key={index} className="h-4 w-4 fill-current" />
+                <Star key={index} className="h-3.5 w-3.5 fill-current" />
               ))}
             </div>
           </div>
@@ -51,7 +51,7 @@ export function GoogleReviewSummary({ feed }: GoogleReviewSummaryProps) {
           <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
             Review count
           </p>
-          <p className="mt-3 font-display text-[3.4rem] leading-none text-white">
+          <p className="mt-3 font-display text-[2.8rem] leading-none text-white sm:text-[3.2rem]">
             {feed.reviewCount}
           </p>
         </div>

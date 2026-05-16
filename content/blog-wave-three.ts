@@ -185,7 +185,7 @@ export const thirdWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "Personal Trainer Mauritius", href: "/personal-trainer-mauritius" },
       { label: "Results", href: "/results" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "how-to-build-a-sustainable-fitness-routine-in-mauritius",
@@ -280,7 +280,7 @@ export const thirdWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "Private Personal Training", href: "/services/private-personal-training" },
       { label: "Personal Trainer Grand Baie", href: "/personal-trainer-grand-baie" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "why-a-private-gym-in-mauritius-is-better-than-a-public-gym",
@@ -755,7 +755,7 @@ export const thirdWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "House Calls", href: "/services/house-calls" },
       { label: "Personal Trainer Grand Baie", href: "/personal-trainer-grand-baie" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "private-fitness-coaching-for-expats-and-tourists-in-grand-baie",
@@ -1040,7 +1040,7 @@ export const thirdWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "Private Personal Training", href: "/services/private-personal-training" },
       { label: "FAQ", href: "/faq" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "beginner-personal-training-in-mauritius-where-to-start",

@@ -190,7 +190,7 @@ export default function BlogPage() {
           <CTASection
             eyebrow="From content to action"
             title="Use the advice, then take the next step that fits"
-            description="When an article answers the question properly, the next move should feel straightforward: review the right service, book a consultation, or send a WhatsApp message."
+            description="Use the guide you have just read to choose the right service, book a consultation, or send a WhatsApp message with a clear next question."
             actions={[
               { label: "Book Consultation", href: "/contact?intent=consultation" },
               {

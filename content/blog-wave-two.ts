@@ -280,7 +280,7 @@ export const secondWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "Personal Trainer Grand Baie", href: "/personal-trainer-grand-baie" },
       { label: "Private Personal Training", href: "/services/private-personal-training" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "why-a-private-gym-in-mauritius-is-better-than-a-public-gym",
@@ -850,7 +850,7 @@ export const secondWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "Personal Trainer Grand Baie", href: "/personal-trainer-grand-baie" },
       { label: "Private Personal Training", href: "/services/private-personal-training" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "fitness-coaching-for-busy-expats-in-mauritius",

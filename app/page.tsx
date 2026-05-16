@@ -145,7 +145,7 @@ export default async function HomePage() {
               description="The offer is intentionally simple: a private environment, better coaching attention, and a faster route into the right next step."
             />
           </Reveal>
-          <div className="mt-7 grid grid-equal gap-4 md:grid-cols-2 xl:grid-cols-4 sm:mt-8">
+          <div className="mt-7 compact-card-grid sm:mt-8">
             {whyChooseCards.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.04}>
                 <Card className="flex h-full flex-col gap-3">
@@ -235,8 +235,8 @@ export default async function HomePage() {
             <div className="space-y-6">
               <SectionHeader
                 eyebrow={hasLiveGoogleReviews ? "Reviews preview" : "Client feedback"}
-                title={hasLiveGoogleReviews ? "Google reviews and selected client feedback" : "Selected client feedback"}
-                description="The review area should feel real, privacy-safe, and strong enough to support a serious next step."
+                title={hasLiveGoogleReviews ? "Google reviews and client feedback" : "Client feedback from private coaching"}
+                description="A compact look at coaching feedback from clients who value privacy, structure, consistency, and a calmer training environment."
               />
               <ReviewGrid items={reviewItems} compact />
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">

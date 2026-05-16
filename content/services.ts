@@ -75,7 +75,7 @@ export const services: ServiceItem[] = [
       {
         question: "Can I buy a package online?",
         answer:
-          "Not yet through the public website flow. For now, the best next step is to book a consultation, message on WhatsApp, or request availability so the right option can be confirmed personally.",
+          "Not yet through the public website flow. For now, the best next step is to book a consultation, message on WhatsApp, or Book Consultation so the right option can be confirmed personally.",
       },
       {
         question: "Is this training done inside a public gym?",
@@ -258,7 +258,7 @@ export const services: ServiceItem[] = [
           "No. Sessions can be adapted to available space and selected portable equipment when appropriate.",
       },
       {
-        question: "How do I request availability?",
+        question: "How do I Book Consultation?",
         answer:
           "The fastest option is WhatsApp, especially for time-sensitive villa or residence requests.",
       },
@@ -387,7 +387,7 @@ export const seoLandingPages: SeoLandingPage[] = [
     heroDescription:
       "Train with Fitness Grand Baie inside an appointment-only private gym in a home residence in Grand Baie, Mauritius, or choose house calls and online coaching if a more flexible format fits better.",
     intro: [
-      "This page is designed to answer the main Personal Trainer Mauritius search with a clearer explanation of what the service actually is, who it fits, and why the appointment-only private model is different from a commercial gym experience.",
+      "Personal training in Mauritius works best when the service is clear, private, and specific about who it fits. Fitness Grand Baie offers an appointment-only alternative to the commercial gym experience.",
       "Fitness Grand Baie is built for clients who want privacy, professionalism, and a premium coaching experience instead of a crowded public gym. The studio is appointment only, based in a home residence in Grand Baie, and designed for focused results.",
     ],
     sections: [

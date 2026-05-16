@@ -185,7 +185,7 @@ export const fifthWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "Personal Trainer Grand Baie", href: "/personal-trainer-grand-baie" },
       { label: "Private Personal Training", href: "/services/private-personal-training" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "personal-trainer-grand-baie-what-to-expect-from-premium-coaching",
@@ -470,7 +470,7 @@ export const fifthWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "Personal Trainer Grand Baie", href: "/personal-trainer-grand-baie" },
       { label: "House Calls", href: "/services/house-calls" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "fitness-coaching-for-busy-expats-in-mauritius",
@@ -565,7 +565,7 @@ export const fifthWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "Private Personal Training", href: "/services/private-personal-training" },
       { label: "Personal Trainer Mauritius", href: "/personal-trainer-mauritius" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "private-personal-training-for-beginners-who-feel-intimidated-by-public-gyms",
@@ -850,7 +850,7 @@ export const fifthWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "House Calls", href: "/services/house-calls" },
       { label: "Personal Trainer Grand Baie", href: "/personal-trainer-grand-baie" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "fitness-tips-for-tourists-staying-in-grand-baie",
@@ -1040,7 +1040,7 @@ export const fifthWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "Private Personal Training", href: "/services/private-personal-training" },
       { label: "Personal Trainer Mauritius", href: "/personal-trainer-mauritius" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "personal-trainer-vs-gym-membership-in-mauritius",

@@ -8,9 +8,9 @@ export function PricingComparison({
   rows,
 }: PricingComparisonProps) {
   return (
-    <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/5">
+    <div className="overflow-hidden rounded-[24px] border border-white/10 bg-white/5">
       <div className="overflow-x-auto">
-        <table className="min-w-full text-left text-sm text-white/72">
+        <table className="min-w-[680px] text-left text-sm text-white/72">
           <thead className="bg-black/25 text-white">
             <tr>
               <th className="px-5 py-4 font-semibold">Comparison</th>

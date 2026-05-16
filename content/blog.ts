@@ -122,12 +122,12 @@ const blogCategoryPriorityLinks: Record<string, LinkItem[]> = {
   "Posture and Mobility": [
     { label: "Private Personal Training", href: "/services/private-personal-training" },
     { label: "Results", href: "/results" },
-    { label: "Request Availability", href: "/contact" },
+    { label: "Book Consultation", href: "/contact" },
   ],
   "Private Gym Benefits": [
     { label: "Private Personal Training", href: "/services/private-personal-training" },
     { label: "Personal Trainer Grand Baie", href: "/personal-trainer-grand-baie" },
-    { label: "Request Availability", href: "/contact" },
+    { label: "Book Consultation", href: "/contact" },
   ],
   "Grand Baie Lifestyle": [
     { label: "Personal Trainer Grand Baie", href: "/personal-trainer-grand-baie" },
@@ -137,7 +137,7 @@ const blogCategoryPriorityLinks: Record<string, LinkItem[]> = {
   "Travel Fitness Mauritius": [
     { label: "House Calls", href: "/services/house-calls" },
     { label: "Online Coaching", href: "/services/online-coaching" },
-    { label: "Request Availability", href: "/contact" },
+    { label: "Book Consultation", href: "/contact" },
   ],
   "Beginner Fitness": [
     { label: "Private Personal Training", href: "/services/private-personal-training" },
@@ -305,7 +305,7 @@ const firstWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "Private Personal Training", href: "/services/private-personal-training" },
       { label: "Personal Trainer Mauritius", href: "/personal-trainer-mauritius" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "beginner-personal-training-in-mauritius-where-to-start",
@@ -1038,7 +1038,7 @@ const firstWaveBlogPosts: BlogPost[] = [
       },
       {
         id: "how-to-request",
-        title: "How to request availability properly",
+        title: "How to Book Consultation properly",
         paragraphs: [
           "Because house calls depend on location and scheduling, the first step should be an availability request or WhatsApp message. That makes it easier to confirm fit before assumptions are made about timing or coverage.",
         ],
@@ -1147,7 +1147,7 @@ const firstWaveBlogPosts: BlogPost[] = [
     conversionLinks: [
       { label: "Personal Trainer Grand Baie", href: "/personal-trainer-grand-baie" },
       { label: "House Calls", href: "/services/house-calls" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
     ],
     relatedSlugs: [
       "house-call-personal-trainer-mauritius-who-it-is-best-for",
@@ -1228,7 +1228,7 @@ const firstWaveBlogPosts: BlogPost[] = [
       },
     ],
     conversionLinks: [
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact" },
       { label: "Private Personal Training", href: "/services/private-personal-training" },
       { label: "Results", href: "/results" },
     ],
@@ -1356,7 +1356,7 @@ const blogConversionLinks: Record<string, LinkItem[]> = {
   "Posture and Mobility": [
     { label: "Private Personal Training", href: "/services/private-personal-training" },
     { label: "Results", href: "/results" },
-    { label: "Request Availability", href: "/contact" },
+    { label: "Book Consultation", href: "/contact" },
   ],
   "Grand Baie Lifestyle": [
     { label: "Personal Trainer Grand Baie", href: "/personal-trainer-grand-baie" },
@@ -1366,7 +1366,7 @@ const blogConversionLinks: Record<string, LinkItem[]> = {
   "Travel Fitness Mauritius": [
     { label: "House Calls", href: "/services/house-calls" },
     { label: "Online Coaching", href: "/services/online-coaching" },
-    { label: "Request Availability", href: "/contact" },
+    { label: "Book Consultation", href: "/contact" },
   ],
   "Personal Training Mauritius": [
     { label: "Personal Trainer Mauritius", href: "/personal-trainer-mauritius" },
