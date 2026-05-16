@@ -158,18 +158,11 @@ export default async function SeoLandingPage({ params }: PageProps) {
                 </Button>
               </div>
             }
-            aside={
-              <div className="space-y-4 text-sm leading-7 text-white/72">
-                <p>Private gym in a home residence in Grand Baie, Mauritius.</p>
-                <p>Not a public commercial gym. No walk-ins. Appointment only.</p>
-                <p>Best next step: book consultation or message on WhatsApp for quick clarity.</p>
-              </div>
-            }
           />
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 lg:grid-cols-[0.96fr_1.04fr]">
+          <div className="grid gap-6 lg:grid-cols-[0.96fr_1.04fr] lg:items-start">
             <Reveal>
               <Card className="space-y-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
@@ -178,22 +171,24 @@ export default async function SeoLandingPage({ params }: PageProps) {
                 <h2 className="font-display text-4xl text-white sm:text-5xl">
                   A more private, focused alternative to the usual gym route
                 </h2>
-                  <p className="card-copy text-base leading-8 text-white/72">
+                <p className="card-copy text-base leading-8 text-white/72">
                   The offer is built for people who want more than generic gym access.
                   They want private coaching, a premium atmosphere, and a business that
                   communicates clearly from the first message.
                 </p>
-                  <p className="card-copy text-base leading-8 text-white/72">
+                <p className="card-copy text-base leading-8 text-white/72">
                   That is why the whole site is designed to move visitors quickly into the
                   right commercial page, the right enquiry form, and the right next step.
                 </p>
               </Card>
             </Reveal>
             <Reveal delay={0.05}>
-              <div className="grid gap-5">
+              <div className="grid grid-equal gap-5">
                 {whoItIsFor.map((item) => (
                   <Card key={item} className="flex h-full flex-col gap-3">
-                    <h3 className="font-display text-3xl text-white">Who it is for</h3>
+                    <h3 className="font-display text-[1.7rem] leading-tight text-white">
+                      Who it is for
+                    </h3>
                     <p className="text-sm leading-7 text-white/70">{item}</p>
                   </Card>
                 ))}
@@ -210,7 +205,7 @@ export default async function SeoLandingPage({ params }: PageProps) {
               description="These are the most relevant routes for visitors who start broad and then want to make a decision quickly."
             />
           </Reveal>
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
+          <div className="mt-7 grid grid-equal gap-5 md:grid-cols-2 xl:grid-cols-5 sm:mt-8">
             {nextLinks.map((item, index) => (
               <Reveal key={item.href} delay={index * 0.04}>
                 <Card className="flex h-full items-center">
@@ -224,7 +219,7 @@ export default async function SeoLandingPage({ params }: PageProps) {
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
+          <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr] xl:items-start">
             <Reveal>
               <SectionHeader
                 eyebrow="Selected reviews"

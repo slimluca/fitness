@@ -17,11 +17,6 @@ export const metadata: Metadata = {
   creator: siteConfig.coachName,
   publisher: siteConfig.name,
   keywords: siteConfig.keywords,
-  icons: {
-    icon: [{ url: siteConfig.logoImage, type: "image/jpeg" }],
-    shortcut: [siteConfig.logoImage],
-    apple: [siteConfig.logoImage],
-  },
   openGraph: {
     title: "Personal Trainer Mauritius | Fitness by Fabrizio",
     description: siteConfig.description,

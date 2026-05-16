@@ -30,7 +30,9 @@ body {
   background: var(--bg-base);
   color: var(--text-main);
   font-family: var(--font-body-stack);
-  line-height: 1.5;
+  line-height: 1.58;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 h1,
@@ -56,47 +58,59 @@ button {
 
 .page-section {
   margin-inline: auto;
-  width: min(1180px, calc(100% - 1.5rem));
+  width: min(1160px, calc(100% - 1.25rem));
 }
 
 @media (min-width: 640px) {
   .page-section {
-    width: min(1180px, calc(100% - 2.5rem));
+    width: min(1160px, calc(100% - 2rem));
   }
 }
 
 @media (min-width: 1024px) {
   .page-section {
-    width: min(1180px, calc(100% - 4rem));
+    width: min(1160px, calc(100% - 3rem));
   }
 }
 
 .page-flow {
   display: grid;
-  gap: 3.75rem;
-  padding-block: 1.25rem 4rem;
+  gap: 3rem;
+  padding-block: 1rem 3.5rem;
 }
 
 @media (min-width: 640px) {
   .page-flow {
-    gap: 4.5rem;
-    padding-block: 1.5rem 4.75rem;
+    gap: 3.75rem;
+    padding-block: 1.25rem 4rem;
   }
 }
 
 @media (min-width: 1024px) {
   .page-flow {
-    gap: 5rem;
-    padding-block: 1.75rem 5.5rem;
+    gap: 4.25rem;
+    padding-block: 1.5rem 4.75rem;
   }
 }
 
 .text-measure {
-  max-width: 42rem;
+  max-width: 40rem;
 }
 
 .card-copy {
-  max-width: 38rem;
+  max-width: 39rem;
+}
+
+.content-measure {
+  max-width: 44rem;
+}
+
+.grid-equal {
+  align-items: stretch;
+}
+
+.grid-equal > * {
+  height: 100%;
 }
 
 @keyframes accordion-down {

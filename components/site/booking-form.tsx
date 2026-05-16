@@ -265,17 +265,17 @@ export function BookingForm({
   return (
     <form
       action={handleSubmit}
-      className="grid gap-6 rounded-[28px] border border-white/10 bg-white/6 p-5 backdrop-blur-sm sm:p-6 lg:p-7"
+      className="grid gap-5 rounded-[28px] border border-white/10 bg-white/6 p-5 shadow-[0_20px_56px_rgba(0,0,0,0.2)] backdrop-blur-sm sm:gap-6 sm:p-6 lg:p-7"
     >
-      <div className="space-y-3">
+      <div className="space-y-2.5">
         <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
           Private enquiry form
         </p>
         <p className="text-sm leading-7 text-white/72">{formIntros[type]}</p>
       </div>
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
         <div className="space-y-2">
-          <label htmlFor={`${type}-name`} className="text-sm font-medium text-white/78">
+          <label htmlFor={`${type}-name`} className="text-sm font-medium leading-6 text-white/80">
             Full name
           </label>
           <Input
@@ -287,7 +287,7 @@ export function BookingForm({
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor={`${type}-phone`} className="text-sm font-medium text-white/78">
+          <label htmlFor={`${type}-phone`} className="text-sm font-medium leading-6 text-white/80">
             Phone / WhatsApp
           </label>
           <Input
@@ -299,7 +299,7 @@ export function BookingForm({
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor={`${type}-email`} className="text-sm font-medium text-white/78">
+          <label htmlFor={`${type}-email`} className="text-sm font-medium leading-6 text-white/80">
             Email (optional)
           </label>
           <Input
@@ -311,7 +311,7 @@ export function BookingForm({
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor={`${type}-service`} className="text-sm font-medium text-white/78">
+          <label htmlFor={`${type}-service`} className="text-sm font-medium leading-6 text-white/80">
             Preferred service
           </label>
           <Select value={service} onValueChange={setService}>
@@ -328,9 +328,9 @@ export function BookingForm({
           </Select>
         </div>
       </div>
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-4">
         <div className="space-y-2">
-          <label htmlFor={`${type}-experience`} className="text-sm font-medium text-white/78">
+          <label htmlFor={`${type}-experience`} className="text-sm font-medium leading-6 text-white/80">
             Experience level
           </label>
           <Select value={experience} onValueChange={setExperience}>
@@ -347,7 +347,7 @@ export function BookingForm({
           </Select>
         </div>
         <div className="space-y-2">
-          <label htmlFor={`${type}-client-context`} className="text-sm font-medium text-white/78">
+          <label htmlFor={`${type}-client-context`} className="text-sm font-medium leading-6 text-white/80">
             Client context
           </label>
           <Select value={clientContext} onValueChange={setClientContext}>
@@ -364,7 +364,7 @@ export function BookingForm({
           </Select>
         </div>
         <div className="space-y-2">
-          <label htmlFor={`${type}-schedule`} className="text-sm font-medium text-white/78">
+          <label htmlFor={`${type}-schedule`} className="text-sm font-medium leading-6 text-white/80">
             Preferred schedule
           </label>
           <Input
@@ -375,7 +375,7 @@ export function BookingForm({
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor={`${type}-contact-preference`} className="text-sm font-medium text-white/78">
+          <label htmlFor={`${type}-contact-preference`} className="text-sm font-medium leading-6 text-white/80">
             Preferred reply method
           </label>
           <Select value={contactPreference} onValueChange={setContactPreference}>
@@ -392,9 +392,9 @@ export function BookingForm({
           </Select>
         </div>
       </div>
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
         <div className="space-y-2">
-          <label htmlFor={`${type}-start-timeline`} className="text-sm font-medium text-white/78">
+          <label htmlFor={`${type}-start-timeline`} className="text-sm font-medium leading-6 text-white/80">
             Preferred start timing
           </label>
           <Select value={startTimeline} onValueChange={setStartTimeline}>
@@ -411,7 +411,7 @@ export function BookingForm({
           </Select>
         </div>
         <div className="space-y-2">
-          <label htmlFor={`${type}-location-context`} className="text-sm font-medium text-white/78">
+          <label htmlFor={`${type}-location-context`} className="text-sm font-medium leading-6 text-white/80">
             Area or stay location (optional)
           </label>
           <Input
@@ -423,7 +423,7 @@ export function BookingForm({
         </div>
       </div>
       <div className="space-y-2">
-        <label htmlFor={`${type}-goals`} className="text-sm font-medium text-white/78">
+        <label htmlFor={`${type}-goals`} className="text-sm font-medium leading-6 text-white/80">
           Goals
         </label>
         <Textarea
@@ -434,7 +434,7 @@ export function BookingForm({
         />
       </div>
       <div className="space-y-2">
-        <label htmlFor={`${type}-limitations`} className="text-sm font-medium text-white/78">
+        <label htmlFor={`${type}-limitations`} className="text-sm font-medium leading-6 text-white/80">
           Injuries or limitations (optional)
         </label>
         <Textarea

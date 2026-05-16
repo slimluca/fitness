@@ -107,8 +107,8 @@ function getKindLabel(kind: ToolDefinition["kind"]) {
 
 function Field({ label, hint, children }: FieldProps) {
   return (
-    <label className="space-y-2">
-      <div className="space-y-1">
+    <label className="space-y-2.5">
+      <div className="space-y-1.5">
         <span className="block text-sm font-medium text-white/82">{label}</span>
         {hint ? <span className="block text-xs leading-5 text-white/52">{hint}</span> : null}
       </div>
@@ -129,7 +129,7 @@ function ToolSelect({ value, onChange, children }: ToolSelectProps) {
       <select
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="h-12 w-full appearance-none rounded-[18px] border border-white/12 bg-white/[0.045] px-4 pr-10 text-[15px] text-white/92 outline-none transition focus:border-[color:var(--brand-gold)] focus-visible:ring-2 focus-visible:ring-[color:var(--brand-gold)]/25"
+        className="h-12 w-full appearance-none rounded-[18px] border border-white/12 bg-white/[0.045] px-4 pr-10 text-[15px] text-white/92 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] outline-none transition focus:border-[color:var(--brand-gold)] focus-visible:ring-2 focus-visible:ring-[color:var(--brand-gold)]/25"
       >
         {children}
       </select>
@@ -170,9 +170,11 @@ function ToolActions({
   onReset: () => void;
 }) {
   return (
-    <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
-      <Button type="submit">{submitLabel}</Button>
-      <Button type="button" variant="ghost" onClick={onReset}>
+    <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:items-center">
+      <Button type="submit" className="w-full sm:w-auto">
+        {submitLabel}
+      </Button>
+      <Button type="button" variant="ghost" onClick={onReset} className="w-full sm:w-auto">
         <RotateCcw className="h-4 w-4" />
         Reset
       </Button>
@@ -211,7 +213,7 @@ function ToolResultPanel({
         </div>
         <div className="space-y-3">
           <Badge variant="muted">Result panel</Badge>
-          <h2 className="font-display text-3xl leading-tight text-white sm:text-[2.6rem]">
+          <h2 className="font-display text-[2.1rem] leading-[0.98] text-white sm:text-[2.55rem]">
             Calculate first, then review the result clearly
           </h2>
           <p className="max-w-[38rem] text-sm leading-7 text-white/72">
@@ -233,7 +235,7 @@ function ToolResultPanel({
       <div className="flex items-start justify-between gap-3">
         <div className="space-y-3">
           <Badge>Result ready</Badge>
-          <h2 className="font-display text-3xl leading-tight text-white sm:text-[2.6rem]">
+          <h2 className="font-display text-[2.1rem] leading-[0.98] text-white sm:text-[2.55rem]">
             {outcome.headline}
           </h2>
         </div>
@@ -258,7 +260,7 @@ function ToolResultPanel({
           {outcome.stats.map((stat) => (
             <div
               key={`${stat.label}-${stat.value}`}
-              className="rounded-[22px] border border-white/10 bg-black/20 p-4"
+              className="flex h-full flex-col rounded-[22px] border border-white/10 bg-black/20 p-4"
             >
               <p className="font-display text-2xl text-white">{stat.value}</p>
               <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/46">
@@ -316,7 +318,7 @@ function ToolResultPanel({
           Use this result as a starting point, then turn it into a cleaner plan with
           consultation or a quick WhatsApp conversation.
         </p>
-        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           <Button asChild size="sm">
             <Link href={siteConfig.primaryCtaHref}>Book Consultation</Link>
           </Button>
@@ -347,7 +349,7 @@ function ToolResultPanel({
 
 function ToolWorkspace({ tool, helper, form, outcome }: ToolWorkspaceProps) {
   return (
-    <div className="grid gap-6 xl:grid-cols-[0.92fr_1.08fr]">
+    <div className="grid gap-5 xl:grid-cols-[0.92fr_1.08fr] xl:items-stretch">
       <Card className="space-y-5">
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-start gap-3">
@@ -358,7 +360,7 @@ function ToolWorkspace({ tool, helper, form, outcome }: ToolWorkspaceProps) {
               <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                 {getKindLabel(tool.kind)} inputs
               </p>
-              <h2 className="font-display text-3xl leading-tight text-white sm:text-[2.2rem]">
+              <h2 className="font-display text-[2rem] leading-[0.98] text-white sm:text-[2.2rem]">
                 Use the tool
               </h2>
             </div>

@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react";
 
 import { Reveal } from "@/components/motion/reveal";
 import { CTASection } from "@/components/site/cta-section";
-import { GoogleReviewSummary } from "@/components/site/google-review-summary";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { ReviewGrid } from "@/components/site/review-grid";
@@ -94,6 +93,12 @@ const homepageReviews = [
 
 export default function HomePage() {
   const googleReviewFeed = getGoogleReviewFeed();
+  const hasLiveGoogleReviews =
+    googleReviewFeed.averageRating !== null && googleReviewFeed.reviewCount !== null;
+  const reviewItems =
+    hasLiveGoogleReviews && googleReviewFeed.selectedReviews.length
+      ? googleReviewFeed.selectedReviews.slice(0, 3)
+      : homepageReviews;
 
   return (
     <>
@@ -126,30 +131,6 @@ export default function HomePage() {
                 </p>
               </div>
             }
-            aside={
-              <div className="space-y-4">
-                <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--brand-gold)]">
-                  Private coaching, clearly positioned
-                </p>
-                <div className="grid gap-3 text-sm leading-7 text-white/72">
-                  <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
-                    Private gym in a home residence
-                  </div>
-                  <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
-                    No walk-ins or public gym traffic
-                  </div>
-                  <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
-                    Personal training and online coaching
-                  </div>
-                </div>
-                <Link
-                  href="/personal-trainer-mauritius"
-                  className="inline-flex text-sm font-semibold text-[color:var(--brand-gold)]"
-                >
-                  Explore the Mauritius coaching page
-                </Link>
-              </div>
-            }
           />
         </section>
 
@@ -161,11 +142,13 @@ export default function HomePage() {
               description="The offer is intentionally simple: a private environment, better coaching attention, and a faster route into the right next step."
             />
           </Reveal>
-          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-7 grid grid-equal gap-4 md:grid-cols-2 xl:grid-cols-4 sm:mt-8">
             {whyChooseCards.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.04}>
                 <Card className="flex h-full flex-col gap-3">
-                  <h2 className="font-display text-3xl text-white">{item.title}</h2>
+                  <h2 className="font-display text-[1.85rem] leading-tight text-white">
+                    {item.title}
+                  </h2>
                   <p className="text-sm leading-7 text-white/70">{item.description}</p>
                 </Card>
               </Reveal>
@@ -181,13 +164,17 @@ export default function HomePage() {
               description="The public site stays intentionally tight. The two main offers below are the clearest commercial routes for this brand."
             />
           </Reveal>
-          <div className="mt-8 grid gap-5 lg:grid-cols-2">
+          <div className="mt-7 grid grid-equal gap-5 lg:grid-cols-2 sm:mt-8">
             {offers.map((offer, index) => (
               <Reveal key={offer.href} delay={index * 0.05}>
                 <Card className="flex h-full flex-col gap-5">
                   <div className="space-y-3">
-                    <h2 className="font-display text-4xl text-white">{offer.title}</h2>
-                    <p className="text-base leading-8 text-white/72">{offer.description}</p>
+                    <h2 className="font-display text-[2.15rem] leading-tight text-white sm:text-[2.45rem]">
+                      {offer.title}
+                    </h2>
+                    <p className="card-copy text-base leading-8 text-white/72">
+                      {offer.description}
+                    </p>
                   </div>
                   <div className="rounded-[24px] border border-white/10 bg-black/20 p-4 text-sm leading-7 text-white/68">
                     {offer.fit}
@@ -214,14 +201,16 @@ export default function HomePage() {
               description="The strongest proof on this site stays focused on measurable change, stronger routines, and the private environment that makes consistency easier."
             />
           </Reveal>
-          <div className="mt-8 grid gap-5 lg:grid-cols-2">
+          <div className="mt-7 grid grid-equal gap-5 lg:grid-cols-2 sm:mt-8">
             {resultsPreview.map((story, index) => (
               <Reveal key={story.slug} delay={index * 0.04}>
                 <Card className="flex h-full flex-col gap-4">
                   <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                     {story.category}
                   </p>
-                  <h2 className="font-display text-3xl text-white">{story.title}</h2>
+                  <h2 className="font-display text-[1.95rem] leading-tight text-white">
+                    {story.title}
+                  </h2>
                   <p className="text-sm leading-7 text-white/70">{story.summary}</p>
                   <div className="rounded-[24px] border border-white/10 bg-black/20 p-4 text-sm leading-7 text-white/66">
                     {story.visibleResult}
@@ -239,29 +228,24 @@ export default function HomePage() {
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
-            <Reveal>
-              <GoogleReviewSummary feed={googleReviewFeed} />
-            </Reveal>
-            <Reveal delay={0.05}>
-              <div className="space-y-6">
-                <SectionHeader
-                  eyebrow="Reviews preview"
-                  title="Selected client feedback"
-                  description="The first live reviews should reinforce privacy, professionalism, and why this feels different from a commercial gym experience."
-                />
-                <ReviewGrid items={homepageReviews} compact />
-                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                  <Button asChild>
-                    <Link href="/reviews">View Reviews</Link>
-                  </Button>
-                  <Button asChild variant="ghost">
-                    <Link href={siteConfig.primaryCtaHref}>Book Consultation</Link>
-                  </Button>
-                </div>
+          <Reveal>
+            <div className="space-y-6">
+              <SectionHeader
+                eyebrow={hasLiveGoogleReviews ? "Reviews preview" : "Client feedback"}
+                title={hasLiveGoogleReviews ? "Google reviews and selected client feedback" : "Selected client feedback"}
+                description="The review area should feel real, privacy-safe, and strong enough to support a serious next step."
+              />
+              <ReviewGrid items={reviewItems} compact />
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Button asChild>
+                  <Link href="/reviews">View Reviews</Link>
+                </Button>
+                <Button asChild variant="ghost">
+                  <Link href={siteConfig.primaryCtaHref}>Book Consultation</Link>
+                </Button>
               </div>
-            </Reveal>
-          </div>
+            </div>
+          </Reveal>
         </section>
 
         <section className="page-section">

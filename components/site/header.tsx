@@ -32,9 +32,9 @@ export function Header() {
           : "bg-transparent",
       )}
     >
-      <div className="page-section flex items-center justify-between gap-4 py-3.5">
+      <div className="page-section flex items-center justify-between gap-3 py-3 sm:gap-4 sm:py-3.5">
         <Logo />
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {primaryNavigation.map((link) => (
             <Link
               key={link.href}
@@ -58,22 +58,22 @@ export function Header() {
           <DialogTrigger asChild className="lg:hidden">
             <button
               type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/5 text-white"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/5 text-white sm:h-11 sm:w-11"
               aria-label="Open menu"
             >
               <Menu className="h-5 w-5" />
             </button>
           </DialogTrigger>
           <DialogContent>
-            <div className="mt-8 space-y-6">
+            <div className="mt-7 space-y-6 sm:mt-8">
               <Logo />
-              <div className="space-y-3">
+              <div className="space-y-2.5">
                 {primaryNavigation.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      "block rounded-[20px] border border-white/10 bg-white/5 px-4 py-3.5 text-base text-white/80",
+                      "block rounded-[20px] border border-white/10 bg-white/5 px-4 py-3 text-base leading-6 text-white/80",
                       pathname === link.href && "border-[color:var(--brand-gold)]/30 text-white",
                     )}
                   >

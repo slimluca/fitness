@@ -18,7 +18,6 @@ import {
   resolveProofAssetAlt,
   resolveProofAssetObjectPosition,
   resolveProofAssetSrc,
-  siteConfig,
 } from "@/content";
 import { breadcrumbSchema, localBusinessSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
@@ -107,22 +106,11 @@ export default async function ContactPage({ searchParams }: PageProps) {
                 </Button>
               </div>
             }
-            aside={
-              <div className="space-y-4 text-sm leading-7 text-white/72">
-                <p>{siteConfig.phoneDisplay}</p>
-                <p>{siteConfig.location}</p>
-                <p>
-                  Exact residential arrival details are only shared after fit and scheduling
-                  are confirmed.
-                </p>
-                <p>Most enquiries receive a personal reply within one business day.</p>
-              </div>
-            }
           />
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 lg:grid-cols-[0.88fr_1.12fr]">
+          <div className="grid gap-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
             <div className="grid gap-4 sm:gap-5">
               <Reveal>
                 <ContactCard
@@ -184,7 +172,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
               description="The strongest contact-page proof is calm, believable, and close to the enquiry action."
             />
           </Reveal>
-          <div className="mt-8">
+          <div className="mt-7 sm:mt-8">
             <ReviewGrid items={contactPageTestimonials} compact />
           </div>
         </section>

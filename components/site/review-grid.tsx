@@ -26,20 +26,20 @@ export function ReviewGrid({ items, compact = false }: ReviewGridProps) {
     <div
       className={
         compact
-          ? "grid gap-4 lg:grid-cols-3"
-          : "grid gap-5 md:grid-cols-2 xl:grid-cols-3"
+          ? "grid grid-equal gap-4 lg:grid-cols-3"
+          : "grid grid-equal gap-4 md:grid-cols-2 xl:grid-cols-3"
       }
     >
       {items.map((item) => (
-        <Card key={`${item.name}-${item.quote}`} className="flex h-full flex-col gap-4">
-          <div className="space-y-4">
-            <div className="flex items-center justify-between gap-3">
-              <div className="flex flex-wrap gap-2">
+        <Card key={`${item.name}-${item.quote}`} className="flex h-full flex-col gap-5">
+          <div className="flex min-h-0 flex-1 flex-col gap-4">
+            <div className="grid min-h-[3rem] grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
+              <div className="flex min-w-0 flex-wrap gap-2">
                 {item.sourceLabel ? <Badge variant="muted">{item.sourceLabel}</Badge> : null}
                 {item.serviceUsed ? <Badge variant="muted">{item.serviceUsed}</Badge> : null}
               </div>
               {item.rating ? (
-                <div className="flex shrink-0 items-center gap-1 text-[color:var(--brand-gold)]">
+                <div className="flex shrink-0 items-center gap-1 pt-0.5 text-[color:var(--brand-gold)]">
                   {Array.from({ length: item.rating }).map((_, index) => (
                     <Star key={index} className="h-4 w-4 fill-current" />
                   ))}
@@ -47,15 +47,15 @@ export function ReviewGrid({ items, compact = false }: ReviewGridProps) {
               ) : null}
             </div>
 
-            <p
+            <blockquote
               className={
                 compact
                   ? "text-sm leading-7 text-white/74"
-                  : "font-display text-[1.9rem] leading-tight text-white sm:text-[2.2rem]"
+                  : "font-display text-[1.45rem] leading-[1.12] text-white sm:text-[1.8rem]"
               }
             >
               &quot;{item.quote}&quot;
-            </p>
+            </blockquote>
 
             {item.result ? (
               <div className="rounded-[22px] border border-white/10 bg-black/20 p-4 text-sm leading-7 text-white/68">

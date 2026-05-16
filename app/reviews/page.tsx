@@ -10,7 +10,6 @@ import { ReviewGrid } from "@/components/site/review-grid";
 import { SectionHeader } from "@/components/site/section-header";
 import { WhatsAppButton } from "@/components/site/whatsapp-button";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import {
   pageHeroAssets,
   resolveProofAssetAlt,
@@ -35,26 +34,14 @@ export const metadata = buildMetadata({
   ],
 });
 
-const reviewTrustNotes = [
-  {
-    title: "Private by nature",
-    description:
-      "Many clients prefer privacy-safe proof. Reviews can be published as full names, first names, initials, or discreet labels depending on approval.",
-  },
-  {
-    title: "Google review ready",
-    description:
-      "The reviews layer is built so Google Business Profile feedback can be added cleanly without changing the design or duplicating content.",
-  },
-  {
-    title: "Relevant proof matters",
-    description:
-      "The most valuable reviews usually mention professionalism, privacy, coaching quality, and why the appointment-only format felt easier to trust.",
-  },
-];
-
 export default function ReviewsPage() {
   const googleReviewFeed = getGoogleReviewFeed();
+  const hasLiveGoogleReviews =
+    googleReviewFeed.averageRating !== null && googleReviewFeed.reviewCount !== null;
+  const reviewItems =
+    hasLiveGoogleReviews && googleReviewFeed.selectedReviews.length
+      ? googleReviewFeed.selectedReviews
+      : testimonials;
 
   return (
     <>
@@ -70,7 +57,7 @@ export default function ReviewsPage() {
           <Hero
             eyebrow="Reviews"
             title="Client feedback that reinforces the private premium coaching standard"
-            description="This page is designed to hold both selected testimonials and future Google review sync cleanly. The goal is simple: show trust without turning the brand into a noisy testimonial wall."
+            description="This page is designed to show clean, trust-building client feedback without turning the brand into a noisy testimonial wall."
             image={resolveProofAssetSrc(pageHeroAssets.reviews)}
             imageAlt={resolveProofAssetAlt(
               pageHeroAssets.reviews,
@@ -88,57 +75,27 @@ export default function ReviewsPage() {
                 <WhatsAppButton size="lg" label="WhatsApp Now" trackLocation="reviews-hero" />
               </div>
             }
-            aside={
-              <div className="space-y-4 text-sm leading-7 text-white/72">
-                <p>
-                  The most important trust signal here is not hype. It is whether the
-                  feedback makes the business feel professional, private, and worth contacting.
-                </p>
-                <p>
-                  That is why this page stays curated, compact, and ready for real Google
-                  review data rather than padded with repeated quotes.
-                </p>
-              </div>
-            }
           />
         </section>
 
-        <section className="page-section">
-          <Reveal>
-            <GoogleReviewSummary feed={googleReviewFeed} />
-          </Reveal>
-        </section>
+        {hasLiveGoogleReviews ? (
+          <section className="page-section">
+            <Reveal>
+              <GoogleReviewSummary feed={googleReviewFeed} />
+            </Reveal>
+          </section>
+        ) : null}
 
         <section className="page-section">
           <Reveal>
             <SectionHeader
               eyebrow="Selected reviews"
               title="Privacy-safe testimonials with a premium presentation"
-              description="These review cards are intentionally clean so the first real Google reviews or approved testimonials can be inserted quickly without redesigning the page."
+              description="Only approved testimonials or real Google review content should appear here."
             />
           </Reveal>
           <div className="mt-8">
-            <ReviewGrid items={testimonials} />
-          </div>
-        </section>
-
-        <section className="page-section">
-          <Reveal>
-            <SectionHeader
-              eyebrow="Trust notes"
-              title="Why this review system is structured this way"
-              description="The review experience should support the brand, not cheapen it."
-            />
-          </Reveal>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {reviewTrustNotes.map((item, index) => (
-              <Reveal key={item.title} delay={index * 0.04}>
-                <Card className="flex h-full flex-col gap-3">
-                  <h2 className="font-display text-3xl text-white">{item.title}</h2>
-                  <p className="text-sm leading-7 text-white/70">{item.description}</p>
-                </Card>
-              </Reveal>
-            ))}
+            <ReviewGrid items={reviewItems} />
           </div>
         </section>
 

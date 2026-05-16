@@ -9,7 +9,6 @@ import { JsonLd } from "@/components/site/json-ld";
 import { ReviewGrid } from "@/components/site/review-grid";
 import { SectionHeader } from "@/components/site/section-header";
 import { WhatsAppButton } from "@/components/site/whatsapp-button";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -154,19 +153,6 @@ export default function PersonalTrainingPage() {
                 </Button>
               </div>
             }
-            aside={
-              <div className="space-y-4">
-                <Badge>Appointment only</Badge>
-                <p className="text-sm leading-7 text-white/72">
-                  The studio is private, premium, and intentionally quiet. It is built
-                  for clients who value focused coaching, not public-gym distractions.
-                </p>
-                <p className="text-sm leading-7 text-white/60">
-                  Best fit: residents, expats, busy professionals, villa guests, and
-                  beginners who want privacy and direct support.
-                </p>
-              </div>
-            }
           />
         </section>
 
@@ -178,11 +164,13 @@ export default function PersonalTrainingPage() {
               description="Private coaching works well because the environment, the attention, and the scheduling all support the goal instead of getting in the way."
             />
           </Reveal>
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-7 grid grid-equal gap-5 md:grid-cols-2 xl:grid-cols-4 sm:mt-8">
             {benefits.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.04}>
                 <Card className="flex h-full flex-col gap-3">
-                  <h2 className="font-display text-3xl text-white">{item.title}</h2>
+                  <h2 className="font-display text-[1.8rem] leading-tight text-white">
+                    {item.title}
+                  </h2>
                   <p className="text-sm leading-7 text-white/70">{item.description}</p>
                 </Card>
               </Reveal>
@@ -191,7 +179,7 @@ export default function PersonalTrainingPage() {
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
             <Reveal>
               <Card className="space-y-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
@@ -250,7 +238,7 @@ export default function PersonalTrainingPage() {
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
+          <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr] xl:items-start">
             <Reveal>
               <Card className="flex h-full flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">

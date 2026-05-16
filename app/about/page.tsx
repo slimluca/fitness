@@ -73,7 +73,7 @@ export default function AboutPage() {
             image={resolveProofAssetSrc(pageHeroAssets.about)}
             imageAlt={resolveProofAssetAlt(
               pageHeroAssets.about,
-              "Trainer portrait placeholder for Fitness by Fabrizio in Grand Baie, Mauritius",
+              "Trainer portrait for Fitness by Fabrizio in Grand Baie, Mauritius",
             )}
             imageObjectPosition={resolveProofAssetObjectPosition(pageHeroAssets.about)}
             actions={
@@ -87,27 +87,11 @@ export default function AboutPage() {
                 <WhatsAppButton size="lg" label="WhatsApp Now" trackLocation="about-hero" />
               </div>
             }
-            aside={
-              <div className="space-y-4 text-sm leading-7 text-white/72">
-                <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--brand-gold)]">
-                  Fabrizio
-                </p>
-                <p>
-                  The coaching style is calm, premium, and direct. It is designed for
-                  people who want real structure, privacy, and a more personal standard of
-                  coaching.
-                </p>
-                <p>
-                  The studio is appointment only, based in a home residence in Grand
-                  Baie, and positioned deliberately as an alternative to a public gym.
-                </p>
-              </div>
-            }
           />
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
             <Reveal>
               <Card className="space-y-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
@@ -116,12 +100,12 @@ export default function AboutPage() {
                 <h2 className="font-display text-4xl text-white sm:text-5xl">
                   Why private training works better for the right client
                 </h2>
-                  <p className="card-copy text-base leading-8 text-white/72">
+                <p className="card-copy text-base leading-8 text-white/72">
                   Many people do not need a bigger gym. They need a better environment.
                   Fitness Grand Baie is built around clients who want privacy, professional
                   guidance, and a cleaner coaching experience from the first enquiry.
                 </p>
-                  <p className="card-copy text-base leading-8 text-white/72">
+                <p className="card-copy text-base leading-8 text-white/72">
                   That is why the business is appointment only, why the studio operates
                   from a home residence, and why the whole journey is built to feel more
                   personal than a public membership gym.
@@ -129,10 +113,12 @@ export default function AboutPage() {
               </Card>
             </Reveal>
             <Reveal delay={0.05}>
-              <div className="grid gap-5">
+              <div className="grid grid-equal gap-5">
                 {philosophyCards.map((item) => (
                   <Card key={item.title} className="flex h-full flex-col gap-3">
-                    <h3 className="font-display text-3xl text-white">{item.title}</h3>
+                    <h3 className="font-display text-[1.85rem] leading-tight text-white">
+                      {item.title}
+                    </h3>
                     <p className="text-sm leading-7 text-white/70">{item.description}</p>
                   </Card>
                 ))}
@@ -149,11 +135,13 @@ export default function AboutPage() {
               description="A premium private gym experience is not about exclusivity for its own sake. It is about creating a better training environment."
             />
           </Reveal>
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-7 grid grid-equal gap-5 md:grid-cols-2 xl:grid-cols-4 sm:mt-8">
             {privateCoachingAdvantages.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.04}>
                 <Card className="flex h-full flex-col gap-3">
-                  <h2 className="font-display text-3xl text-white">{item.title}</h2>
+                  <h2 className="font-display text-[1.8rem] leading-tight text-white">
+                    {item.title}
+                  </h2>
                   <p className="text-sm leading-7 text-white/70">{item.description}</p>
                 </Card>
               </Reveal>
@@ -169,11 +157,13 @@ export default function AboutPage() {
               description="The site is prepared for real portraits, credentials, and approved proof without needing to rely on filler or overbuilt pages."
             />
           </Reveal>
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-7 grid grid-equal gap-5 md:grid-cols-2 xl:grid-cols-4 sm:mt-8">
             {coachCredibility.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.04}>
                 <Card className="flex h-full flex-col gap-3">
-                  <h2 className="font-display text-3xl text-white">{item.title}</h2>
+                  <h2 className="font-display text-[1.8rem] leading-tight text-white">
+                    {item.title}
+                  </h2>
                   <p className="text-sm leading-7 text-white/70">{item.description}</p>
                 </Card>
               </Reveal>

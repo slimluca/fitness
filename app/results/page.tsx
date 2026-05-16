@@ -79,18 +79,6 @@ export default function ResultsPage() {
                 </Button>
               </div>
             }
-            aside={
-              <div className="space-y-4 text-sm leading-7 text-white/72">
-                <p>
-                  The proof on this page is structured for real case studies, real
-                  reviews, and approved imagery without needing to exaggerate anything.
-                </p>
-                <p>
-                  The strongest theme across most progress stories is simple: private
-                  coaching makes consistency easier for the right client.
-                </p>
-              </div>
-            }
           />
         </section>
 
@@ -102,7 +90,7 @@ export default function ResultsPage() {
               description="Each story below supports the same core brand message: focused private coaching, better adherence, and a calmer environment."
             />
           </Reveal>
-          <div className="mt-8 grid gap-6 xl:grid-cols-3">
+          <div className="mt-7 grid grid-equal gap-6 xl:grid-cols-3 sm:mt-8">
             {resultStories.map((story, index) => (
               <Reveal key={story.slug} delay={index * 0.05}>
                 <ResultCard item={story} />
@@ -112,7 +100,7 @@ export default function ResultsPage() {
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
+          <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr] xl:items-start">
             <Reveal>
               <Card className="flex h-full flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">

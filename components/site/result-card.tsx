@@ -48,13 +48,15 @@ export function ResultCard({ item }: ResultCardProps) {
         </div>
       ) : null}
 
-      <div className="space-y-5 p-5 sm:p-6">
+      <div className="space-y-4 p-5 sm:p-6">
         {!item.image ? (
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
               {item.category}
             </p>
-            <h3 className="font-display text-[2rem] leading-tight text-white">{item.title}</h3>
+            <h3 className="font-display text-[1.8rem] leading-tight text-white sm:text-[2rem]">
+              {item.title}
+            </h3>
           </div>
         ) : null}
 
@@ -78,7 +80,7 @@ export function ResultCard({ item }: ResultCardProps) {
         <p className="text-sm leading-7 text-white/72">{item.summary}</p>
 
         {(item.goal || item.startingPoint || item.challenge) ? (
-          <div className="grid gap-4">
+          <div className="grid gap-4 sm:grid-cols-2">
             {item.goal ? (
               <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
@@ -139,7 +141,7 @@ export function ResultCard({ item }: ResultCardProps) {
         ) : null}
 
         {item.whatTheyWanted || item.whatChanged ? (
-          <div className="grid gap-4">
+          <div className="grid gap-4 sm:grid-cols-2">
             {item.whatTheyWanted ? (
               <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">

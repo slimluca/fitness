@@ -9,13 +9,11 @@ import { JsonLd } from "@/components/site/json-ld";
 import { ReviewGrid } from "@/components/site/review-grid";
 import { SectionHeader } from "@/components/site/section-header";
 import { WhatsAppButton } from "@/components/site/whatsapp-button";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
   onlineConsistencyTestimonial,
   pageHeroAssets,
-  pricingItems,
   privateRoutineResetTestimonial,
   resolveProofAssetAlt,
   resolveProofAssetObjectPosition,
@@ -91,8 +89,6 @@ const faqs = [
   },
 ];
 
-const onlinePricing = pricingItems.find((item) => item.slug === "online-coaching-monthly");
-
 export default function OnlineCoachingPage() {
   return (
     <>
@@ -126,7 +122,7 @@ export default function OnlineCoachingPage() {
             image={resolveProofAssetSrc(pageHeroAssets["online-coaching"])}
             imageAlt={resolveProofAssetAlt(
               pageHeroAssets["online-coaching"],
-              "Online coaching placeholder for Fitness by Fabrizio in Mauritius",
+              "Online coaching support from Fitness by Fabrizio in Mauritius",
             )}
             imageObjectPosition={resolveProofAssetObjectPosition(
               pageHeroAssets["online-coaching"],
@@ -150,23 +146,6 @@ export default function OnlineCoachingPage() {
                 </Button>
               </div>
             }
-            aside={
-              <div className="space-y-4">
-                <Badge>Remote support</Badge>
-                <p className="text-sm leading-7 text-white/72">
-                  This offer is built for clients who want better consistency, a clearer
-                  plan, and an accountability layer they can carry through busy weeks or travel.
-                </p>
-                {onlinePricing ? (
-                  <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
-                    <p className="font-display text-3xl text-white">MUR {onlinePricing.amount}</p>
-                    <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/45">
-                      {onlinePricing.unit}
-                    </p>
-                  </div>
-                ) : null}
-              </div>
-            }
           />
         </section>
 
@@ -178,11 +157,13 @@ export default function OnlineCoachingPage() {
               description="The online offer stays compact on purpose. What matters most is clarity, accountability, and a plan you can actually follow."
             />
           </Reveal>
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-7 grid grid-equal gap-5 md:grid-cols-2 xl:grid-cols-4 sm:mt-8">
             {coachingIncludes.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.04}>
                 <Card className="flex h-full flex-col gap-3">
-                  <h2 className="font-display text-3xl text-white">{item.title}</h2>
+                  <h2 className="font-display text-[1.8rem] leading-tight text-white">
+                    {item.title}
+                  </h2>
                   <p className="text-sm leading-7 text-white/70">{item.description}</p>
                 </Card>
               </Reveal>
@@ -191,7 +172,7 @@ export default function OnlineCoachingPage() {
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
+          <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-start">
             <Reveal>
               <Card className="flex h-full flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">

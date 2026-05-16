@@ -13,7 +13,7 @@ const legalLinks = [
 export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-[#030303]">
-      <div className="page-section grid gap-8 py-10 sm:py-12 lg:grid-cols-[1.15fr_0.9fr_0.95fr]">
+      <div className="page-section grid gap-8 py-9 sm:py-10 lg:grid-cols-[1.12fr_0.9fr_0.98fr] lg:gap-10">
         <div className="space-y-5">
           <Logo className="opacity-95" />
           <p className="max-w-md text-sm leading-7 text-white/70">
@@ -24,7 +24,11 @@ export function Footer() {
           <div className="space-y-2 text-sm text-white/65">
             <p>{siteConfig.location}</p>
             <p>WhatsApp-first contact: {siteConfig.phoneDisplay}</p>
-            <p>{siteConfig.email}</p>
+            <p>
+              <a href={`mailto:${siteConfig.email}`} className="transition hover:text-white">
+                {siteConfig.email}
+              </a>
+            </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Button asChild>
@@ -50,7 +54,7 @@ export function Footer() {
         </div>
 
         <div className="space-y-4">
-          <h3 className="font-display text-2xl text-white">Navigation</h3>
+          <h3 className="font-display text-[1.75rem] leading-tight text-white">Navigation</h3>
           <div className="space-y-2 text-sm text-white/65">
             {primaryNavigation.map((link) => (
               <div key={link.href}>
@@ -70,7 +74,7 @@ export function Footer() {
         </div>
 
         <div className="space-y-4">
-          <h3 className="font-display text-2xl text-white">Trust & legal</h3>
+          <h3 className="font-display text-[1.75rem] leading-tight text-white">Trust & legal</h3>
           <div className="space-y-3 text-sm leading-7 text-white/65">
             <p>
               Appointment-only private gym in a home residence. Exact residential

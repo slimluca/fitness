@@ -15,7 +15,7 @@ export function AccordionItem({
   return (
     <AccordionPrimitive.Item
       className={cn(
-        "overflow-hidden rounded-[24px] border border-white/10 bg-white/5",
+        "overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.045] shadow-[0_16px_38px_rgba(0,0,0,0.14)]",
         className,
       )}
       {...props}
@@ -32,7 +32,7 @@ export function AccordionTrigger({
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
         className={cn(
-          "group flex flex-1 items-center justify-between gap-4 px-5 py-[1.125rem] text-left text-[15px] font-semibold leading-7 text-white transition hover:text-[color:var(--brand-gold)] sm:px-6 sm:py-5 sm:text-base",
+          "group flex flex-1 items-center justify-between gap-4 px-5 py-[1.05rem] text-left text-[15px] font-semibold leading-7 text-white transition hover:text-[color:var(--brand-gold)] sm:px-6 sm:py-[1.15rem] sm:text-base",
           className,
         )}
         {...props}

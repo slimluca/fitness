@@ -19,18 +19,23 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        "space-y-3",
+        "space-y-4",
         align === "center" && "mx-auto max-w-[44rem] text-center",
         className,
       )}
     >
       {eyebrow ? <Badge>{eyebrow}</Badge> : null}
-      <div className="space-y-3">
-        <h2 className="font-display text-3xl leading-tight tracking-tight text-white sm:text-[2.6rem] lg:text-[3.2rem]">
+      <div className="space-y-4">
+        <h2 className="font-display text-[2.15rem] leading-[0.98] tracking-tight text-white sm:text-[2.75rem] lg:text-[3.1rem]">
           {title}
         </h2>
         {description ? (
-          <p className="max-w-[42rem] text-[15px] leading-7 text-white/72 sm:text-lg sm:leading-8">
+          <p
+            className={cn(
+              "max-w-[40rem] text-[15px] leading-7 text-white/72 sm:text-[1.02rem] sm:leading-8",
+              align === "center" && "mx-auto",
+            )}
+          >
             {description}
           </p>
         ) : null}
