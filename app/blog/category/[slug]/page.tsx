@@ -7,7 +7,6 @@ import { AuthorBox } from "@/components/site/author-box";
 import { BlogCard } from "@/components/site/blog-card";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { CTASection } from "@/components/site/cta-section";
-import { EditorialIdeaCard } from "@/components/site/editorial-idea-card";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { SectionHeader } from "@/components/site/section-header";
@@ -17,7 +16,6 @@ import { Card } from "@/components/ui/card";
 import {
   getBlogCategoryBySlug,
   getBlogCategorySummaries,
-  getEditorialIdeasByCategory,
   getBlogPostsByCategory,
   getPriorityBlogPostsForCategory,
 } from "@/content";
@@ -28,6 +26,9 @@ import { buildMetadata } from "@/lib/seo";
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
+
+export const revalidate = 3600;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   return getBlogCategorySummaries().map((category) => ({ slug: category.slug }));
@@ -43,7 +44,7 @@ export async function generateMetadata({ params }: PageProps) {
 
   return buildMetadata({
     title: `${category.name} | Personal Trainer Mauritius Articles`,
-    description: `${category.description} Start with ${Math.min(category.count, 3)} strong article${Math.min(category.count, 3) === 1 ? "" : "s"}, then move into private coaching, pricing, or consultation with Fitness Grand Baie.`,
+    description: `${category.description} Start with the strongest articles in this category, then move into the service or consultation path that fits.`,
     path: category.href,
     keywords: category.keywords,
   });
@@ -63,7 +64,6 @@ export default async function BlogCategoryPage({ params }: PageProps) {
     (post) => !starterPosts.some((entry) => entry.slug === post.slug),
   );
   const featuredPost = posts[0];
-  const plannedIdeas = getEditorialIdeasByCategory(category.name);
   const relatedCategories = getBlogCategorySummaries()
     .filter(
       (entry) =>
@@ -90,9 +90,12 @@ export default async function BlogCategoryPage({ params }: PageProps) {
             description={category.description}
             image={featuredPost?.featuredImage ?? "/training-session.jpeg"}
             actions={
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Button asChild size="lg">
-                  <Link href="/contact?intent=consultation" data-track-location={`blog-category-hero:${category.slug}`}>
+                  <Link
+                    href="/contact?intent=consultation"
+                    data-track-location={`blog-category-hero:${category.slug}`}
+                  >
                     Book Consultation
                     <ArrowRight className="h-4 w-4" />
                   </Link>
@@ -102,19 +105,22 @@ export default async function BlogCategoryPage({ params }: PageProps) {
                   label="WhatsApp Now"
                   trackLocation={`blog-category-hero:${category.slug}`}
                 />
-                <Button asChild size="lg" variant="ghost">
-                  <Link href="/contact" data-track-location={`blog-category-hero:${category.slug}`}>
-                    Request Availability
-                  </Link>
-                </Button>
               </div>
             }
             aside={
               <div className="space-y-4 text-sm leading-7 text-white/72">
-                <p>{category.count} published article{category.count === 1 ? "" : "s"} in this cluster.</p>
-                <p>{plannedIdeas.length} planned article brief{plannedIdeas.length === 1 ? "" : "s"} supporting future topical depth.</p>
-                <p>Built for stronger internal linking, cleaner topical authority, and premium readability across Mauritius and Grand Baie search intent.</p>
-                <p>If this topic matches why you are searching, use the priority service and landing-page links in this category before reading the full archive.</p>
+                <p>
+                  {category.count} published article{category.count === 1 ? "" : "s"} in this
+                  cluster.
+                </p>
+                <p>
+                  Built to support stronger decisions around private coaching, online
+                  support, and realistic fitness progress in Mauritius.
+                </p>
+                <p>
+                  If this topic matches why you are searching, use the priority service and
+                  landing-page links in this category before you disappear into the archive.
+                </p>
                 <p>{category.intro}</p>
               </div>
             }
@@ -133,35 +139,26 @@ export default async function BlogCategoryPage({ params }: PageProps) {
                 </p>
                 <div className="space-y-4 text-sm leading-7 text-white/72">
                   <p>
-                    This category supports the broader Personal Trainer Mauritius growth
-                    strategy with richer supporting content, clearer local-intent coverage,
-                    and better routes into consultation.
+                    This category is designed for readers who want a cleaner route into the
+                    most useful articles first, then into the relevant service or contact
+                    page when they are ready to act.
                   </p>
-                  <p>
-                    If this topic cluster matches what you need, use the linked service
-                    pages and landing pages below as the fastest route into a higher-intent
-                    next step.
-                  </p>
-                  <p>
-                    {category.intro}
-                  </p>
-                  <div className="grid gap-3 sm:grid-cols-2">
+                  <p>{category.intro}</p>
+                  <div className="grid gap-3 sm:grid-cols-1">
                     <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
-                      Published depth: {category.count} article{category.count === 1 ? "" : "s"}
-                    </div>
-                    <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
-                      Planned cluster expansion: {plannedIdeas.length} brief{plannedIdeas.length === 1 ? "" : "s"}
+                      Published depth: {category.count} article
+                      {category.count === 1 ? "" : "s"}
                     </div>
                   </div>
                   <p>
                     If this cluster reflects why you are searching, the fastest next step is
-                    usually one of the priority links below rather than reading the full
-                    archive before taking action.
+                    usually one of the priority links below rather than reading everything
+                    before taking action.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     {priorityLinks.map((link) => (
                       <Link
-                        key={link.href + link.label}
+                        key={`${link.href}${link.label}`}
                         href={link.href}
                         className="rounded-full border border-white/10 px-4 py-2 text-sm text-white/72"
                       >
@@ -199,11 +196,11 @@ export default async function BlogCategoryPage({ params }: PageProps) {
               <SectionHeader
                 eyebrow="Best place to start"
                 title={`Start with these ${category.name.toLowerCase()} articles`}
-                description="These are the strongest entry points in the cluster if you want the most useful context first."
+                description="These are the strongest entry points if you want the clearest context before moving into a service page or consultation."
               />
             </div>
           </Reveal>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-10 grid grid-equal gap-6 md:grid-cols-2 xl:grid-cols-3">
             {starterPosts.map((post, index) => (
               <Reveal key={post.slug} delay={index * 0.04}>
                 <BlogCard post={post} />
@@ -212,36 +209,49 @@ export default async function BlogCategoryPage({ params }: PageProps) {
           </div>
         </section>
 
-        <section className="page-section">
-          <Reveal>
-            <SectionHeader
-              eyebrow="Full archive"
-              title={`${category.name} archive`}
-              description="Explore the wider article set in this cluster once you have read the strongest entry points."
-            />
-          </Reveal>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {(archivePosts.length > 0 ? archivePosts : posts).map((post, index) => (
-              <Reveal key={post.slug} delay={index * 0.04}>
-                <BlogCard post={post} />
-              </Reveal>
-            ))}
-          </div>
-        </section>
-
-        {plannedIdeas.length > 0 ? (
+        {archivePosts.length > 0 ? (
           <section className="page-section">
             <Reveal>
               <SectionHeader
-                eyebrow="Upcoming in this cluster"
-                title="Editorial briefs ready for future organic growth"
-                description="These polished briefs keep the content engine organised so future articles can be added without rethinking the information architecture."
+                eyebrow="More in this topic"
+                title={`${category.name} archive`}
+                description="Explore the rest of the published article set in this category once you have covered the strongest entry points."
               />
             </Reveal>
-            <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {plannedIdeas.map((idea, index) => (
-                <Reveal key={idea.slug} delay={index * 0.04}>
-                  <EditorialIdeaCard idea={idea} />
+            <div className="mt-10 grid grid-equal gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {archivePosts.map((post, index) => (
+                <Reveal key={post.slug} delay={index * 0.04}>
+                  <BlogCard post={post} />
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {relatedCategories.length > 0 ? (
+          <section className="page-section">
+            <Reveal>
+              <SectionHeader
+                eyebrow="Related clusters"
+                title="Keep exploring connected topics"
+                description="These related categories help readers move from one useful question into the next article or service that fits."
+              />
+            </Reveal>
+            <div className="mt-10 grid grid-equal gap-6 md:grid-cols-3">
+              {relatedCategories.map((entry, index) => (
+                <Reveal key={entry.slug} delay={index * 0.04}>
+                  <Card className="flex h-full flex-col gap-4">
+                    <h2 className="font-display text-3xl text-white">
+                      <Link href={entry.href}>{entry.name}</Link>
+                    </h2>
+                    <p className="text-sm leading-7 text-white/72">{entry.description}</p>
+                    <Link
+                      href={entry.href}
+                      className="mt-auto text-sm font-semibold text-[color:var(--brand-gold)]"
+                    >
+                      Explore topic
+                    </Link>
+                  </Card>
                 </Reveal>
               ))}
             </div>
@@ -249,35 +259,10 @@ export default async function BlogCategoryPage({ params }: PageProps) {
         ) : null}
 
         <section className="page-section">
-          <Reveal>
-            <SectionHeader
-              eyebrow="Related clusters"
-              title="Keep exploring connected topics"
-              description="Cross-linking between related topics strengthens organic growth and helps readers discover the coaching path that fits best."
-            />
-          </Reveal>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {relatedCategories.map((entry, index) => (
-              <Reveal key={entry.slug} delay={index * 0.04}>
-                <Card className="h-full space-y-4">
-                  <h2 className="font-display text-3xl text-white">
-                    <Link href={entry.href}>{entry.name}</Link>
-                  </h2>
-                  <p className="text-sm leading-7 text-white/72">{entry.description}</p>
-                  <Link href={entry.href} className="text-sm font-semibold text-[color:var(--brand-gold)]">
-                    Explore topic
-                  </Link>
-                </Card>
-              </Reveal>
-            ))}
-          </div>
-        </section>
-
-        <section className="page-section">
           <CTASection
             eyebrow="From content to enquiry"
-            title="Book consultation, message on WhatsApp, or request availability"
-            description="Once the content answers the key questions, the next move should feel simple, premium, and easy to trust."
+            title="Book consultation or message on WhatsApp"
+            description="Once the content answers the key question, the next move should feel simple, premium, and easy to trust."
             actions={[
               { label: "Book Consultation", href: "/contact?intent=consultation" },
               {
@@ -286,7 +271,6 @@ export default async function BlogCategoryPage({ params }: PageProps) {
                 variant: "outline",
                 messageKey: "consultation",
               },
-              { label: "Request Availability", href: "/contact", variant: "ghost" },
             ]}
           />
         </section>

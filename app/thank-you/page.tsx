@@ -182,7 +182,7 @@ export default async function ThankYouPage({ searchParams }: PageProps) {
       <section className="page-section">
         <CTASection
           eyebrow="Need to keep moving?"
-          title="Use WhatsApp, request availability, or return to the main service page"
+          title="Use WhatsApp or return to the main service page"
           description="The post-enquiry journey should still feel premium, private, and easy to trust."
           actions={[
             { label: "Book Consultation", href: siteConfig.primaryCtaHref },
@@ -191,11 +191,6 @@ export default async function ThankYouPage({ searchParams }: PageProps) {
               href: siteConfig.availabilityCtaHref,
               variant: "outline",
               messageKey: "consultation",
-            },
-            {
-              label: "Request Availability",
-              href: siteConfig.availabilityCtaHref,
-              variant: "ghost",
             },
           ]}
         />

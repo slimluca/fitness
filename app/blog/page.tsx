@@ -4,7 +4,6 @@ import { Reveal } from "@/components/motion/reveal";
 import { AuthorBox } from "@/components/site/author-box";
 import { BlogHubClient } from "@/components/site/blog-hub-client";
 import { CTASection } from "@/components/site/cta-section";
-import { EditorialIdeaCard } from "@/components/site/editorial-idea-card";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { SectionHeader } from "@/components/site/section-header";
@@ -12,19 +11,19 @@ import { WhatsAppButton } from "@/components/site/whatsapp-button";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
-  blogPosts,
-  editorialIdeas,
   getBlogCategorySummaries,
   getFeaturedPost,
-  sortBlogPosts,
+  getPublishedBlogPosts,
 } from "@/content";
 import { breadcrumbSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 
+export const revalidate = 3600;
+
 export const metadata = buildMetadata({
-  title: "Personal Trainer Mauritius Blog | Private Coaching Advice from Grand Baie",
+  title: "Fitness by Fabrizio Journal | Personal Trainer Mauritius Advice",
   description:
-    "Premium fitness advice from Fitness Grand Baie covering Personal Trainer Mauritius topics, private gym benefits, weight loss, nutrition, Grand Baie lifestyle, and online coaching, with clear paths back to consultation and core services.",
+    "Selective fitness articles from Fitness by Fabrizio covering Personal Trainer Mauritius topics, private coaching, online coaching, weight loss, and beginner fitness in a premium, practical format.",
   path: "/blog",
   keywords: [
     "Personal Trainer Mauritius Blog",
@@ -34,10 +33,9 @@ export const metadata = buildMetadata({
 });
 
 export default function BlogPage() {
-  const sortedPosts = sortBlogPosts(blogPosts);
+  const posts = getPublishedBlogPosts();
   const featuredPost = getFeaturedPost();
   const categorySummaries = getBlogCategorySummaries();
-  const publishedArticleCount = sortedPosts.length;
 
   return (
     <>
@@ -50,12 +48,12 @@ export default function BlogPage() {
       <div className="space-y-24 py-8 sm:py-10">
         <section className="page-section">
           <Hero
-            eyebrow="Editorial blog"
-            title="Premium fitness advice built for rankings, trust, and better coaching decisions"
-            description="The blog is structured to support organic traffic around personal training in Mauritius while guiding readers naturally toward consultation, WhatsApp, and the most relevant coaching service."
-            image={featuredPost.featuredImage}
+            eyebrow="Journal"
+            title="Useful fitness advice for Mauritius readers who want better coaching decisions"
+            description="A curated resource for people comparing private coaching, online support, weight loss strategy, and beginner-friendly training in Mauritius. The focus is clarity and useful guidance, not filler."
+            image={featuredPost?.featuredImage ?? "/training-session.jpeg"}
             actions={
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Button asChild size="lg">
                   <Link href="/contact?intent=consultation" data-track-location="blog-hub-hero">
                     Book Consultation
@@ -66,11 +64,6 @@ export default function BlogPage() {
                   label="WhatsApp Now"
                   trackLocation="blog-hub-hero"
                 />
-                <Button asChild size="lg" variant="ghost">
-                  <Link href="/contact" data-track-location="blog-hub-hero">
-                    Request Availability
-                  </Link>
-                </Button>
               </div>
             }
             aside={
@@ -78,18 +71,28 @@ export default function BlogPage() {
                 <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
                   Featured article
                 </p>
-                <h2 className="font-display text-3xl text-white">{featuredPost.title}</h2>
-                <p className="text-sm leading-7 text-white/72">{featuredPost.excerpt}</p>
-                <p className="text-sm leading-7 text-white/60">
-                  {publishedArticleCount} published articles across {categorySummaries.length} topical clusters supporting Personal Trainer Mauritius, Grand Baie, private gym, beginner fitness, and online coaching search intent.
+                <h2 className="font-display text-3xl text-white">
+                  {featuredPost?.title ?? "Premium coaching advice that stays practical"}
+                </h2>
+                <p className="text-sm leading-7 text-white/72">
+                  {featuredPost?.excerpt ??
+                    "Start with the strongest article, then move naturally into the service or contact page that fits your goal."}
                 </p>
                 <p className="text-sm leading-7 text-white/60">
-                  If you already know you want private coaching in Grand Baie, use the
-                  service, contact, or consultation links before getting lost in the full archive.
+                  {posts.length} published articles across {categorySummaries.length} focused
+                  categories supporting Personal Trainer Mauritius, private gym, online
+                  coaching, weight loss, and Grand Baie lifestyle search intent.
                 </p>
-                <Button asChild variant="outline">
-                  <Link href={`/blog/${featuredPost.slug}`}>Read featured article</Link>
-                </Button>
+                <p className="text-sm leading-7 text-white/60">
+                  If you already know you want private coaching in Grand Baie, go straight
+                  to Personal Training, Online Coaching, or Contact instead of reading the
+                  full archive first.
+                </p>
+                {featuredPost ? (
+                  <Button asChild variant="outline">
+                    <Link href={`/blog/${featuredPost.slug}`}>Read featured article</Link>
+                  </Button>
+                ) : null}
               </div>
             }
           />
@@ -98,15 +101,15 @@ export default function BlogPage() {
         <section className="page-section">
           <Reveal>
             <SectionHeader
-              eyebrow="Category pages"
-              title="Topical SEO clusters designed for long-term organic growth"
-              description="Each category page supports internal linking, cleaner topical structure, and a stronger editorial engine around Personal Trainer Mauritius and related local-intent keywords."
+              eyebrow="Browse by topic"
+              title="Curated article groups built around real coaching questions"
+              description="Each category helps readers find the right article quickly, then move naturally into the service or next step that fits."
             />
           </Reveal>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-10 grid grid-equal gap-6 md:grid-cols-2 xl:grid-cols-3">
             {categorySummaries.map((category, index) => (
               <Reveal key={category.slug} delay={index * 0.03}>
-                <Card className="h-full space-y-4">
+                <Card className="flex h-full flex-col gap-4">
                   <div className="space-y-2">
                     <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--brand-gold)]">
                       {category.count} article{category.count === 1 ? "" : "s"}
@@ -116,7 +119,10 @@ export default function BlogPage() {
                     </h2>
                   </div>
                   <p className="text-sm leading-7 text-white/72">{category.description}</p>
-                  <Link href={category.href} className="text-sm font-semibold text-[color:var(--brand-gold)]">
+                  <Link
+                    href={category.href}
+                    className="mt-auto text-sm font-semibold text-[color:var(--brand-gold)]"
+                  >
                     Explore category
                   </Link>
                 </Card>
@@ -133,35 +139,26 @@ export default function BlogPage() {
             <Reveal delay={0.05}>
               <Card className="space-y-5">
                 <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
-                  Why trust this content
+                  Why this journal exists
                 </p>
                 <div className="space-y-4 text-sm leading-7 text-white/72">
                   <p>
-                    The blog is written to support real search intent around Personal
-                    Trainer Mauritius, not to fill the site with thin content.
+                    These articles are written for people who are actively comparing
+                    coaching options, trying to lose fat more intelligently, or starting
+                    training without wanting generic gym advice.
                   </p>
                   <p>
-                    Each article is designed to improve topical depth, answer practical
-                    questions, and guide readers toward the relevant service or landing
-                    page without feeling pushy.
+                    The goal is to answer practical questions clearly, add useful local
+                    context where it matters, and give readers a cleaner path toward the
+                    right service rather than burying them in volume.
                   </p>
                   <p>
-                    The commercial goal is not to overpower the content. It is to help the
-                    right reader move from research into the correct service, landing page,
-                    or consultation path with less friction.
+                    The strongest pages to pair with the journal are Personal Trainer
+                    Mauritius, Personal Training, Online Coaching, and Contact.
                   </p>
                   <p>
-                    The best business pages to pair with this hub are Personal Trainer
-                    Mauritius, Personal Training, Contact, and Book Consultation.
-                  </p>
-                  <p>
-                    The current blog now covers {publishedArticleCount} published articles,
-                    making the category hubs and internal links much more useful for both
-                    readers and Google.
-                  </p>
-                  <p>
-                    The editorial system also keeps the blog AdSense-ready by preserving
-                    readability, spacing, author identity, and useful structure first.
+                    The blog stays selective on purpose so it supports trust and organic
+                    reach without making the main site feel bloated or noisy.
                   </p>
                 </div>
                 <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -183,34 +180,17 @@ export default function BlogPage() {
         <section className="page-section">
           <Reveal>
             <BlogHubClient
-              posts={sortedPosts}
+              posts={posts}
               categories={categorySummaries.map((category) => category.name)}
             />
           </Reveal>
         </section>
 
         <section className="page-section">
-          <Reveal>
-            <SectionHeader
-              eyebrow="Editorial pipeline"
-              title="High-intent article briefs queued for future organic growth"
-              description="These are structured content opportunities, not thin placeholder posts. The system is ready for future publication when each article is written to full quality."
-            />
-          </Reveal>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {editorialIdeas.map((idea, index) => (
-              <Reveal key={idea.slug} delay={index * 0.03}>
-                <EditorialIdeaCard idea={idea} />
-              </Reveal>
-            ))}
-          </div>
-        </section>
-
-        <section className="page-section">
           <CTASection
             eyebrow="From content to action"
-            title="Use the advice, then book a private consultation"
-            description="The content is designed to be genuinely useful first, then guide readers naturally toward personal training, online coaching, and direct WhatsApp contact."
+            title="Use the advice, then take the next step that fits"
+            description="When an article answers the question properly, the next move should feel straightforward: review the right service, book a consultation, or send a WhatsApp message."
             actions={[
               { label: "Book Consultation", href: "/contact?intent=consultation" },
               {
@@ -219,7 +199,6 @@ export default function BlogPage() {
                 variant: "outline",
                 messageKey: "consultation",
               },
-              { label: "Request Availability", href: "/contact", variant: "ghost" },
             ]}
           />
         </section>

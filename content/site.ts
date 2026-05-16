@@ -259,9 +259,6 @@ export const primaryNavigation: LinkItem[] = [
 
 export const footerSeoLinks: LinkItem[] = [
   { label: "Personal Trainer Mauritius", href: "/personal-trainer-mauritius" },
-  { label: "Personal Training", href: "/personal-training" },
-  { label: "Online Coaching", href: "/online-coaching" },
-  { label: "Results", href: "/results" },
   { label: "Free Tools", href: "/tools" },
 ];
 

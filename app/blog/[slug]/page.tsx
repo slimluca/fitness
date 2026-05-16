@@ -2,11 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { AdSlot } from "@/components/site/ad-slot";
 import { AuthorBox } from "@/components/site/author-box";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { CTASection } from "@/components/site/cta-section";
-import { EditorialIdeaCard } from "@/components/site/editorial-idea-card";
 import { FAQAccordion } from "@/components/site/faq-accordion";
 import { JsonLd } from "@/components/site/json-ld";
 import { RelatedPosts } from "@/components/site/related-posts";
@@ -15,10 +13,11 @@ import { WhatsAppButton } from "@/components/site/whatsapp-button";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
-  blogPosts,
+  formatBlogDate,
   getBlogCategoryPath,
   getBlogConversionLinks,
-  getEditorialIdeasByCategory,
+  getPublishedBlogPostBySlug,
+  getPublishedBlogPosts,
   getRelatedBlogPosts,
 } from "@/content";
 import { normalizeCommercialLink } from "@/lib/commercial-links";
@@ -29,13 +28,16 @@ type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
+export const revalidate = 3600;
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  return getPublishedBlogPosts().map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const post = blogPosts.find((entry) => entry.slug === slug);
+  const post = getPublishedBlogPostBySlug(slug);
 
   if (!post) {
     return {};
@@ -48,14 +50,14 @@ export async function generateMetadata({ params }: PageProps) {
     image: post.featuredImage,
     keywords: post.keywords,
     type: "article",
-    publishedTime: post.date,
-    modifiedTime: post.date,
+    publishedTime: post.publishAt,
+    modifiedTime: post.publishAt,
   });
 }
 
 export default async function BlogArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  const post = blogPosts.find((entry) => entry.slug === slug);
+  const post = getPublishedBlogPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -69,11 +71,6 @@ export default async function BlogArticlePage({ params }: PageProps) {
     label: "Book Consultation",
     href: "/contact?intent=consultation",
   };
-  const bestNextDescription =
-    bestNextLink.label === "Request Availability"
-      ? "the most relevant next-step page"
-      : bestNextLink.label.toLowerCase();
-  const clusterIdeas = getEditorialIdeasByCategory(post.category).slice(0, 2);
 
   return (
     <>
@@ -83,10 +80,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
         data={breadcrumbSchema([
           { label: "Home", href: "/" },
           { label: "Blog", href: "/blog" },
-          {
-            label: post.category,
-            href: getBlogCategoryPath(post.category),
-          },
+          { label: post.category, href: getBlogCategoryPath(post.category) },
           { label: post.title, href: `/blog/${post.slug}` },
         ])}
       />
@@ -98,10 +92,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
                 items={[
                   { label: "Home", href: "/" },
                   { label: "Blog", href: "/blog" },
-                  {
-                    label: post.category,
-                    href: getBlogCategoryPath(post.category),
-                  },
+                  { label: post.category, href: getBlogCategoryPath(post.category) },
                   { label: post.title, href: `/blog/${post.slug}` },
                 ]}
               />
@@ -117,7 +108,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
                 </h1>
                 <div className="flex flex-wrap gap-4 text-sm text-white/55">
                   <span>By Fabrizio</span>
-                  <span>{post.date}</span>
+                  <span>{formatBlogDate(post.publishAt)}</span>
                   <span>{post.readTime}</span>
                 </div>
               </div>
@@ -140,8 +131,6 @@ export default async function BlogArticlePage({ params }: PageProps) {
               ))}
             </div>
 
-            <AdSlot label="Below intro article placement" />
-
             <div className="rounded-[32px] border border-white/10 bg-white/5 p-6">
               <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
                 Key takeaways
@@ -158,19 +147,24 @@ export default async function BlogArticlePage({ params }: PageProps) {
                 Best next step
               </p>
               <p className="text-sm leading-7 text-white/72">
-                If this {post.category.toLowerCase()} topic matches your situation, the
-                strongest next move is usually to review {bestNextDescription}
-                before booking or messaging. That keeps the decision practical instead of
-                generic and helps the enquiry start from a better-informed place.
+                If this topic matches your situation, move next into the page that best
+                fits your goal. That usually means reviewing the relevant service, landing
+                page, or contact route while the question is still clear in your mind.
               </p>
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Button asChild>
-                  <Link href="/contact?intent=consultation" data-track-location={`blog-article-best-next:${post.slug}`}>
+                  <Link
+                    href="/contact?intent=consultation"
+                    data-track-location={`blog-article-best-next:${post.slug}`}
+                  >
                     Book Consultation
                   </Link>
                 </Button>
                 <Button asChild variant="outline">
-                  <Link href={bestNextLink.href} data-track-location={`blog-article-best-next:${post.slug}`}>
+                  <Link
+                    href={bestNextLink.href}
+                    data-track-location={`blog-article-best-next:${post.slug}`}
+                  >
                     {bestNextLink.label}
                   </Link>
                 </Button>
@@ -178,16 +172,11 @@ export default async function BlogArticlePage({ params }: PageProps) {
                   label="WhatsApp Now"
                   trackLocation={`blog-article-best-next:${post.slug}`}
                 />
-                <Button asChild variant="ghost">
-                  <Link href="/contact" data-track-location={`blog-article-best-next:${post.slug}`}>
-                    Request Availability
-                  </Link>
-                </Button>
               </div>
             </Card>
 
             <div className="space-y-14">
-              {post.sections.map((section, index) => (
+              {post.sections.map((section) => (
                 <section key={section.id} id={section.id} className="scroll-mt-32 space-y-5">
                   <h2 className="font-display text-4xl text-white">{section.title}</h2>
                   {section.paragraphs.map((paragraph) => (
@@ -202,7 +191,6 @@ export default async function BlogArticlePage({ params }: PageProps) {
                       ))}
                     </ul>
                   ) : null}
-                  {index === 1 ? <AdSlot label="Mid-content placement" /> : null}
                 </section>
               ))}
             </div>
@@ -218,23 +206,20 @@ export default async function BlogArticlePage({ params }: PageProps) {
               <div className="mt-4 flex flex-wrap gap-3">
                 {conversionLinks.map((link) => (
                   <Link
-                    key={link.href + link.label}
+                    key={`${link.href}${link.label}`}
                     href={link.href}
                     className="rounded-full border border-white/10 px-4 py-2 text-sm text-white/72"
                   >
                     {link.label}
                   </Link>
                 ))}
-                <Link href={getBlogCategoryPath(post.category)} className="rounded-full border border-white/10 px-4 py-2 text-sm text-white/72">
+                <Link
+                  href={getBlogCategoryPath(post.category)}
+                  className="rounded-full border border-white/10 px-4 py-2 text-sm text-white/72"
+                >
                   {post.category}
                 </Link>
               </div>
-              <p className="mt-4 text-sm leading-7 text-white/60">
-                If this article brought you in from search and you already know you want a
-                calmer private coaching environment in Grand Baie, use the service or
-                landing-page links above before you leave the site. That usually leads to
-                a better-quality enquiry than reading three more articles without taking a next step.
-              </p>
             </div>
 
             <div className="space-y-5">
@@ -242,24 +227,11 @@ export default async function BlogArticlePage({ params }: PageProps) {
               <FAQAccordion items={post.faq} />
             </div>
 
-            {clusterIdeas.length > 0 ? (
-              <div className="space-y-6">
-                <h2 className="font-display text-4xl text-white">Next in this topic cluster</h2>
-                <div className="grid gap-6 md:grid-cols-2">
-                  {clusterIdeas.map((idea) => (
-                    <EditorialIdeaCard key={idea.slug} idea={idea} />
-                  ))}
-                </div>
-              </div>
-            ) : null}
-
-            <AdSlot label="End of article placement" />
-
             <CTASection
               eyebrow="From article to action"
               title="Ready to discuss your goals with a private personal trainer in Mauritius?"
               description="Move from reading into a real coaching conversation with private consultation, relevant services, pricing guidance, and WhatsApp support that matches the topic you just explored."
-            actions={[
+              actions={[
                 { label: "Book Consultation", href: "/contact?intent=consultation" },
                 {
                   label: "WhatsApp Now",
@@ -267,7 +239,6 @@ export default async function BlogArticlePage({ params }: PageProps) {
                   variant: "outline",
                   messageKey: "consultation",
                 },
-                { label: "Request Availability", href: "/contact", variant: "ghost" },
               ]}
             />
 
@@ -285,7 +256,6 @@ export default async function BlogArticlePage({ params }: PageProps) {
                 title: section.title,
               }))}
             />
-            <AdSlot label="Optional desktop sidebar" />
           </aside>
         </div>
       </div>

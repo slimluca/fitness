@@ -17,33 +17,6 @@ const serviceOptions = [
   "Online Coaching",
 ];
 
-const experienceOptions = [
-  "Complete beginner",
-  "Some experience",
-  "Intermediate",
-  "Advanced",
-];
-
-const contactPreferenceOptions = [
-  "WhatsApp preferred",
-  "Email preferred",
-  "Either is fine",
-];
-
-const clientContextOptions = [
-  "Resident in Mauritius",
-  "Expat in Mauritius",
-  "Tourist or villa guest",
-  "Prefer to explain in notes",
-];
-
-const startTimelineOptions = [
-  "As soon as possible",
-  "Within 2 weeks",
-  "This month",
-  "Just researching for now",
-];
-
 type BookingFormProps = {
   type?: "consultation" | "contact" | "service-inquiry";
   defaultService?: string;
@@ -51,17 +24,17 @@ type BookingFormProps = {
 
 const submitLabels = {
   consultation: "Book Consultation",
-  contact: "Request Availability",
-  "service-inquiry": "Request Availability",
+  contact: "Book Consultation",
+  "service-inquiry": "Book Consultation",
 } as const;
 
 const formIntros = {
   consultation:
-    "Share your goals, preferred coaching format, and schedule so your consultation request can be reviewed properly from the start.",
+    "Share the essentials and your consultation request can be reviewed properly without a long form.",
   contact:
-    "Use this private enquiry form if you want to explain your situation in more detail before moving ahead with consultation or WhatsApp.",
+    "Use this private enquiry form if you want a clear reply before moving ahead with consultation or WhatsApp.",
   "service-inquiry":
-    "Request availability for your preferred coaching option and we will confirm fit, scheduling, and the best next step personally.",
+    "Share your preferred coaching option and main goal so the best next step can be confirmed personally.",
 } as const;
 
 export function BookingForm({
@@ -71,10 +44,6 @@ export function BookingForm({
   const router = useRouter();
   const pathname = usePathname();
   const [service, setService] = useState(defaultService ?? serviceOptions[0]);
-  const [experience, setExperience] = useState(experienceOptions[0]);
-  const [contactPreference, setContactPreference] = useState(contactPreferenceOptions[0]);
-  const [clientContext, setClientContext] = useState(clientContextOptions[0]);
-  const [startTimeline, setStartTimeline] = useState(startTimelineOptions[0]);
   const [pending, startTransition] = useTransition();
   const [error, setError] = useState("");
 
@@ -84,10 +53,6 @@ export function BookingForm({
     const attribution = getLeadAttributionSnapshot(pathname);
 
     payload.service = service;
-    payload.experience = experience;
-    payload.contactPreference = contactPreference;
-    payload.clientContext = clientContext;
-    payload.startTimeline = startTimeline;
     payload.type = type;
     payload.submittedAt = new Date().toISOString();
     Object.assign(payload, attribution);
@@ -121,9 +86,6 @@ export function BookingForm({
           trackEvent("form_submit_failed", {
             form_type: type,
             service,
-            contact_preference: contactPreference,
-            client_context: clientContext,
-            start_timeline: startTimeline,
             http_status: response.status,
             page_path:
               typeof attribution.currentPagePath === "string"
@@ -148,9 +110,6 @@ export function BookingForm({
         trackEvent("form_submit", {
           form_type: type,
           service,
-          contact_preference: contactPreference,
-          client_context: clientContext,
-          start_timeline: startTimeline,
           page_path:
             typeof attribution.currentPagePath === "string"
               ? attribution.currentPagePath
@@ -192,9 +151,6 @@ export function BookingForm({
               : "service_inquiry_submit",
           {
             service,
-            contact_preference: contactPreference,
-            client_context: clientContext,
-            start_timeline: startTimeline,
             page_path:
               typeof attribution.currentPagePath === "string"
                 ? attribution.currentPagePath
@@ -237,9 +193,6 @@ export function BookingForm({
         trackEvent("form_submit_failed", {
           form_type: type,
           service,
-          contact_preference: contactPreference,
-          client_context: clientContext,
-          start_timeline: startTimeline,
           http_status: 0,
           page_path:
             typeof attribution.currentPagePath === "string"
@@ -268,8 +221,8 @@ export function BookingForm({
       className="grid gap-5 rounded-[28px] border border-white/10 bg-white/6 p-5 shadow-[0_20px_56px_rgba(0,0,0,0.2)] backdrop-blur-sm sm:gap-6 sm:p-6 lg:p-7"
     >
       <div className="space-y-2.5">
-        <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
-          Private enquiry form
+        <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--brand-gold)]">
+          Private enquiry
         </p>
         <p className="text-sm leading-7 text-white/72">{formIntros[type]}</p>
       </div>
@@ -300,7 +253,7 @@ export function BookingForm({
         </div>
         <div className="space-y-2">
           <label htmlFor={`${type}-email`} className="text-sm font-medium leading-6 text-white/80">
-            Email (optional)
+            Email
           </label>
           <Input
             id={`${type}-email`}
@@ -308,6 +261,7 @@ export function BookingForm({
             type="email"
             placeholder="you@example.com"
             autoComplete="email"
+            required
           />
         </div>
         <div className="space-y-2">
@@ -328,119 +282,26 @@ export function BookingForm({
           </Select>
         </div>
       </div>
-      <div className="grid gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-4">
-        <div className="space-y-2">
-          <label htmlFor={`${type}-experience`} className="text-sm font-medium leading-6 text-white/80">
-            Experience level
-          </label>
-          <Select value={experience} onValueChange={setExperience}>
-            <SelectTrigger id={`${type}-experience`}>
-              <SelectValue placeholder="Select level" />
-            </SelectTrigger>
-            <SelectContent>
-              {experienceOptions.map((option) => (
-                <SelectItem key={option} value={option}>
-                  {option}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="space-y-2">
-          <label htmlFor={`${type}-client-context`} className="text-sm font-medium leading-6 text-white/80">
-            Client context
-          </label>
-          <Select value={clientContext} onValueChange={setClientContext}>
-            <SelectTrigger id={`${type}-client-context`}>
-              <SelectValue placeholder="Choose client context" />
-            </SelectTrigger>
-            <SelectContent>
-              {clientContextOptions.map((option) => (
-                <SelectItem key={option} value={option}>
-                  {option}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="space-y-2">
-          <label htmlFor={`${type}-schedule`} className="text-sm font-medium leading-6 text-white/80">
-            Preferred schedule
-          </label>
-          <Input
-            id={`${type}-schedule`}
-            name="schedule"
-            placeholder="Early morning, lunch, evenings..."
-            autoComplete="off"
-          />
-        </div>
-        <div className="space-y-2">
-          <label htmlFor={`${type}-contact-preference`} className="text-sm font-medium leading-6 text-white/80">
-            Preferred reply method
-          </label>
-          <Select value={contactPreference} onValueChange={setContactPreference}>
-            <SelectTrigger id={`${type}-contact-preference`}>
-              <SelectValue placeholder="Choose contact preference" />
-            </SelectTrigger>
-            <SelectContent>
-              {contactPreferenceOptions.map((option) => (
-                <SelectItem key={option} value={option}>
-                  {option}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-      </div>
-      <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
-        <div className="space-y-2">
-          <label htmlFor={`${type}-start-timeline`} className="text-sm font-medium leading-6 text-white/80">
-            Preferred start timing
-          </label>
-          <Select value={startTimeline} onValueChange={setStartTimeline}>
-            <SelectTrigger id={`${type}-start-timeline`}>
-              <SelectValue placeholder="Choose start timing" />
-            </SelectTrigger>
-            <SelectContent>
-              {startTimelineOptions.map((option) => (
-                <SelectItem key={option} value={option}>
-                  {option}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="space-y-2">
-          <label htmlFor={`${type}-location-context`} className="text-sm font-medium leading-6 text-white/80">
-            Area or stay location (optional)
-          </label>
-          <Input
-            id={`${type}-location-context`}
-            name="locationContext"
-            placeholder="Grand Baie, Pereybere, villa stay, or online only..."
-            autoComplete="off"
-          />
-        </div>
+      <div className="space-y-2">
+        <label htmlFor={`${type}-schedule`} className="text-sm font-medium leading-6 text-white/80">
+          Preferred schedule (optional)
+        </label>
+        <Input
+          id={`${type}-schedule`}
+          name="schedule"
+          placeholder="Early morning, lunch, evenings..."
+          autoComplete="off"
+        />
       </div>
       <div className="space-y-2">
         <label htmlFor={`${type}-goals`} className="text-sm font-medium leading-6 text-white/80">
-          Goals
+          Goal / message
         </label>
         <Textarea
           id={`${type}-goals`}
           name="goals"
-          placeholder="Tell us about your goals, current routine, and what kind of support you want."
+          placeholder="Tell us what you want help with and any useful context before we reply."
           required
-        />
-      </div>
-      <div className="space-y-2">
-        <label htmlFor={`${type}-limitations`} className="text-sm font-medium leading-6 text-white/80">
-          Injuries or limitations (optional)
-        </label>
-        <Textarea
-          id={`${type}-limitations`}
-          name="limitations"
-          placeholder="Share anything we should know to tailor the coaching safely."
         />
       </div>
       {error ? (
@@ -467,8 +328,8 @@ export function BookingForm({
         </Button>
         <p className="text-sm leading-6 text-white/60">
           Most enquiries receive a reply within one business day. WhatsApp is usually the
-          fastest route for urgent availability questions, and exact residential access
-          details are only shared after fit and scheduling are confirmed.
+          fastest route for time-sensitive questions, and exact residential access details
+          are only shared after fit and scheduling are confirmed.
         </p>
       </div>
     </form>

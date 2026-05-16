@@ -54,7 +54,7 @@ export function BlogHubClient({ posts, categories }: BlogHubClientProps) {
           ))}
         </div>
       </div>
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-equal gap-6 md:grid-cols-2 xl:grid-cols-3">
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post) => <BlogCard key={post.slug} post={post} />)
         ) : (

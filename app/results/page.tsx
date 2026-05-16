@@ -74,9 +74,6 @@ export default function ResultsPage() {
                   </Link>
                 </Button>
                 <WhatsAppButton size="lg" label="WhatsApp Now" trackLocation="results-hero" />
-                <Button asChild size="lg" variant="ghost">
-                  <Link href={siteConfig.availabilityCtaHref}>Request Availability</Link>
-                </Button>
               </div>
             }
           />
@@ -145,11 +142,6 @@ export default function ResultsPage() {
                 href: siteConfig.availabilityCtaHref,
                 variant: "outline",
                 messageKey: "consultation",
-              },
-              {
-                label: "Request Availability",
-                href: siteConfig.availabilityCtaHref,
-                variant: "ghost",
               },
             ]}
           />

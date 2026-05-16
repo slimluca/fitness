@@ -11,13 +11,11 @@ import { formatCurrency } from "@/lib/utils";
 type PricingCardProps = {
   item: PricingItem;
   consultationHref: string;
-  availabilityHref: string;
 };
 
 export function PricingCard({
   item,
   consultationHref,
-  availabilityHref,
 }: PricingCardProps) {
   return (
     <Card className={item.badge ? "border-[color:var(--brand-gold)]/30" : ""}>
@@ -58,15 +56,6 @@ export function PricingCard({
             trackLocation={`pricing-card:${item.slug}`}
             messageKey={item.serviceSlug === "online-coaching" ? "online" : item.serviceSlug === "couple-training" ? "couples" : "packages"}
           />
-          <Button asChild variant="ghost">
-            <Link
-              href={availabilityHref}
-              data-track-label="Request Availability"
-              data-track-location={`pricing-card:${item.slug}`}
-            >
-              Request Availability
-            </Link>
-          </Button>
         </div>
       </CardContent>
     </Card>

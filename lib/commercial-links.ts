@@ -33,8 +33,12 @@ export function normalizeCommercialHref(href: string) {
 }
 
 export function normalizeCommercialLabel(label: string, href: string) {
+  if (/^request availability$/i.test(label)) {
+    return "Book Consultation";
+  }
+
   if (href === "/pricing" || /^view pricing$/i.test(label)) {
-    return "Request Availability";
+    return "Personal Training";
   }
 
   if (
@@ -57,6 +61,13 @@ export function normalizeCommercialLabel(label: string, href: string) {
 }
 
 export function normalizeCommercialLink(link: LinkItem): LinkItem {
+  if (/^request availability$/i.test(link.label)) {
+    return {
+      label: "Book Consultation",
+      href: "/contact?intent=consultation",
+    };
+  }
+
   return {
     label: normalizeCommercialLabel(link.label, link.href),
     href: normalizeCommercialHref(link.href),

@@ -103,7 +103,7 @@ export default function ReviewsPage() {
           <CTASection
             eyebrow="Ready to enquire?"
             title="Use reviews to build confidence, then move into consultation"
-            description="If the private coaching standard feels like the right fit, book a consultation, message on WhatsApp, or request availability now."
+            description="If the private coaching standard feels like the right fit, book a consultation or message on WhatsApp now."
             actions={[
               { label: "Book Consultation", href: siteConfig.primaryCtaHref },
               {
@@ -111,11 +111,6 @@ export default function ReviewsPage() {
                 href: siteConfig.availabilityCtaHref,
                 variant: "outline",
                 messageKey: "consultation",
-              },
-              {
-                label: "Request Availability",
-                href: siteConfig.availabilityCtaHref,
-                variant: "ghost",
               },
             ]}
           />

@@ -10,13 +10,20 @@ const legalLinks = [
   { label: "Terms", href: "/terms" },
 ];
 
+const footerLinks = [
+  ...primaryNavigation,
+  ...footerSeoLinks.filter(
+    (link) => !primaryNavigation.some((primaryLink) => primaryLink.href === link.href),
+  ),
+];
+
 export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-[#030303]">
-      <div className="page-section grid gap-8 py-9 sm:py-10 lg:grid-cols-[1.12fr_0.9fr_0.98fr] lg:gap-10">
+      <div className="page-section grid gap-8 py-8 sm:py-9 lg:grid-cols-[1.18fr_0.82fr] lg:gap-12">
         <div className="space-y-5">
           <Logo className="opacity-95" />
-          <p className="max-w-md text-sm leading-7 text-white/70">
+          <p className="max-w-lg text-sm leading-7 text-white/70">
             Private premium coaching in Grand Baie, Mauritius for clients who want an
             appointment-only gym experience in a home residence, not a public
             commercial gym.
@@ -41,54 +48,40 @@ export function Footer() {
               </Link>
             </Button>
             <WhatsAppButton label="WhatsApp Now" trackLocation="footer" />
-            <Button asChild variant="ghost">
-              <Link
-                href={siteConfig.availabilityCtaHref}
-                data-track-label="Request Availability"
-                data-track-location="footer"
-              >
-                Request Availability
-              </Link>
-            </Button>
           </div>
         </div>
 
-        <div className="space-y-4">
-          <h3 className="font-display text-[1.75rem] leading-tight text-white">Navigation</h3>
-          <div className="space-y-2 text-sm text-white/65">
-            {primaryNavigation.map((link) => (
-              <div key={link.href}>
-                <Link href={link.href} className="transition hover:text-white">
-                  {link.label}
-                </Link>
-              </div>
-            ))}
-            {footerSeoLinks.map((link) => (
-              <div key={link.href}>
-                <Link href={link.href} className="transition hover:text-white">
-                  {link.label}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="space-y-4">
-          <h3 className="font-display text-[1.75rem] leading-tight text-white">Trust & legal</h3>
-          <div className="space-y-3 text-sm leading-7 text-white/65">
-            <p>
-              Appointment-only private gym in a home residence. Exact residential
-              access details are only shared after confirmation.
-            </p>
-            <p>No walk-ins. No membership floor. Just private coaching by appointment.</p>
-            <div className="space-y-2">
-              {legalLinks.map((link) => (
+        <div className="grid gap-8 sm:grid-cols-2">
+          <div className="space-y-4">
+            <h3 className="font-display text-[1.55rem] leading-tight text-white">Navigation</h3>
+            <div className="space-y-2 text-sm text-white/65">
+              {footerLinks.map((link) => (
                 <div key={link.href}>
                   <Link href={link.href} className="transition hover:text-white">
                     {link.label}
                   </Link>
                 </div>
               ))}
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-display text-[1.55rem] leading-tight text-white">Trust & legal</h3>
+            <div className="space-y-3 text-sm leading-7 text-white/65">
+              <p>
+                Appointment-only private gym in a home residence. Exact residential
+                access details are only shared after confirmation.
+              </p>
+              <p>No walk-ins. No membership floor. Just private coaching by appointment.</p>
+              <div className="space-y-2">
+                {legalLinks.map((link) => (
+                  <div key={link.href}>
+                    <Link href={link.href} className="transition hover:text-white">
+                      {link.label}
+                    </Link>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -153,9 +153,6 @@ export default async function SeoLandingPage({ params }: PageProps) {
                   </Link>
                 </Button>
                 <WhatsAppButton size="lg" label="WhatsApp Now" trackLocation="mauritius-hero" />
-                <Button asChild size="lg" variant="ghost">
-                  <Link href={siteConfig.availabilityCtaHref}>Request Availability</Link>
-                </Button>
               </div>
             }
           />
@@ -250,7 +247,7 @@ export default async function SeoLandingPage({ params }: PageProps) {
           <CTASection
             eyebrow="Take the next step"
             title="Book consultation or message on WhatsApp about private coaching in Mauritius"
-            description="If the private coaching model feels like the right fit, move into consultation now or request availability directly."
+            description="If the private coaching model feels like the right fit, move into consultation now or message on WhatsApp for a quick response."
             actions={[
               { label: "Book Consultation", href: siteConfig.primaryCtaHref },
               {
@@ -258,11 +255,6 @@ export default async function SeoLandingPage({ params }: PageProps) {
                 href: siteConfig.availabilityCtaHref,
                 variant: "outline",
                 messageKey: "consultation",
-              },
-              {
-                label: "Request Availability",
-                href: siteConfig.availabilityCtaHref,
-                variant: "ghost",
               },
             ]}
           />

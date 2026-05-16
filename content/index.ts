@@ -1,4 +1,4 @@
-export * from "@/content/blog";
+export * from "@/content/blog-curated";
 export * from "@/content/faqs";
 export * from "@/content/legal";
 export * from "@/content/proof";

@@ -1,4 +1,6 @@
-import type { BlogPost } from "@/content/types";
+import type { BlogPost as BlogPostType } from "@/content/types";
+
+type BlogPost = Omit<BlogPostType, "publishAt">;
 
 export const secondWaveBlogPosts: BlogPost[] = [
   {

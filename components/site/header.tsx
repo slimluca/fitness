@@ -86,9 +86,6 @@ export function Header() {
                 <Button asChild className="w-full">
                   <Link href="/contact?intent=consultation">Book Consultation</Link>
                 </Button>
-                <Button asChild className="w-full" variant="ghost">
-                  <Link href="/contact">Request Availability</Link>
-                </Button>
               </div>
             </div>
           </DialogContent>

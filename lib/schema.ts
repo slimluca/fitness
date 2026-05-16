@@ -175,8 +175,8 @@ export function articleSchema(post: BlogPost) {
       },
     },
     image: absoluteUrl(post.featuredImage),
-    datePublished: post.date,
-    dateModified: post.date,
+    datePublished: post.publishAt,
+    dateModified: post.publishAt,
     mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
     inLanguage: "en",
   };

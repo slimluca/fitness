@@ -252,7 +252,7 @@ export default function HomePage() {
           <CTASection
             eyebrow="Next step"
             title="Book your consultation or message on WhatsApp"
-            description="If you want private premium coaching in Grand Baie, the next move is simple. Start with consultation, use WhatsApp for a quick conversation, or request availability directly."
+            description="If you want private premium coaching in Grand Baie, the next move is simple. Start with consultation or use WhatsApp for a quick conversation."
             actions={[
               { label: "Book Consultation", href: siteConfig.primaryCtaHref },
               {
@@ -260,11 +260,6 @@ export default function HomePage() {
                 href: siteConfig.availabilityCtaHref,
                 variant: "outline",
                 messageKey: "consultation",
-              },
-              {
-                label: "Request Availability",
-                href: siteConfig.availabilityCtaHref,
-                variant: "ghost",
               },
             ]}
           />

@@ -58,47 +58,64 @@ button {
 
 .page-section {
   margin-inline: auto;
-  width: min(1160px, calc(100% - 1.25rem));
+  width: min(1240px, calc(100% - 1.25rem));
 }
 
 @media (min-width: 640px) {
   .page-section {
-    width: min(1160px, calc(100% - 2rem));
+    width: min(1240px, calc(100% - 2rem));
   }
 }
 
 @media (min-width: 1024px) {
   .page-section {
-    width: min(1160px, calc(100% - 3rem));
+    width: min(1240px, calc(100% - 3.5rem));
+  }
+}
+
+.hero-shell {
+  margin-inline: auto;
+  width: min(1320px, calc(100% - 1.25rem));
+}
+
+@media (min-width: 640px) {
+  .hero-shell {
+    width: min(1320px, calc(100% - 2rem));
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-shell {
+    width: min(1320px, calc(100% - 4rem));
   }
 }
 
 .page-flow {
   display: grid;
-  gap: 3rem;
-  padding-block: 1rem 3.5rem;
+  gap: 2.75rem;
+  padding-block: 0.9rem 3.25rem;
 }
 
 @media (min-width: 640px) {
   .page-flow {
-    gap: 3.75rem;
-    padding-block: 1.25rem 4rem;
+    gap: 3.25rem;
+    padding-block: 1.1rem 3.75rem;
   }
 }
 
 @media (min-width: 1024px) {
   .page-flow {
-    gap: 4.25rem;
-    padding-block: 1.5rem 4.75rem;
+    gap: 3.75rem;
+    padding-block: 1.35rem 4.25rem;
   }
 }
 
 .text-measure {
-  max-width: 40rem;
+  max-width: 43rem;
 }
 
 .card-copy {
-  max-width: 39rem;
+  max-width: 41rem;
 }
 
 .content-measure {

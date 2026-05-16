@@ -20,6 +20,8 @@ export function CTASection({
   description,
   actions,
 }: CTASectionProps) {
+  const visibleActions = actions.filter((action) => action.label !== "Request Availability");
+
   return (
     <Card className="overflow-hidden border-[color:var(--brand-gold)]/15 bg-[radial-gradient(circle_at_top_left,rgba(255,215,0,0.14),transparent_38%),linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]">
       <div className="grid gap-5 lg:grid-cols-[1.16fr_0.84fr] lg:items-end lg:gap-7">
@@ -33,7 +35,7 @@ export function CTASection({
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center lg:flex-col lg:items-stretch">
-          {actions.map((action) => (
+          {visibleActions.map((action) => (
             <Button
               key={`${action.label}-${action.href}`}
               asChild

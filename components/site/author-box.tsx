@@ -41,7 +41,7 @@ export function AuthorBox({ compact = false }: AuthorBoxProps) {
         </p>
         <h2 className="font-display text-3xl text-white">{siteConfig.coachName}</h2>
         <p className="text-sm leading-7 text-white/72">
-          Personal trainer at Fitness Grand Baie, an appointment-only private gym in a home residence in Grand Baie, Mauritius.
+          Personal trainer behind {siteConfig.visualBrandName}, an appointment-only private gym in a home residence in Grand Baie, Mauritius.
         </p>
       </div>
       <div className="space-y-3 text-sm leading-7 text-white/72">

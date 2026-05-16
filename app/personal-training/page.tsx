@@ -148,9 +148,6 @@ export default function PersonalTrainingPage() {
                   label="WhatsApp Now"
                   trackLocation="personal-training-hero"
                 />
-                <Button asChild size="lg" variant="ghost">
-                  <Link href={siteConfig.availabilityCtaHref}>Request Availability</Link>
-                </Button>
               </div>
             }
           />
@@ -286,7 +283,7 @@ export default function PersonalTrainingPage() {
         <section className="page-section">
           <CTASection
             eyebrow="Ready to train privately?"
-            title="Book consultation, message on WhatsApp, or request availability"
+            title="Book consultation or message on WhatsApp"
             description="If private one-to-one coaching sounds like the right fit, the next step is simple and personal."
             actions={[
               { label: "Book Consultation", href: siteConfig.primaryCtaHref },
@@ -295,11 +292,6 @@ export default function PersonalTrainingPage() {
                 href: siteConfig.availabilityCtaHref,
                 variant: "outline",
                 messageKey: "consultation",
-              },
-              {
-                label: "Request Availability",
-                href: siteConfig.availabilityCtaHref,
-                variant: "ghost",
               },
             ]}
           />

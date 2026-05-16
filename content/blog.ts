@@ -2,7 +2,9 @@ import { secondWaveBlogPosts } from "@/content/blog-wave-two";
 import { thirdWaveBlogPosts } from "@/content/blog-wave-three";
 import { fourthWaveBlogPosts } from "@/content/blog-wave-four";
 import { fifthWaveBlogPosts } from "@/content/blog-wave-five";
-import type { BlogPost, EditorialIdea, LinkItem } from "@/content/types";
+import type { BlogPost as BlogPostType, EditorialIdea, LinkItem } from "@/content/types";
+
+type BlogPost = Omit<BlogPostType, "publishAt">;
 
 export const blogCategories = [
   "Personal Training Mauritius",

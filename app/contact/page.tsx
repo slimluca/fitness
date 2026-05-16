@@ -101,9 +101,6 @@ export default async function ContactPage({ searchParams }: PageProps) {
                   </Link>
                 </Button>
                 <WhatsAppButton size="lg" label="WhatsApp Now" trackLocation="contact-hero" />
-                <Button asChild size="lg" variant="ghost">
-                  <Link href="#contact-form">Request Availability</Link>
-                </Button>
               </div>
             }
           />

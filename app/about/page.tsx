@@ -197,11 +197,6 @@ export default function AboutPage() {
                 variant: "outline",
                 messageKey: "consultation",
               },
-              {
-                label: "Request Availability",
-                href: siteConfig.availabilityCtaHref,
-                variant: "ghost",
-              },
             ]}
           />
         </section>

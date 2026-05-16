@@ -141,9 +141,6 @@ export default function OnlineCoachingPage() {
                   trackLocation="online-coaching-hero"
                   messageKey="online"
                 />
-                <Button asChild size="lg" variant="ghost">
-                  <Link href={siteConfig.availabilityCtaHref}>Request Availability</Link>
-                </Button>
               </div>
             }
           />
@@ -251,11 +248,6 @@ export default function OnlineCoachingPage() {
                 href: siteConfig.availabilityCtaHref,
                 variant: "outline",
                 messageKey: "online",
-              },
-              {
-                label: "Request Availability",
-                href: siteConfig.availabilityCtaHref,
-                variant: "ghost",
               },
             ]}
           />

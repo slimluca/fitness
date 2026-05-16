@@ -33,13 +33,13 @@ export function ReviewGrid({ items, compact = false }: ReviewGridProps) {
       {items.map((item) => (
         <Card key={`${item.name}-${item.quote}`} className="flex h-full flex-col gap-5">
           <div className="flex min-h-0 flex-1 flex-col gap-4">
-            <div className="grid min-h-[3rem] grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
+            <div className="grid min-h-[3.25rem] grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
               <div className="flex min-w-0 flex-wrap gap-2">
                 {item.sourceLabel ? <Badge variant="muted">{item.sourceLabel}</Badge> : null}
                 {item.serviceUsed ? <Badge variant="muted">{item.serviceUsed}</Badge> : null}
               </div>
               {item.rating ? (
-                <div className="flex shrink-0 items-center gap-1 pt-0.5 text-[color:var(--brand-gold)]">
+                <div className="flex shrink-0 items-center gap-1 self-start pt-0.5 text-[color:var(--brand-gold)]">
                   {Array.from({ length: item.rating }).map((_, index) => (
                     <Star key={index} className="h-4 w-4 fill-current" />
                   ))}
@@ -64,7 +64,7 @@ export function ReviewGrid({ items, compact = false }: ReviewGridProps) {
             ) : null}
           </div>
 
-          <div className="mt-auto space-y-1 pt-2">
+          <div className="mt-auto space-y-1 border-t border-white/10 pt-4">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--brand-gold)]">
               {getDisplayName(item)}
             </p>

@@ -5,6 +5,7 @@ import type { GoogleReviewFeed } from "@/lib/google-reviews";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { siteConfig } from "@/content/site";
 
 type GoogleReviewSummaryProps = {
   feed: GoogleReviewFeed;
@@ -57,9 +58,13 @@ export function GoogleReviewSummary({ feed }: GoogleReviewSummaryProps) {
             </a>
           </Button>
         ) : null}
-        <Button asChild variant="ghost">
-          <Link href="/contact" data-track-label="Request Availability" data-track-location="google-reviews-summary">
-            Request Availability
+        <Button asChild>
+          <Link
+            href={siteConfig.primaryCtaHref}
+            data-track-label="Book Consultation"
+            data-track-location="google-reviews-summary"
+          >
+            Book Consultation
           </Link>
         </Button>
       </div>

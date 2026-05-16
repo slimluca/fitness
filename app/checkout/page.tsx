@@ -14,7 +14,7 @@ import { buildMetadata } from "@/lib/seo";
 const checkoutMetadata = buildMetadata({
   title: "Checkout | Fitness Grand Baie",
   description:
-    "Future payment activation page for Fitness Grand Baie. Consultation, WhatsApp, and availability requests are the active paths for now.",
+    "Future payment activation page for Fitness Grand Baie. Consultation and WhatsApp are the active paths for now.",
   path: "/checkout",
 });
 
@@ -45,7 +45,7 @@ export default function CheckoutPage() {
           <Hero
             eyebrow="Checkout on hold"
             title="Online payment is not active in the public website flow yet"
-            description="Fitness Grand Baie is currently lead-generation focused. Book consultation, message on WhatsApp, or request availability first while the payment architecture remains preserved for future activation."
+            description="Fitness Grand Baie is currently lead-generation focused. Book consultation or message on WhatsApp first while the payment architecture remains preserved for future activation."
             image="/training-session.jpeg"
             aside={
               <div className="space-y-4 text-sm leading-7 text-white/72">
@@ -81,9 +81,6 @@ export default function CheckoutPage() {
                 <Link href="/contact?intent=consultation">Book Consultation</Link>
               </Button>
               <WhatsAppButton label="WhatsApp Now" />
-              <Button asChild variant="ghost">
-                <Link href="/contact">Request Availability</Link>
-              </Button>
             </div>
           </Card>
         </section>
@@ -108,7 +105,7 @@ export default function CheckoutPage() {
         <section className="page-section">
           <CTASection
             eyebrow="Next step"
-            title="Move into consultation, WhatsApp, or availability request"
+            title="Move into consultation or WhatsApp"
             description="That keeps the experience premium, personal, and aligned with the appointment-only nature of the private gym."
             actions={[
               { label: "Book Consultation", href: "/contact?intent=consultation" },
@@ -118,7 +115,6 @@ export default function CheckoutPage() {
                 variant: "outline",
                 messageKey: "consultation",
               },
-              { label: "Request Availability", href: "/contact", variant: "ghost" },
             ]}
           />
         </section>

@@ -107,7 +107,7 @@ export const tools: ToolDefinition[] = [
     relatedToolSlugs: ["macro-calculator", "protein-calculator", "meal-planning-checklist"],
     commercialLinks: [
       { label: "Online Coaching", href: "/online-coaching" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact?intent=consultation" },
     ],
   },
   {
@@ -203,7 +203,7 @@ export const tools: ToolDefinition[] = [
     relatedToolSlugs: ["calorie-calculator", "step-goal-calculator", "meal-planning-checklist"],
     commercialLinks: [
       { label: "Personal Training", href: "/personal-training" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact?intent=consultation" },
     ],
   },
   {
@@ -343,7 +343,7 @@ export const tools: ToolDefinition[] = [
     ],
     commercialLinks: [
       { label: "Online Coaching", href: "/online-coaching" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact?intent=consultation" },
     ],
   },
   {
@@ -447,7 +447,7 @@ export const tools: ToolDefinition[] = [
     relatedToolSlugs: ["calorie-calculator", "macro-calculator", "protein-calculator"],
     commercialLinks: [
       { label: "Online Coaching", href: "/online-coaching" },
-      { label: "Request Availability", href: "/contact" },
+      { label: "Book Consultation", href: "/contact?intent=consultation" },
     ],
   },
   {
