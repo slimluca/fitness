@@ -180,12 +180,10 @@ export default async function SeoLandingPage({ params }: PageProps) {
               </Card>
             </Reveal>
             <Reveal delay={0.05}>
-              <div className="grid grid-equal gap-5">
+              <div className="grid grid-equal gap-4 sm:grid-cols-2">
                 {whoItIsFor.map((item) => (
-                  <Card key={item} className="flex h-full flex-col gap-3">
-                    <h3 className="font-display text-[1.7rem] leading-tight text-white">
-                      Who it is for
-                    </h3>
+                  <Card key={item} className="flex h-full gap-3">
+                    <span className="mt-[0.72rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--brand-gold)]" />
                     <p className="text-sm leading-7 text-white/70">{item}</p>
                   </Card>
                 ))}

@@ -10,10 +10,8 @@ import { ReviewGrid } from "@/components/site/review-grid";
 import { SectionHeader } from "@/components/site/section-header";
 import { WhatsAppButton } from "@/components/site/whatsapp-button";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import {
   contactPageTestimonials,
-  leadFlowCommitments,
   pageHeroAssets,
   resolveProofAssetAlt,
   resolveProofAssetObjectPosition,
@@ -107,8 +105,8 @@ export default async function ContactPage({ searchParams }: PageProps) {
         </section>
 
         <section className="page-section">
-          <div className="grid gap-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
-            <div className="grid gap-4 sm:gap-5">
+          <div className="grid gap-6 lg:grid-cols-[0.84fr_1.16fr] lg:items-start">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 sm:gap-5">
               <Reveal>
                 <ContactCard
                   icon={<MessageCircleMore className="h-5 w-5" />}
@@ -135,21 +133,6 @@ export default async function ContactPage({ searchParams }: PageProps) {
                 >
                   <p className="text-sm text-white/70">Usually within one business day.</p>
                 </ContactCard>
-              </Reveal>
-              <Reveal delay={0.15}>
-                <Card className="space-y-4">
-                  <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
-                    What helps the reply
-                  </p>
-                  <div className="space-y-3 text-sm leading-7 text-white/70">
-                    {leadFlowCommitments.map((item) => (
-                      <div key={item.title}>
-                        <p className="font-medium text-white">{item.title}</p>
-                        <p>{item.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                </Card>
               </Reveal>
             </div>
 

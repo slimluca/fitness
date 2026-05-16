@@ -22,30 +22,38 @@ export function GoogleReviewSummary({ feed }: GoogleReviewSummaryProps) {
     <Card className="flex h-full flex-col gap-5">
       <div className="space-y-3">
         <Badge>Google reviews</Badge>
-        <h2 className="font-display text-[2.1rem] leading-[0.98] text-white sm:text-[2.55rem]">
-          Google review trust, shown cleanly
+        <h2 className="font-display text-[1.95rem] leading-[0.98] text-white sm:text-[2.35rem]">
+          Real Google review trust, shown cleanly
         </h2>
         <p className="max-w-[38rem] text-sm leading-7 text-white/72">
-          The Google Business Profile summary and selected client feedback are shown
-          together so visitors can trust the quality of the coaching quickly.
+          When live Google review data is available, the rating summary is shown here in
+          a compact format that supports trust without turning the page into a noisy widget.
         </p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
-        <div className="flex h-full flex-col justify-between rounded-[24px] border border-white/10 bg-black/20 p-5">
+        <div className="flex h-full flex-col rounded-[24px] border border-white/10 bg-black/20 p-5">
           <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
             Average rating
           </p>
-          <div className="mt-3 flex items-center gap-3">
-            <p className="font-display text-5xl text-white">{feed.averageRating?.toFixed(1)}</p>
-            <Star className="h-5 w-5 fill-[color:var(--brand-gold)] text-[color:var(--brand-gold)]" />
+          <div className="mt-3 flex items-end gap-3">
+            <p className="font-display text-[3.4rem] leading-none text-white">
+              {feed.averageRating?.toFixed(1)}
+            </p>
+            <div className="flex items-center gap-1 pb-1 text-[color:var(--brand-gold)]">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <Star key={index} className="h-4 w-4 fill-current" />
+              ))}
+            </div>
           </div>
         </div>
-        <div className="flex h-full flex-col justify-between rounded-[24px] border border-white/10 bg-black/20 p-5">
+        <div className="flex h-full flex-col rounded-[24px] border border-white/10 bg-black/20 p-5">
           <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
             Review count
           </p>
-          <p className="mt-3 font-display text-5xl text-white">{feed.reviewCount}</p>
+          <p className="mt-3 font-display text-[3.4rem] leading-none text-white">
+            {feed.reviewCount}
+          </p>
         </div>
       </div>
 

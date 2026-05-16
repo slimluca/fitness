@@ -58,55 +58,55 @@ button {
 
 .page-section {
   margin-inline: auto;
-  width: min(1240px, calc(100% - 1.25rem));
+  width: min(1280px, calc(100% - 1.25rem));
 }
 
 @media (min-width: 640px) {
   .page-section {
-    width: min(1240px, calc(100% - 2rem));
+    width: min(1280px, calc(100% - 2rem));
   }
 }
 
 @media (min-width: 1024px) {
   .page-section {
-    width: min(1240px, calc(100% - 3.5rem));
+    width: min(1280px, calc(100% - 4rem));
   }
 }
 
 .hero-shell {
   margin-inline: auto;
-  width: min(1320px, calc(100% - 1.25rem));
+  width: min(1440px, calc(100% - 1.25rem));
 }
 
 @media (min-width: 640px) {
   .hero-shell {
-    width: min(1320px, calc(100% - 2rem));
+    width: min(1440px, calc(100% - 2rem));
   }
 }
 
 @media (min-width: 1024px) {
   .hero-shell {
-    width: min(1320px, calc(100% - 4rem));
+    width: min(1440px, calc(100% - 4.5rem));
   }
 }
 
 .page-flow {
   display: grid;
-  gap: 2.75rem;
-  padding-block: 0.9rem 3.25rem;
+  gap: 2.5rem;
+  padding-block: 0.8rem 3rem;
 }
 
 @media (min-width: 640px) {
   .page-flow {
-    gap: 3.25rem;
-    padding-block: 1.1rem 3.75rem;
+    gap: 3rem;
+    padding-block: 1rem 3.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .page-flow {
-    gap: 3.75rem;
-    padding-block: 1.35rem 4.25rem;
+    gap: 3.4rem;
+    padding-block: 1.2rem 4rem;
   }
 }
 

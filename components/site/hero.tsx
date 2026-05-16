@@ -50,9 +50,9 @@ export function Hero({
       </div>
       <div
         className={cn(
-          "hero-shell relative grid gap-6 py-10 sm:py-12 lg:gap-10 lg:py-16 xl:gap-12",
+          "hero-shell relative grid gap-7 py-10 sm:py-12 lg:gap-12 lg:py-16 xl:gap-16",
           hasAside
-            ? "lg:grid-cols-[minmax(0,1.28fr)_minmax(320px,0.72fr)] lg:items-end"
+            ? "lg:grid-cols-[minmax(0,1.4fr)_minmax(340px,0.9fr)] lg:items-center"
             : "lg:grid-cols-[minmax(0,1fr)]",
         )}
       >
@@ -61,8 +61,8 @@ export function Hero({
           <div className="space-y-4">
             <h1
               className={cn(
-                "font-display text-[2.25rem] leading-[0.95] tracking-tight text-white sm:text-[3.5rem] lg:text-[4.4rem] xl:text-[5rem]",
-                hasAside ? "max-w-[54rem]" : "max-w-[62rem]",
+                "font-display text-[2.25rem] leading-[0.95] tracking-tight text-white sm:text-[3.5rem] lg:text-[4.55rem] xl:text-[5.25rem]",
+                hasAside ? "max-w-[60rem]" : "max-w-[70rem]",
               )}
             >
               {title}
@@ -70,7 +70,7 @@ export function Hero({
             <p
               className={cn(
                 "text-[15px] leading-7 text-white/74 sm:text-[1.05rem] sm:leading-8",
-                hasAside ? "max-w-[44rem]" : "max-w-[49rem]",
+                hasAside ? "max-w-[50rem]" : "max-w-[56rem]",
               )}
             >
               {description}
@@ -79,7 +79,7 @@ export function Hero({
           {actions}
         </div>
         {aside ? (
-          <div className="relative flex h-full max-w-[27rem] flex-col justify-end gap-3 justify-self-start lg:justify-self-end">
+          <div className="relative flex h-full max-w-[32rem] flex-col justify-center gap-3 justify-self-start lg:justify-self-end">
             {aside}
           </div>
         ) : null}

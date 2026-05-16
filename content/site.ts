@@ -38,7 +38,7 @@ export const siteConfig = {
     couples:
       "Hello, I am interested in couple training. Please send availability and pricing.",
     houseCalls:
-      "Hello, I would like to request availability for house call personal training in Mauritius.",
+      "Hello, I would like to enquire about house call personal training in Mauritius.",
     payment:
       "Hello, I have completed my payment and would like to confirm my appointment and preferred schedule.",
   },
@@ -254,6 +254,7 @@ export const primaryNavigation: LinkItem[] = [
   { label: "Online Coaching", href: "/online-coaching" },
   { label: "Results", href: "/results" },
   { label: "Reviews", href: "/reviews" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 

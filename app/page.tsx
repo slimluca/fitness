@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Reveal } from "@/components/motion/reveal";
+import { BlogCard } from "@/components/site/blog-card";
 import { CTASection } from "@/components/site/cta-section";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
@@ -21,6 +22,7 @@ import {
   siteConfig,
   onlineConsistencyTestimonial,
   postureConfidenceTestimonial,
+  getPublishedBlogPosts,
 } from "@/content";
 import { getGoogleReviewFeed } from "@/lib/google-reviews";
 import { localBusinessSchema } from "@/lib/schema";
@@ -91,14 +93,15 @@ const homepageReviews = [
   onlineConsistencyTestimonial,
 ];
 
-export default function HomePage() {
-  const googleReviewFeed = getGoogleReviewFeed();
+export default async function HomePage() {
+  const googleReviewFeed = await getGoogleReviewFeed();
   const hasLiveGoogleReviews =
     googleReviewFeed.averageRating !== null && googleReviewFeed.reviewCount !== null;
   const reviewItems =
     hasLiveGoogleReviews && googleReviewFeed.selectedReviews.length
-      ? googleReviewFeed.selectedReviews.slice(0, 3)
+      ? googleReviewFeed.selectedReviews.slice(0, 4)
       : homepageReviews;
+  const journalPreview = getPublishedBlogPosts().slice(0, 3);
 
   return (
     <>
@@ -240,12 +243,32 @@ export default function HomePage() {
                 <Button asChild>
                   <Link href="/reviews">View Reviews</Link>
                 </Button>
+                <Button asChild variant="outline">
+                  <Link href="/blog">Read the Journal</Link>
+                </Button>
                 <Button asChild variant="ghost">
                   <Link href={siteConfig.primaryCtaHref}>Book Consultation</Link>
                 </Button>
               </div>
             </div>
           </Reveal>
+        </section>
+
+        <section className="page-section">
+          <Reveal>
+            <SectionHeader
+              eyebrow="Journal"
+              title="A curated blog that stays useful and commercially focused"
+              description="The journal is built for readers comparing coaching options in Mauritius, not for publishing filler. Start with the strongest articles below."
+            />
+          </Reveal>
+          <div className="mt-7 grid grid-equal gap-5 md:grid-cols-2 xl:grid-cols-3 sm:mt-8">
+            {journalPreview.map((post, index) => (
+              <Reveal key={post.slug} delay={index * 0.04}>
+                <BlogCard post={post} />
+              </Reveal>
+            ))}
+          </div>
         </section>
 
         <section className="page-section">

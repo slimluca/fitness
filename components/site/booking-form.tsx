@@ -28,15 +28,6 @@ const submitLabels = {
   "service-inquiry": "Book Consultation",
 } as const;
 
-const formIntros = {
-  consultation:
-    "Share the essentials and your consultation request can be reviewed properly without a long form.",
-  contact:
-    "Use this private enquiry form if you want a clear reply before moving ahead with consultation or WhatsApp.",
-  "service-inquiry":
-    "Share your preferred coaching option and main goal so the best next step can be confirmed personally.",
-} as const;
-
 export function BookingForm({
   type = "consultation",
   defaultService,
@@ -218,13 +209,15 @@ export function BookingForm({
   return (
     <form
       action={handleSubmit}
-      className="grid gap-5 rounded-[28px] border border-white/10 bg-white/6 p-5 shadow-[0_20px_56px_rgba(0,0,0,0.2)] backdrop-blur-sm sm:gap-6 sm:p-6 lg:p-7"
+      className="grid gap-5 rounded-[28px] border border-white/10 bg-white/6 p-5 shadow-[0_20px_56px_rgba(0,0,0,0.2)] backdrop-blur-sm sm:gap-5 sm:p-6 lg:p-7"
     >
       <div className="space-y-2.5">
         <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--brand-gold)]">
           Private enquiry
         </p>
-        <p className="text-sm leading-7 text-white/72">{formIntros[type]}</p>
+        <p className="text-sm leading-7 text-white/72">
+          Share the essentials and we will reply with the clearest next step.
+        </p>
       </div>
       <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
         <div className="space-y-2">
@@ -283,17 +276,6 @@ export function BookingForm({
         </div>
       </div>
       <div className="space-y-2">
-        <label htmlFor={`${type}-schedule`} className="text-sm font-medium leading-6 text-white/80">
-          Preferred schedule (optional)
-        </label>
-        <Input
-          id={`${type}-schedule`}
-          name="schedule"
-          placeholder="Early morning, lunch, evenings..."
-          autoComplete="off"
-        />
-      </div>
-      <div className="space-y-2">
         <label htmlFor={`${type}-goals`} className="text-sm font-medium leading-6 text-white/80">
           Goal / message
         </label>
@@ -302,6 +284,17 @@ export function BookingForm({
           name="goals"
           placeholder="Tell us what you want help with and any useful context before we reply."
           required
+        />
+      </div>
+      <div className="space-y-2">
+        <label htmlFor={`${type}-schedule`} className="text-sm font-medium leading-6 text-white/80">
+          Preferred schedule (optional)
+        </label>
+        <Input
+          id={`${type}-schedule`}
+          name="schedule"
+          placeholder="Early morning, lunch, evenings..."
+          autoComplete="off"
         />
       </div>
       {error ? (
@@ -328,8 +321,7 @@ export function BookingForm({
         </Button>
         <p className="text-sm leading-6 text-white/60">
           Most enquiries receive a reply within one business day. WhatsApp is usually the
-          fastest route for time-sensitive questions, and exact residential access details
-          are only shared after fit and scheduling are confirmed.
+          fastest route for time-sensitive questions.
         </p>
       </div>
     </form>

@@ -34,8 +34,8 @@ export const metadata = buildMetadata({
   ],
 });
 
-export default function ReviewsPage() {
-  const googleReviewFeed = getGoogleReviewFeed();
+export default async function ReviewsPage() {
+  const googleReviewFeed = await getGoogleReviewFeed();
   const hasLiveGoogleReviews =
     googleReviewFeed.averageRating !== null && googleReviewFeed.reviewCount !== null;
   const reviewItems =

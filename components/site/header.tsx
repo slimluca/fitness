@@ -34,13 +34,13 @@ export function Header() {
     >
       <div className="page-section flex items-center justify-between gap-3 py-3 sm:gap-4 sm:py-3.5">
         <Logo />
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-4 lg:flex xl:gap-5">
           {primaryNavigation.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm font-medium transition",
+                "text-[0.92rem] font-medium transition xl:text-[0.95rem]",
                 pathname === link.href ? "text-white" : "text-white/72 hover:text-white",
               )}
             >
@@ -48,7 +48,7 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <WhatsAppButton label="WhatsApp Now" />
           <Button asChild>
             <Link href="/contact?intent=consultation">Book Consultation</Link>
