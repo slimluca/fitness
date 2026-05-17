@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { AuthorBox } from "@/components/site/author-box";
 import { BlogHubClient } from "@/components/site/blog-hub-client";
-import { CTASection } from "@/components/site/cta-section";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { SectionHeader } from "@/components/site/section-header";
@@ -172,23 +171,6 @@ export default function BlogPage() {
               categories={categorySummaries.map((category) => category.name)}
             />
           </Reveal>
-        </section>
-
-        <section className="page-section">
-          <CTASection
-            eyebrow="From content to action"
-            title="Use the advice, then take the next step that fits"
-            description="Use the guide you have just read to choose the right service, book a consultation, or send a WhatsApp message with a clear next question."
-            actions={[
-              { label: "Book Consultation", href: "/contact?intent=consultation" },
-              {
-                label: "WhatsApp Now",
-                href: "/contact",
-                variant: "outline",
-                messageKey: "consultation",
-              },
-            ]}
-          />
         </section>
       </div>
     </>

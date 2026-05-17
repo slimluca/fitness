@@ -85,21 +85,8 @@ export default async function ContactPage({ searchParams }: PageProps) {
         </section>
 
         <section className="page-section">
-          <div className="mx-auto max-w-[54rem] space-y-4">
+          <div className="mx-auto max-w-[54rem]">
             <Reveal>
-              <div className="grid gap-3 sm:grid-cols-3">
-                <div className="rounded-[20px] border border-white/10 bg-black/20 px-4 py-3 text-sm leading-6 text-white/68">
-                  Appointment only. No public walk-ins.
-                </div>
-                <div className="rounded-[20px] border border-white/10 bg-black/20 px-4 py-3 text-sm leading-6 text-white/68">
-                  Grand Baie, Mauritius private gym in a home residence.
-                </div>
-                <div className="rounded-[20px] border border-white/10 bg-black/20 px-4 py-3 text-sm leading-6 text-white/68">
-                  Most serious enquiries receive a reply within one business day.
-                </div>
-              </div>
-            </Reveal>
-            <Reveal delay={0.05}>
               <div id="contact-form" className="scroll-mt-32">
                 <BookingForm type={formType} defaultService={defaultService} />
               </div>

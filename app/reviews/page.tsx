@@ -1,5 +1,4 @@
 import { Reveal } from "@/components/motion/reveal";
-import { CTASection } from "@/components/site/cta-section";
 import { GoogleReviewSummary } from "@/components/site/google-review-summary";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
@@ -10,7 +9,6 @@ import {
   resolveProofAssetAlt,
   resolveProofAssetObjectPosition,
   resolveProofAssetSrc,
-  siteConfig,
   testimonials,
 } from "@/content";
 import { getGoogleReviewFeed } from "@/lib/google-reviews";
@@ -81,23 +79,6 @@ export default async function ReviewsPage() {
           <div className="mt-8">
             <ReviewGrid items={reviewItems} />
           </div>
-        </section>
-
-        <section className="page-section">
-          <CTASection
-            eyebrow="Ready to enquire?"
-            title="Use reviews to build confidence, then move into consultation"
-            description="If the private coaching standard feels like the right fit, book a consultation or message on WhatsApp now."
-            actions={[
-              { label: "Book Consultation", href: siteConfig.primaryCtaHref },
-              {
-                label: "WhatsApp Now",
-                href: siteConfig.availabilityCtaHref,
-                variant: "outline",
-                messageKey: "consultation",
-              },
-            ]}
-          />
         </section>
       </div>
     </>

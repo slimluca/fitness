@@ -1,8 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-
-import { WhatsAppButton } from "@/components/site/whatsapp-button";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { proofAssets } from "@/content/proof";
 import { coachCredibility, siteConfig } from "@/content/site";
@@ -51,15 +47,6 @@ export function AuthorBox({ compact = false }: AuthorBoxProps) {
             <p>{item.description}</p>
           </div>
         ))}
-      </div>
-      <div className="flex flex-col gap-3">
-        <Button asChild>
-          <Link href="/contact?intent=consultation">Book Consultation</Link>
-        </Button>
-        <WhatsAppButton variant="outline" label="WhatsApp Now" />
-        <Button asChild variant="outline">
-          <Link href="/about">Meet Fabrizio</Link>
-        </Button>
       </div>
     </Card>
   );

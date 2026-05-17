@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { Reveal } from "@/components/motion/reveal";
-import { CTASection } from "@/components/site/cta-section";
 import { FAQAccordion } from "@/components/site/faq-accordion";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
@@ -260,23 +259,6 @@ export default function PersonalTrainingPage() {
           <div className="mt-8">
             <FAQAccordion items={faqs} />
           </div>
-        </section>
-
-        <section className="page-section">
-          <CTASection
-            eyebrow="Ready to train privately?"
-            title="Book consultation or message on WhatsApp"
-            description="If private one-to-one coaching sounds like the right fit, the next step is simple and personal."
-            actions={[
-              { label: "Book Consultation", href: siteConfig.primaryCtaHref },
-              {
-                label: "WhatsApp Now",
-                href: siteConfig.availabilityCtaHref,
-                variant: "outline",
-                messageKey: "consultation",
-              },
-            ]}
-          />
         </section>
       </div>
     </>

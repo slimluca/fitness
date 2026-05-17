@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { LockKeyhole, ShieldCheck } from "lucide-react";
 
-import { CTASection } from "@/components/site/cta-section";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { WhatsAppButton } from "@/components/site/whatsapp-button";
@@ -99,23 +98,6 @@ export default function CheckoutPage() {
               </Card>
             ))}
           </div>
-        </section>
-
-        <section className="page-section">
-          <CTASection
-            eyebrow="Next step"
-            title="Move into consultation or WhatsApp"
-            description="That keeps the experience premium, personal, and aligned with the appointment-only nature of the private gym."
-            actions={[
-              { label: "Book Consultation", href: "/contact?intent=consultation" },
-              {
-                label: "WhatsApp Now",
-                href: "/contact",
-                variant: "outline",
-                messageKey: "consultation",
-              },
-            ]}
-          />
         </section>
       </div>
     </>

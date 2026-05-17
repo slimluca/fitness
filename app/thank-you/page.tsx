@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 
-import { CTASection } from "@/components/site/cta-section";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { Button } from "@/components/ui/button";
@@ -181,23 +180,6 @@ export default async function ThankYouPage({ searchParams }: PageProps) {
             </div>
           </Card>
         </div>
-      </section>
-
-      <section className="page-section">
-        <CTASection
-          eyebrow="Need to keep moving?"
-          title="Use WhatsApp or return to the main service page"
-          description="The post-enquiry journey should still feel premium, private, and easy to trust."
-          actions={[
-            { label: "Book Consultation", href: siteConfig.primaryCtaHref },
-            {
-              label: "WhatsApp Now",
-              href: siteConfig.availabilityCtaHref,
-              variant: "outline",
-              messageKey: "consultation",
-            },
-          ]}
-        />
       </section>
     </div>
   );

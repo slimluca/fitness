@@ -1,13 +1,12 @@
 import Link from "next/link";
 
-import { CTASection } from "@/components/site/cta-section";
 import { JsonLd } from "@/components/site/json-ld";
 import { SectionHeader } from "@/components/site/section-header";
 import { ToolCard } from "@/components/site/tool-card";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { getToolsHubSections, toolsHubCommercialLinks, siteConfig } from "@/content";
+import { getToolsHubSections, toolsHubCommercialLinks } from "@/content";
 import { breadcrumbSchema, localBusinessSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 
@@ -106,23 +105,6 @@ export default function ToolsHubPage() {
             </div>
           </section>
         ))}
-
-        <section className="page-section">
-          <CTASection
-            eyebrow="Use the estimate, then personalise the plan"
-            title="If you want coaching built around your real numbers, start with consultation"
-            description="The tools are useful on their own, but the strongest next step is still a plan built around your schedule, your training level, and your real-world goals."
-            actions={[
-              { label: "Book Consultation", href: siteConfig.primaryCtaHref },
-              {
-                label: "WhatsApp Now",
-                href: siteConfig.availabilityCtaHref,
-                variant: "outline",
-                messageKey: "advise",
-              },
-            ]}
-          />
-        </section>
       </div>
     </>
   );

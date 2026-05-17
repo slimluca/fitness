@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 
 import { Reveal } from "@/components/motion/reveal";
-import { CTASection } from "@/components/site/cta-section";
 import { FAQAccordion } from "@/components/site/faq-accordion";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
@@ -15,7 +14,6 @@ import {
   resolveProofAssetAlt,
   resolveProofAssetObjectPosition,
   resolveProofAssetSrc,
-  siteConfig,
 } from "@/content";
 import { breadcrumbSchema, faqSchema, landingPageSchema, localBusinessSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
@@ -225,23 +223,6 @@ export default async function SeoLandingPage({ params }: PageProps) {
               </div>
             </Reveal>
           </div>
-        </section>
-
-        <section className="page-section">
-          <CTASection
-            eyebrow="Take the next step"
-            title="Book consultation or message on WhatsApp about private coaching in Mauritius"
-            description="If the private coaching model feels like the right fit, move into consultation now or message on WhatsApp for a quick response."
-            actions={[
-              { label: "Book Consultation", href: siteConfig.primaryCtaHref },
-              {
-                label: "WhatsApp Now",
-                href: siteConfig.availabilityCtaHref,
-                variant: "outline",
-                messageKey: "consultation",
-              },
-            ]}
-          />
         </section>
       </div>
     </>

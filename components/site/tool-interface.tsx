@@ -1,18 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import type { FormEvent, ReactNode } from "react";
 import { useState } from "react";
 import { CheckCircle2, ChevronDown, Clipboard, RotateCcw, Sparkles } from "lucide-react";
 
 import type { ToolDefinition } from "@/content/types";
-import { siteConfig } from "@/content/site";
 import { ToolIcon } from "@/components/site/tool-icon";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { buildWhatsAppLink } from "@/lib/utils";
 
 type ToolInterfaceProps = {
   tool: ToolDefinition;
@@ -302,44 +299,11 @@ function ToolResultPanel({
           {outcome.note}
         </div>
       ) : null}
-
-      <div className="space-y-3 rounded-[24px] border border-white/10 bg-black/20 p-5">
-        <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
-          Want a personalised plan?
-        </p>
-        <p className="text-sm leading-7 text-white/68">
-          Use this result as a starting point, then turn it into a cleaner plan with
-          consultation or a quick WhatsApp conversation.
-        </p>
-        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-          <Button asChild size="sm">
-            <Link href={siteConfig.primaryCtaHref}>Book Consultation</Link>
-          </Button>
-          <Button
-            asChild
-            size="sm"
-            variant="dark"
-            className="border border-[color:var(--whatsapp-green)]/35 bg-black text-[color:var(--whatsapp-green)] shadow-none hover:border-[color:var(--whatsapp-green)] hover:bg-black/90"
-          >
-            <a
-              href={buildWhatsAppLink(
-                siteConfig.phone,
-                siteConfig.whatsappMessages.advise,
-              )}
-              target="_blank"
-              rel="noreferrer"
-              data-track-event="whatsapp_click"
-              data-track-label="WhatsApp Now"
-              data-track-location="tool-result-panel"
-            >
-              WhatsApp Now
-            </a>
-          </Button>
-          <Button type="button" variant="ghost" size="sm" onClick={handleCopy}>
-            <Clipboard className="h-4 w-4" />
-            {copied ? "Copied" : "Copy summary"}
-          </Button>
-        </div>
+      <div className="flex justify-start">
+        <Button type="button" variant="ghost" size="sm" onClick={handleCopy}>
+          <Clipboard className="h-4 w-4" />
+          {copied ? "Copied" : "Copy summary"}
+        </Button>
       </div>
     </Card>
   );

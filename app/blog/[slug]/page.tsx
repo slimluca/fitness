@@ -4,14 +4,10 @@ import { notFound } from "next/navigation";
 
 import { AuthorBox } from "@/components/site/author-box";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
-import { CTASection } from "@/components/site/cta-section";
 import { FAQAccordion } from "@/components/site/faq-accordion";
 import { JsonLd } from "@/components/site/json-ld";
 import { RelatedPosts } from "@/components/site/related-posts";
 import { TableOfContents } from "@/components/site/table-of-contents";
-import { WhatsAppButton } from "@/components/site/whatsapp-button";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import {
   formatBlogDate,
   getBlogCategoryPath,
@@ -67,10 +63,6 @@ export default async function BlogArticlePage({ params }: PageProps) {
   const conversionLinks = (post.conversionLinks ?? getBlogConversionLinks(post.category)).map(
     normalizeCommercialLink,
   );
-  const bestNextLink = conversionLinks[0] ?? {
-    label: "Book Consultation",
-    href: "/contact?intent=consultation",
-  };
 
   return (
     <>
@@ -141,40 +133,6 @@ export default async function BlogArticlePage({ params }: PageProps) {
                 ))}
               </ul>
             </div>
-
-            <Card className="space-y-5">
-              <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
-                Best next step
-              </p>
-              <p className="text-sm leading-7 text-white/72">
-                If this topic matches your situation, move next into the page that best
-                fits your goal. That usually means reviewing the relevant service, landing
-                page, or contact option while the question is still clear in your mind.
-              </p>
-              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Button asChild>
-                  <Link
-                    href="/contact?intent=consultation"
-                    data-track-location={`blog-article-best-next:${post.slug}`}
-                  >
-                    Book Consultation
-                  </Link>
-                </Button>
-                <Button asChild variant="outline">
-                  <Link
-                    href={bestNextLink.href}
-                    data-track-location={`blog-article-best-next:${post.slug}`}
-                  >
-                    {bestNextLink.label}
-                  </Link>
-                </Button>
-                <WhatsAppButton
-                  label="WhatsApp Now"
-                  trackLocation={`blog-article-best-next:${post.slug}`}
-                />
-              </div>
-            </Card>
-
             <div className="space-y-11">
               {post.sections.map((section) => (
                 <section key={section.id} id={section.id} className="scroll-mt-32 space-y-5">
@@ -228,22 +186,6 @@ export default async function BlogArticlePage({ params }: PageProps) {
               <h2 className="font-display text-4xl text-white">Article FAQ</h2>
               <FAQAccordion items={post.faq} />
             </div>
-
-            <CTASection
-              eyebrow="From article to action"
-              title="Ready to discuss your goals with a private personal trainer in Mauritius?"
-              description="Move from reading into a real coaching conversation with private consultation, relevant services, pricing guidance, and WhatsApp support that matches the topic you just explored."
-              actions={[
-                { label: "Book Consultation", href: "/contact?intent=consultation" },
-                {
-                  label: "WhatsApp Now",
-                  href: "/contact",
-                  variant: "outline",
-                  messageKey: "consultation",
-                },
-              ]}
-            />
-
             <div className="space-y-6">
               <h2 className="font-display text-4xl text-white">Related posts</h2>
               <RelatedPosts posts={relatedPosts} />

@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import { Reveal } from "@/components/motion/reveal";
 import { BlogCard } from "@/components/site/blog-card";
-import { CTASection } from "@/components/site/cta-section";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { ReviewGrid } from "@/components/site/review-grid";
@@ -251,23 +250,6 @@ export default async function HomePage() {
               </Reveal>
             ))}
           </div>
-        </section>
-
-        <section className="page-section">
-          <CTASection
-            eyebrow="Next step"
-            title="Book your consultation or message on WhatsApp"
-            description="If you want private premium coaching in Grand Baie, the next move is simple. Start with consultation or use WhatsApp for a quick conversation."
-            actions={[
-              { label: "Book Consultation", href: siteConfig.primaryCtaHref },
-              {
-                label: "WhatsApp Now",
-                href: siteConfig.availabilityCtaHref,
-                variant: "outline",
-                messageKey: "consultation",
-              },
-            ]}
-          />
         </section>
       </div>
     </>

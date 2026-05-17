@@ -5,7 +5,6 @@ import { Reveal } from "@/components/motion/reveal";
 import { AuthorBox } from "@/components/site/author-box";
 import { BlogCard } from "@/components/site/blog-card";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
-import { CTASection } from "@/components/site/cta-section";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { SectionHeader } from "@/components/site/section-header";
@@ -232,23 +231,6 @@ export default async function BlogCategoryPage({ params }: PageProps) {
             </div>
           </section>
         ) : null}
-
-        <section className="page-section">
-          <CTASection
-            eyebrow="From content to enquiry"
-            title="Book consultation or message on WhatsApp"
-            description="Move from the article topic into a clear service page, consultation request, or WhatsApp conversation."
-            actions={[
-              { label: "Book Consultation", href: "/contact?intent=consultation" },
-              {
-                label: "WhatsApp Now",
-                href: "/contact",
-                variant: "outline",
-                messageKey: "consultation",
-              },
-            ]}
-          />
-        </section>
       </div>
     </>
   );

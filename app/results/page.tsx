@@ -1,5 +1,4 @@
 import { Reveal } from "@/components/motion/reveal";
-import { CTASection } from "@/components/site/cta-section";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { ResultCard } from "@/components/site/result-card";
@@ -14,7 +13,6 @@ import {
   resolveProofAssetAlt,
   resolveProofAssetObjectPosition,
   resolveProofAssetSrc,
-  siteConfig,
   posturePerformanceStory,
   villaGuestContinuityStory,
 } from "@/content";
@@ -121,23 +119,6 @@ export default function ResultsPage() {
               </div>
             </Reveal>
           </div>
-        </section>
-
-        <section className="page-section">
-          <CTASection
-            eyebrow="Ready for your own progress story?"
-            title="Book consultation or message on WhatsApp about private coaching"
-            description="If the results page feels aligned with what you want, the next step is to start a private conversation about your goals and availability."
-            actions={[
-              { label: "Book Consultation", href: siteConfig.primaryCtaHref },
-              {
-                label: "WhatsApp Now",
-                href: siteConfig.availabilityCtaHref,
-                variant: "outline",
-                messageKey: "consultation",
-              },
-            ]}
-          />
         </section>
       </div>
     </>

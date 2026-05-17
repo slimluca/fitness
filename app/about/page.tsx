@@ -1,5 +1,4 @@
 import { Reveal } from "@/components/motion/reveal";
-import { CTASection } from "@/components/site/cta-section";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { ReviewGrid } from "@/components/site/review-grid";
@@ -13,7 +12,6 @@ import {
   resolveProofAssetAlt,
   resolveProofAssetObjectPosition,
   resolveProofAssetSrc,
-  siteConfig,
 } from "@/content";
 import { breadcrumbSchema, localBusinessSchema, personSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
@@ -166,23 +164,6 @@ export default function AboutPage() {
           <div className="mt-8">
             <ReviewGrid items={aboutPageTestimonials} compact />
           </div>
-        </section>
-
-        <section className="page-section">
-          <CTASection
-            eyebrow="Work together"
-            title="If the private coaching model fits, start with consultation"
-            description="Tell us your goals, your schedule, and whether private personal training or online coaching feels like the better fit."
-            actions={[
-              { label: "Book Consultation", href: siteConfig.primaryCtaHref },
-              {
-                label: "WhatsApp Now",
-                href: siteConfig.availabilityCtaHref,
-                variant: "outline",
-                messageKey: "consultation",
-              },
-            ]}
-          />
         </section>
       </div>
     </>

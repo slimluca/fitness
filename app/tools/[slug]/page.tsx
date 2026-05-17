@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 
 import { ToolInterface } from "@/components/site/tool-interface";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
-import { CTASection } from "@/components/site/cta-section";
 import { FAQAccordion } from "@/components/site/faq-accordion";
 import { JsonLd } from "@/components/site/json-ld";
 import { SectionHeader } from "@/components/site/section-header";
@@ -11,7 +10,7 @@ import { ToolCard } from "@/components/site/tool-card";
 import { ToolIcon } from "@/components/site/tool-icon";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { getAllTools, getRelatedTools, getToolBySlug, siteConfig, toolGroups } from "@/content";
+import { getAllTools, getRelatedTools, getToolBySlug, toolGroups } from "@/content";
 import { breadcrumbSchema, faqSchema, localBusinessSchema, toolSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 
@@ -147,23 +146,6 @@ export default async function ToolPage({ params }: PageProps) {
             </div>
           </section>
         ) : null}
-
-        <section className="page-section">
-          <CTASection
-            eyebrow="Want a personalised plan from this result?"
-            title="Use the tool result as a starting point, then move into coaching"
-            description="If you want a private training plan or cleaner online coaching structure based on your real numbers, the next step is consultation or a quick WhatsApp conversation."
-            actions={[
-              { label: "Book Consultation", href: siteConfig.primaryCtaHref },
-              {
-                label: "WhatsApp Now",
-                href: siteConfig.availabilityCtaHref,
-                variant: "outline",
-                messageKey: "advise",
-              },
-            ]}
-          />
-        </section>
       </div>
     </>
   );
