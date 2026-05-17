@@ -76,18 +76,18 @@ button {
 
 .hero-shell {
   margin-inline: auto;
-  width: min(1320px, calc(100% - 1.25rem));
+  width: min(1240px, calc(100% - 1.25rem));
 }
 
 @media (min-width: 640px) {
   .hero-shell {
-    width: min(1320px, calc(100% - 2rem));
+    width: min(1240px, calc(100% - 2rem));
   }
 }
 
 @media (min-width: 1024px) {
   .hero-shell {
-    width: min(1320px, calc(100% - 4rem));
+    width: min(1240px, calc(100% - 4rem));
   }
 }
 

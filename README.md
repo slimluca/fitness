@@ -61,8 +61,12 @@ The project is ready for real providers, but live credentials are intentionally 
 
 - `NEXT_PUBLIC_SITE_URL`
   Public production domain used for canonicals, sitemap, robots, schema, and metadata base URLs
+- `RESEND_API_KEY`
+  Required in production for `app/api/inquiries/route.ts` to send enquiry emails to `fitnessgrandbaie@gmail.com`
+- `RESEND_FROM_EMAIL`
+  Required verified sender address for enquiry emails
 - `FORMS_WEBHOOK_URL`
-  Forward booking/contact enquiries from `app/api/inquiries/route.ts`
+  Optional CRM / automation forwarding after the enquiry email is sent
 - `FORMS_WEBHOOK_BEARER_TOKEN`
   Optional bearer token if the enquiry webhook is protected
 - `NEXT_PUBLIC_GA_ID`
