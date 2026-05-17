@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight } from "lucide-react";
 
 import { Reveal } from "@/components/motion/reveal";
 import { AuthorBox } from "@/components/site/author-box";
@@ -10,7 +9,6 @@ import { CTASection } from "@/components/site/cta-section";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { SectionHeader } from "@/components/site/section-header";
-import { WhatsAppButton } from "@/components/site/whatsapp-button";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -89,24 +87,6 @@ export default async function BlogCategoryPage({ params }: PageProps) {
             title={`${category.name} articles that help you choose the right next step`}
             description={category.description}
             image={featuredPost?.featuredImage ?? "/training-session.jpeg"}
-            actions={
-              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Button asChild size="lg">
-                  <Link
-                    href="/contact?intent=consultation"
-                    data-track-location={`blog-category-hero:${category.slug}`}
-                  >
-                    Book Consultation
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-                <WhatsAppButton
-                  size="lg"
-                  label="WhatsApp Now"
-                  trackLocation={`blog-category-hero:${category.slug}`}
-                />
-              </div>
-            }
             aside={
               <div className="space-y-4 text-sm leading-7 text-white/72">
                 <p>
@@ -129,11 +109,11 @@ export default async function BlogCategoryPage({ params }: PageProps) {
 
         <section className="page-section">
           <div className="balanced-split grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-            <Reveal className="h-full">
+            <Reveal>
               <AuthorBox />
             </Reveal>
-            <Reveal className="h-full" delay={0.05}>
-              <Card className="flex h-full flex-col justify-center gap-5">
+            <Reveal delay={0.05}>
+              <Card className="flex flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
                   Start here
                 </p>

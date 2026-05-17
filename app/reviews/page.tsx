@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-
 import { Reveal } from "@/components/motion/reveal";
 import { CTASection } from "@/components/site/cta-section";
 import { GoogleReviewSummary } from "@/components/site/google-review-summary";
@@ -8,8 +5,6 @@ import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { ReviewGrid } from "@/components/site/review-grid";
 import { SectionHeader } from "@/components/site/section-header";
-import { WhatsAppButton } from "@/components/site/whatsapp-button";
-import { Button } from "@/components/ui/button";
 import {
   pageHeroAssets,
   resolveProofAssetAlt,
@@ -64,17 +59,6 @@ export default async function ReviewsPage() {
               "Review-ready private coaching environment in Grand Baie, Mauritius",
             )}
             imageObjectPosition={resolveProofAssetObjectPosition(pageHeroAssets.reviews)}
-            actions={
-              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Button asChild size="lg">
-                  <Link href={siteConfig.primaryCtaHref} data-track-location="reviews-hero">
-                    Book Consultation
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-                <WhatsAppButton size="lg" label="WhatsApp Now" trackLocation="reviews-hero" />
-              </div>
-            }
           />
         </section>
 

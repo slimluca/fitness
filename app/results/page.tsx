@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-
 import { Reveal } from "@/components/motion/reveal";
 import { CTASection } from "@/components/site/cta-section";
 import { Hero } from "@/components/site/hero";
@@ -8,8 +5,6 @@ import { JsonLd } from "@/components/site/json-ld";
 import { ResultCard } from "@/components/site/result-card";
 import { ReviewGrid } from "@/components/site/review-grid";
 import { SectionHeader } from "@/components/site/section-header";
-import { WhatsAppButton } from "@/components/site/whatsapp-button";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
   pageHeroAssets,
@@ -65,17 +60,6 @@ export default function ResultsPage() {
               "Results-ready private coaching proof at Fitness by Fabrizio",
             )}
             imageObjectPosition={resolveProofAssetObjectPosition(pageHeroAssets.results)}
-            actions={
-              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Button asChild size="lg">
-                  <Link href={siteConfig.primaryCtaHref} data-track-location="results-hero">
-                    Book Consultation
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-                <WhatsAppButton size="lg" label="WhatsApp Now" trackLocation="results-hero" />
-              </div>
-            }
           />
         </section>
 
@@ -87,7 +71,7 @@ export default function ResultsPage() {
               description="Each story below supports the same core brand message: focused private coaching, better adherence, and a calmer environment."
             />
           </Reveal>
-          <div className="mt-7 grid grid-equal premium-card-grid gap-5 xl:grid-cols-3 sm:mt-8">
+          <div className="mt-7 grid grid-equal premium-card-grid gap-5 lg:grid-cols-2 2xl:grid-cols-3 sm:mt-8">
             {resultStories.map((story, index) => (
               <Reveal key={story.slug} delay={index * 0.05}>
                 <ResultCard item={story} />
@@ -98,8 +82,8 @@ export default function ResultsPage() {
 
         <section className="page-section">
           <div className="balanced-split grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
-            <Reveal className="h-full">
-              <Card className="flex h-full flex-col gap-5">
+            <Reveal>
+              <Card className="flex flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                   What better conditions change
                 </p>
@@ -117,8 +101,8 @@ export default function ResultsPage() {
                 </p>
               </Card>
             </Reveal>
-            <Reveal className="h-full" delay={0.05}>
-              <div className="flex h-full flex-col justify-center space-y-6">
+            <Reveal delay={0.05}>
+              <div className="space-y-6">
                 <SectionHeader
                   eyebrow="Client outcomes"
                   title="Reviews that reinforce the progress story"

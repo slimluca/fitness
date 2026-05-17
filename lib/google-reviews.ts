@@ -85,11 +85,26 @@ function parseGoogleReviewPayload(value: string | undefined): Testimonial[] {
 
     return parsed
       .filter((item) => item && typeof item.text === "string" && item.text.trim())
-      .slice(0, 8)
+      .slice(0, 12)
       .map(mapReviewToTestimonial);
   } catch {
     return [];
   }
+}
+
+function mergeRealReviews(primary: Testimonial[], secondary: Testimonial[]) {
+  const seen = new Set<string>();
+
+  return [...primary, ...secondary].filter((item) => {
+    const key = `${item.displayName ?? item.name}|${item.quote}`.toLowerCase();
+
+    if (seen.has(key)) {
+      return false;
+    }
+
+    seen.add(key);
+    return true;
+  });
 }
 
 async function fetchLiveGoogleReviews(
@@ -135,7 +150,7 @@ async function fetchLiveGoogleReviews(
     const selectedReviews = Array.isArray(result?.reviews)
       ? result.reviews
           .filter((item) => item && typeof item.text === "string" && item.text.trim())
-          .slice(0, 8)
+          .slice(0, 12)
           .map(mapReviewToTestimonial)
       : [];
 
@@ -171,12 +186,14 @@ export async function getGoogleReviewFeed(): Promise<GoogleReviewFeed> {
     const liveFeed = await fetchLiveGoogleReviews(placeId, apiKey, profileUrl || undefined);
 
     if (liveFeed) {
+      const mergedSelectedReviews = mergeRealReviews(
+        liveFeed.selectedReviews,
+        manualSelectedReviews,
+      ).slice(0, 12);
+
       return {
         ...liveFeed,
-        selectedReviews:
-          liveFeed.selectedReviews.length > 0
-            ? liveFeed.selectedReviews
-            : manualSelectedReviews,
+        selectedReviews: mergedSelectedReviews,
       };
     }
   }

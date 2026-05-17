@@ -31,7 +31,7 @@ export function BlogCard({ post }: BlogCardProps) {
               <div className="mt-1">{formatBlogDate(post.publishAt)}</div>
             </div>
           </div>
-          <div className="space-y-3">
+          <div className="flex flex-1 flex-col gap-3">
             <h3 className="font-display text-[1.55rem] leading-tight text-white sm:text-[1.75rem]">
               {post.title}
             </h3>

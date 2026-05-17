@@ -39,7 +39,7 @@ export function ToolCard({ tool }: ToolCardProps) {
           <Badge variant="muted">{kindLabel(tool.kind)}</Badge>
         </div>
 
-        <div className="space-y-3">
+        <div className="flex flex-1 flex-col gap-3">
           <h3 className="font-display text-[1.45rem] leading-tight text-white sm:text-[1.62rem]">
             {tool.title}
           </h3>

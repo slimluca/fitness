@@ -177,8 +177,8 @@ export default function PersonalTrainingPage() {
 
         <section className="page-section">
           <div className="balanced-split grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-            <Reveal className="h-full">
-              <Card className="flex h-full flex-col justify-center gap-5">
+            <Reveal>
+              <Card className="flex flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                   What clients can expect
                 </p>
@@ -254,8 +254,8 @@ export default function PersonalTrainingPage() {
                 </Link>
               </Card>
             </Reveal>
-            <Reveal className="h-full" delay={0.05}>
-              <div className="flex h-full flex-col justify-center space-y-6">
+            <Reveal delay={0.05}>
+              <div className="space-y-6">
                 <SectionHeader
                   eyebrow="Selected reviews"
                   title="Client feedback that supports the private training offer"

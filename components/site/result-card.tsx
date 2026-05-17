@@ -16,7 +16,7 @@ export function ResultCard({ item }: ResultCardProps) {
       : item.displayName;
 
   return (
-    <Card className="h-full overflow-hidden p-0">
+    <Card className="flex h-full flex-col overflow-hidden p-0">
       {item.image ? (
         <div className="relative aspect-[16/10] overflow-hidden">
           {item.image.src ? (
@@ -50,7 +50,7 @@ export function ResultCard({ item }: ResultCardProps) {
         </div>
       ) : null}
 
-      <div className="space-y-4 p-5">
+      <div className="flex flex-1 flex-col gap-4 p-5">
         {!item.image ? (
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
@@ -198,7 +198,6 @@ export function ResultCard({ item }: ResultCardProps) {
             <p className="mt-3 text-sm leading-7 text-white/72">&quot;{item.quote}&quot;</p>
           </div>
         ) : null}
-
       </div>
     </Card>
   );

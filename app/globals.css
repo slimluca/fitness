@@ -132,17 +132,15 @@ button {
 }
 
 .balanced-split {
-  align-items: stretch;
+  align-items: start;
 }
 
 .balanced-split > * {
   min-width: 0;
-  height: 100%;
 }
 
 .balanced-split > * > * {
   min-width: 0;
-  height: 100%;
 }
 
 .premium-card-grid {
@@ -156,21 +154,21 @@ button {
 
 .responsive-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
   gap: 1.25rem;
   align-items: stretch;
 }
 
 .compact-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15.5rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
   gap: 1rem;
   align-items: stretch;
 }
 
 .metric-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12.5rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14.5rem), 1fr));
   gap: 1rem;
   align-items: stretch;
 }

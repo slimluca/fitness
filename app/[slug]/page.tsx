@@ -160,8 +160,8 @@ export default async function SeoLandingPage({ params }: PageProps) {
 
         <section className="page-section">
           <div className="balanced-split grid gap-6 lg:grid-cols-[0.96fr_1.04fr]">
-            <Reveal className="h-full">
-              <Card className="flex h-full flex-col justify-center gap-5">
+            <Reveal>
+              <Card className="flex flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                   Why choose this service in Mauritius
                 </p>
@@ -179,7 +179,7 @@ export default async function SeoLandingPage({ params }: PageProps) {
                 </p>
               </Card>
             </Reveal>
-            <Reveal className="h-full" delay={0.05}>
+            <Reveal delay={0.05}>
               <div className="grid grid-equal gap-4 sm:grid-cols-2">
                 {whoItIsFor.map((item) => (
                   <Card key={item} className="flex h-full gap-3">
@@ -215,7 +215,7 @@ export default async function SeoLandingPage({ params }: PageProps) {
 
         <section className="page-section">
           <div className="balanced-split grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
-            <Reveal className="h-full">
+            <Reveal>
               <SectionHeader
                 eyebrow="Selected reviews"
                 title="Proof that supports a confident enquiry"
@@ -228,8 +228,8 @@ export default async function SeoLandingPage({ params }: PageProps) {
                 />
               </div>
             </Reveal>
-            <Reveal className="h-full" delay={0.05}>
-              <div className="flex h-full flex-col justify-center space-y-6">
+            <Reveal delay={0.05}>
+              <div className="space-y-6">
                 <SectionHeader
                   eyebrow="Compact FAQ"
                   title="Answer the core objections, then move forward"

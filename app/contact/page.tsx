@@ -1,17 +1,14 @@
 import Link from "next/link";
-import { ArrowRight, Clock3, MapPin, MessageCircleMore } from "lucide-react";
+import { ArrowRight, Clock3, MapPin } from "lucide-react";
 
 import { Reveal } from "@/components/motion/reveal";
 import { BookingForm } from "@/components/site/booking-form";
 import { ContactCard } from "@/components/site/contact-card";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
-import { ReviewGrid } from "@/components/site/review-grid";
-import { SectionHeader } from "@/components/site/section-header";
 import { WhatsAppButton } from "@/components/site/whatsapp-button";
 import { Button } from "@/components/ui/button";
 import {
-  contactPageTestimonials,
   pageHeroAssets,
   resolveProofAssetAlt,
   resolveProofAssetObjectPosition,
@@ -105,18 +102,15 @@ export default async function ContactPage({ searchParams }: PageProps) {
         </section>
 
         <section className="page-section">
-          <div className="balanced-split grid gap-6 lg:grid-cols-[0.84fr_1.16fr]">
-            <div className="grid h-full gap-4 sm:grid-cols-2 lg:grid-cols-1 sm:gap-5">
+          <div className="balanced-split grid gap-6 lg:grid-cols-[1.12fr_0.88fr] lg:items-start">
+            <Reveal delay={0.05}>
+              <div id="contact-form" className="scroll-mt-32">
+                <BookingForm type={formType} defaultService={defaultService} />
+              </div>
+            </Reveal>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 sm:gap-5">
               <Reveal>
-                <ContactCard
-                  icon={<MessageCircleMore className="h-5 w-5" />}
-                  title="WhatsApp first"
-                  description="If you want the fastest answer about fit, scheduling, or the best next step, WhatsApp is usually the right place to start."
-                >
-                  <WhatsAppButton label="WhatsApp Now" />
-                </ContactCard>
-              </Reveal>
-              <Reveal delay={0.05}>
                 <ContactCard
                   icon={<MapPin className="h-5 w-5" />}
                   title="Private location"
@@ -125,7 +119,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                   <p className="text-sm text-white/70">Appointment only. No walk-ins.</p>
                 </ContactCard>
               </Reveal>
-              <Reveal delay={0.1}>
+              <Reveal delay={0.05}>
                 <ContactCard
                   icon={<Clock3 className="h-5 w-5" />}
                   title="Response standard"
@@ -135,25 +129,6 @@ export default async function ContactPage({ searchParams }: PageProps) {
                 </ContactCard>
               </Reveal>
             </div>
-
-            <Reveal className="h-full" delay={0.05}>
-              <div id="contact-form" className="scroll-mt-32">
-                <BookingForm type={formType} defaultService={defaultService} />
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        <section className="page-section">
-          <Reveal>
-            <SectionHeader
-              eyebrow="Trust before you enquire"
-              title="Selected feedback that supports the contact decision"
-              description="The strongest contact-page proof is calm, believable, and close to the enquiry action."
-            />
-          </Reveal>
-          <div className="mt-7 sm:mt-8">
-            <ReviewGrid items={contactPageTestimonials} compact />
           </div>
         </section>
       </div>

@@ -7,7 +7,6 @@ import { CTASection } from "@/components/site/cta-section";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { SectionHeader } from "@/components/site/section-header";
-import { WhatsAppButton } from "@/components/site/whatsapp-button";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -52,20 +51,6 @@ export default function BlogPage() {
             title="Useful fitness advice for Mauritius readers who want better coaching decisions"
             description="A curated resource for people comparing private coaching, online support, weight loss strategy, and beginner-friendly training in Mauritius. The focus is clarity, useful guidance, and confident next steps."
             image={featuredPost?.featuredImage ?? "/training-session.jpeg"}
-            actions={
-              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Button asChild size="lg">
-                  <Link href="/contact?intent=consultation" data-track-location="blog-hub-hero">
-                    Book Consultation
-                  </Link>
-                </Button>
-                <WhatsAppButton
-                  size="lg"
-                  label="WhatsApp Now"
-                  trackLocation="blog-hub-hero"
-                />
-              </div>
-            }
             aside={
               <div className="space-y-4">
                 <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
@@ -89,9 +74,12 @@ export default function BlogPage() {
                   full archive first.
                 </p>
                 {featuredPost ? (
-                  <Button asChild variant="outline">
-                    <Link href={`/blog/${featuredPost.slug}`}>Read featured article</Link>
-                  </Button>
+                  <Link
+                    href={`/blog/${featuredPost.slug}`}
+                    className="inline-flex text-sm font-semibold text-[color:var(--brand-gold)]"
+                  >
+                    Read featured article
+                  </Link>
                 ) : null}
               </div>
             }
@@ -133,11 +121,11 @@ export default function BlogPage() {
 
         <section className="page-section">
           <div className="balanced-split grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-            <Reveal className="h-full">
+            <Reveal>
               <AuthorBox />
             </Reveal>
-            <Reveal className="h-full" delay={0.05}>
-              <Card className="flex h-full flex-col justify-center gap-5">
+            <Reveal delay={0.05}>
+              <Card className="flex flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">
                   Why this journal exists
                 </p>

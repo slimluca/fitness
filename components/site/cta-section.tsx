@@ -20,11 +20,13 @@ export function CTASection({
   description,
   actions,
 }: CTASectionProps) {
-  const visibleActions = actions;
+  const visibleActions = actions.filter(
+    (action) => action.label.trim().toLowerCase() !== "request availability",
+  );
 
   return (
     <Card className="overflow-hidden border-[color:var(--brand-gold)]/15 bg-[radial-gradient(circle_at_top_left,rgba(255,215,0,0.14),transparent_38%),linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]">
-      <div className="grid gap-5 lg:grid-cols-[1.16fr_0.84fr] lg:items-end lg:gap-7">
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(15rem,17.5rem)] lg:items-end lg:gap-7">
         <div className="space-y-4">
           {eyebrow ? <Badge>{eyebrow}</Badge> : null}
           <h2 className="font-display text-[2.15rem] leading-[0.98] tracking-tight text-white sm:text-[2.7rem] lg:text-[3.05rem]">
@@ -34,7 +36,7 @@ export function CTASection({
             {description}
           </p>
         </div>
-        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center lg:flex-col lg:items-stretch">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center lg:justify-self-end lg:items-stretch">
           {visibleActions.map((action) => (
             <Button
               key={`${action.label}-${action.href}`}

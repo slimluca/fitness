@@ -538,7 +538,7 @@ const liveBlogPosts: BlogPost[] = [
     date: "May 8, 2026",
     publishAt: "2026-05-08T08:00:00+04:00",
     readTime: "7 min read",
-    category: "Beginner Fitness Mauritius",
+    category: "Personal Trainer Mauritius",
     featuredImage: "/training-session.jpeg",
     featured: false,
     excerpt:
