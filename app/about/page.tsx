@@ -96,7 +96,7 @@ export default function AboutPage() {
                 </p>
               </Card>
             </Reveal>
-            <Reveal className="h-full" delay={0.05}>
+            <Reveal delay={0.05}>
               <div className="grid grid-equal gap-5">
                 {philosophyCards.map((item) => (
                   <Card key={item.title} className="flex h-full flex-col gap-3">

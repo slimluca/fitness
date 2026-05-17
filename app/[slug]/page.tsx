@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import { ArrowRight } from "lucide-react";
 
 import { Reveal } from "@/components/motion/reveal";
 import { CTASection } from "@/components/site/cta-section";
@@ -9,8 +8,6 @@ import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { ReviewGrid } from "@/components/site/review-grid";
 import { SectionHeader } from "@/components/site/section-header";
-import { WhatsAppButton } from "@/components/site/whatsapp-button";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
   landingPageTestimonials,
@@ -144,17 +141,6 @@ export default async function SeoLandingPage({ params }: PageProps) {
             imageObjectPosition={resolveProofAssetObjectPosition(
               pageHeroAssets["personal-trainer-mauritius"],
             )}
-            actions={
-              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Button asChild size="lg">
-                  <Link href={siteConfig.primaryCtaHref} data-track-location="mauritius-hero">
-                    Book Consultation
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-                <WhatsAppButton size="lg" label="WhatsApp Now" trackLocation="mauritius-hero" />
-              </div>
-            }
           />
         </section>
 

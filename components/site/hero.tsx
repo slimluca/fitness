@@ -50,27 +50,27 @@ export function Hero({
       </div>
       <div
         className={cn(
-          "hero-shell relative grid gap-7 py-10 sm:py-12 lg:gap-10 lg:py-14 xl:gap-12",
+          "hero-shell relative grid gap-5 py-8 sm:py-10 lg:gap-7 lg:py-11 xl:gap-9",
           hasAside
-            ? "lg:grid-cols-[minmax(0,1.12fr)_minmax(300px,0.72fr)] lg:items-center"
+            ? "lg:grid-cols-[minmax(0,1.08fr)_minmax(300px,0.68fr)] lg:items-center"
             : "lg:grid-cols-[minmax(0,1fr)]",
         )}
       >
-        <div className="min-w-0 space-y-5 lg:max-w-[70rem] lg:space-y-6">
+        <div className="min-w-0 space-y-3.5 lg:max-w-[70rem] lg:space-y-4">
           {eyebrow ? <Badge>{eyebrow}</Badge> : null}
-          <div className="space-y-4">
+          <div className="space-y-3.5">
             <h1
               className={cn(
-                "font-display text-[2.25rem] leading-[0.95] tracking-tight text-white sm:text-[3.5rem] lg:text-[4.55rem] xl:text-[5.25rem]",
-                hasAside ? "max-w-[58rem]" : "max-w-[72rem]",
+                "font-display text-[1.9rem] leading-[0.97] tracking-tight text-white sm:text-[2.7rem] lg:text-[3.35rem] xl:text-[3.8rem]",
+                hasAside ? "max-w-[52rem]" : "max-w-[64rem]",
               )}
             >
               {title}
             </h1>
             <p
               className={cn(
-                "text-[15px] leading-7 text-white/74 sm:text-[1.05rem] sm:leading-8",
-                hasAside ? "max-w-[45rem]" : "max-w-[54rem]",
+                "text-[0.97rem] leading-7 text-white/74 sm:text-[1rem] sm:leading-8",
+                hasAside ? "max-w-[40rem]" : "max-w-[50rem]",
               )}
             >
               {description}
@@ -79,7 +79,7 @@ export function Hero({
           {actions}
         </div>
         {aside ? (
-          <div className="relative flex h-full w-full max-w-[30rem] flex-col justify-center gap-3 justify-self-start lg:justify-self-end">
+          <div className="relative flex w-full max-w-[26rem] flex-col gap-3 justify-self-start lg:justify-self-end">
             {aside}
           </div>
         ) : null}

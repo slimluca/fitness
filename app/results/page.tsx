@@ -71,11 +71,20 @@ export default function ResultsPage() {
               description="Each story below supports the same core brand message: focused private coaching, better adherence, and a calmer environment."
             />
           </Reveal>
-          <div className="mt-7 grid grid-equal premium-card-grid gap-5 lg:grid-cols-2 2xl:grid-cols-3 sm:mt-8">
+          <div className="mt-7 grid grid-equal premium-card-grid gap-5 xl:grid-cols-2 sm:mt-8">
             {resultStories.map((story, index) => (
-              <Reveal key={story.slug} delay={index * 0.05}>
-                <ResultCard item={story} />
-              </Reveal>
+              <div
+                key={story.slug}
+                className={
+                  resultStories.length % 2 === 1 && index === resultStories.length - 1
+                    ? "xl:col-span-2"
+                    : undefined
+                }
+              >
+                <Reveal delay={index * 0.05}>
+                  <ResultCard item={story} />
+                </Reveal>
+              </div>
             ))}
           </div>
         </section>

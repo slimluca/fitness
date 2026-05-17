@@ -124,16 +124,11 @@ export default async function BlogCategoryPage({ params }: PageProps) {
                     they are ready to act.
                   </p>
                   <p>{category.intro}</p>
-                  <div className="grid gap-3 sm:grid-cols-1">
-                    <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
-                      Published depth: {category.count} article
-                      {category.count === 1 ? "" : "s"}
-                    </div>
-                  </div>
                   <p>
-                    If this cluster reflects why you are searching, the fastest next step is
-                    usually one of the priority links below rather than reading everything
-                    before taking action.
+                    Published depth: {category.count} article
+                    {category.count === 1 ? "" : "s"}. If this cluster reflects why you
+                    are searching, the fastest next step is usually one of the priority
+                    links below rather than reading everything before taking action.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     {priorityLinks.map((link) => (

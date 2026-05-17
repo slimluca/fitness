@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-
 import { Reveal } from "@/components/motion/reveal";
 import { CTASection } from "@/components/site/cta-section";
 import { FAQAccordion } from "@/components/site/faq-accordion";
@@ -8,8 +5,6 @@ import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { ReviewGrid } from "@/components/site/review-grid";
 import { SectionHeader } from "@/components/site/section-header";
-import { WhatsAppButton } from "@/components/site/whatsapp-button";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
   onlineConsistencyTestimonial,
@@ -127,22 +122,6 @@ export default function OnlineCoachingPage() {
             imageObjectPosition={resolveProofAssetObjectPosition(
               pageHeroAssets["online-coaching"],
             )}
-            actions={
-              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Button asChild size="lg">
-                  <Link href={siteConfig.primaryCtaHref} data-track-location="online-coaching-hero">
-                    Book Consultation
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-                <WhatsAppButton
-                  size="lg"
-                  label="WhatsApp Now"
-                  trackLocation="online-coaching-hero"
-                  messageKey="online"
-                />
-              </div>
-            }
           />
         </section>
 
@@ -170,8 +149,8 @@ export default function OnlineCoachingPage() {
 
         <section className="page-section">
           <div className="balanced-split grid gap-6 lg:grid-cols-[1fr_1fr]">
-            <Reveal className="h-full">
-              <Card className="flex h-full flex-col gap-5">
+            <Reveal>
+              <Card className="flex flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                   Who it is for
                 </p>
@@ -187,8 +166,8 @@ export default function OnlineCoachingPage() {
                 </div>
               </Card>
             </Reveal>
-            <Reveal className="h-full" delay={0.05}>
-              <Card className="flex h-full flex-col gap-5">
+            <Reveal delay={0.05}>
+              <Card className="flex flex-col gap-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--brand-gold)]">
                   Why clients choose it
                 </p>

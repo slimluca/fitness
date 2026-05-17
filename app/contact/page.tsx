@@ -1,13 +1,7 @@
-import Link from "next/link";
-import { ArrowRight, Clock3, MapPin } from "lucide-react";
-
 import { Reveal } from "@/components/motion/reveal";
 import { BookingForm } from "@/components/site/booking-form";
-import { ContactCard } from "@/components/site/contact-card";
 import { Hero } from "@/components/site/hero";
 import { JsonLd } from "@/components/site/json-ld";
-import { WhatsAppButton } from "@/components/site/whatsapp-button";
-import { Button } from "@/components/ui/button";
 import {
   pageHeroAssets,
   resolveProofAssetAlt,
@@ -87,48 +81,29 @@ export default async function ContactPage({ searchParams }: PageProps) {
               "Private contact and consultation environment in Grand Baie, Mauritius",
             )}
             imageObjectPosition={resolveProofAssetObjectPosition(pageHeroAssets.contact)}
-            actions={
-              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Button asChild size="lg">
-                  <Link href="#contact-form" data-track-location="contact-hero">
-                    Book Consultation
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-                <WhatsAppButton size="lg" label="WhatsApp Now" trackLocation="contact-hero" />
-              </div>
-            }
           />
         </section>
 
         <section className="page-section">
-          <div className="balanced-split grid gap-6 lg:grid-cols-[1.12fr_0.88fr] lg:items-start">
+          <div className="mx-auto max-w-[54rem] space-y-4">
+            <Reveal>
+              <div className="grid gap-3 sm:grid-cols-3">
+                <div className="rounded-[20px] border border-white/10 bg-black/20 px-4 py-3 text-sm leading-6 text-white/68">
+                  Appointment only. No public walk-ins.
+                </div>
+                <div className="rounded-[20px] border border-white/10 bg-black/20 px-4 py-3 text-sm leading-6 text-white/68">
+                  Grand Baie, Mauritius private gym in a home residence.
+                </div>
+                <div className="rounded-[20px] border border-white/10 bg-black/20 px-4 py-3 text-sm leading-6 text-white/68">
+                  Most serious enquiries receive a reply within one business day.
+                </div>
+              </div>
+            </Reveal>
             <Reveal delay={0.05}>
               <div id="contact-form" className="scroll-mt-32">
                 <BookingForm type={formType} defaultService={defaultService} />
               </div>
             </Reveal>
-
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 sm:gap-5">
-              <Reveal>
-                <ContactCard
-                  icon={<MapPin className="h-5 w-5" />}
-                  title="Private location"
-                  description="The coaching studio is in Grand Baie, Mauritius inside a home residence, so the contact flow stays privacy respectful from the beginning."
-                >
-                  <p className="text-sm text-white/70">Appointment only. No walk-ins.</p>
-                </ContactCard>
-              </Reveal>
-              <Reveal delay={0.05}>
-                <ContactCard
-                  icon={<Clock3 className="h-5 w-5" />}
-                  title="Response standard"
-                  description="Serious enquiries are reviewed personally with a focus on service fit, schedule, and the clearest next action."
-                >
-                  <p className="text-sm text-white/70">Usually within one business day.</p>
-                </ContactCard>
-              </Reveal>
-            </div>
           </div>
         </section>
       </div>
