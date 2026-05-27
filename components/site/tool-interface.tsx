@@ -204,7 +204,7 @@ function ToolResultPanel({
 
   if (!outcome) {
     return (
-      <Card className="flex h-full flex-col gap-5">
+      <Card className="flex flex-col gap-5">
         <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black/20 text-[color:var(--brand-gold)]">
           <Sparkles className="h-5 w-5" />
         </div>
@@ -228,7 +228,7 @@ function ToolResultPanel({
   }
 
   return (
-    <Card className="flex h-full flex-col gap-5" aria-live="polite">
+    <Card className="flex flex-col gap-5" aria-live="polite">
       <div className="flex items-start justify-between gap-3">
         <div className="space-y-3">
           <Badge>Result ready</Badge>
@@ -248,7 +248,7 @@ function ToolResultPanel({
           {outcome.stats.map((stat) => (
             <div
               key={`${stat.label}-${stat.value}`}
-              className="flex h-full flex-col rounded-[22px] border border-white/10 bg-black/20 p-4"
+              className="flex flex-col rounded-[22px] border border-white/10 bg-black/20 p-4"
             >
               <p className="font-display text-xl leading-tight text-white sm:text-2xl">
                 {stat.value}
@@ -311,7 +311,7 @@ function ToolResultPanel({
 
 function ToolWorkspace({ tool, helper, form, outcome }: ToolWorkspaceProps) {
   return (
-    <div className="grid gap-5 xl:grid-cols-[0.92fr_1.08fr] xl:items-stretch">
+    <div className="grid gap-5 xl:grid-cols-[0.92fr_1.08fr] xl:items-start">
       <Card className="space-y-5">
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-start gap-3">
@@ -715,6 +715,108 @@ function ProteinCalculator({ tool }: ToolInterfaceProps) {
   );
 }
 
+function ProteinIntakeCalculator({ tool }: ToolInterfaceProps) {
+  const [weight, setWeight] = useState("70");
+  const [unit, setUnit] = useState("kg");
+  const [goal, setGoal] = useState("general");
+  const [activity, setActivity] = useState("moderate");
+  const [outcome, setOutcome] = useState<ToolOutcome | null>(null);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const weightInput = Number(weight);
+    const weightKg = unit === "lb" ? weightInput * 0.453592 : weightInput;
+    const goalBase =
+      goal === "fat-loss"
+        ? 1.8
+        : goal === "muscle-gain"
+          ? 1.9
+          : goal === "maintenance"
+            ? 1.6
+            : 1.5;
+    const activityBoost = activity === "low" ? 0 : activity === "moderate" ? 0.1 : 0.2;
+    const midpoint = weightKg * (goalBase + activityBoost);
+    const lower = weightKg * Math.max(1.2, goalBase + activityBoost - 0.25);
+    const upper = weightKg * (goalBase + activityBoost + 0.25);
+
+    setOutcome({
+      headline: `${formatGrams(lower)} - ${formatGrams(upper)}`,
+      summary: `A practical daily protein range is around ${formatGrams(lower)} to ${formatGrams(upper)} for this body weight, goal, and activity level.`,
+      stats: [
+        { label: "Suggested range", value: `${formatGrams(lower)} - ${formatGrams(upper)}` },
+        { label: "Middle target", value: formatGrams(midpoint) },
+        { label: "Across 4 meals", value: formatGrams(midpoint / 4) },
+      ],
+      meaning:
+        "This range gives you a useful protein anchor for meals without pretending nutrition needs are identical for every person. It is a coaching estimate, not a medical prescription.",
+      advice:
+        "Start by making protein visible in each main meal, then review appetite, recovery, and consistency. If the range feels hard to reach, improve meal structure before adding complexity.",
+      highlights: [
+        "Use the range as a calm daily target, not a pass-fail rule.",
+        "Fat-loss phases often benefit from the higher end of the range.",
+        "Training, age, appetite, and medical context can change what is appropriate.",
+      ],
+      note:
+        "Educational estimate only. If you have kidney disease, a medical condition, or clinical nutrition instructions, follow qualified medical guidance.",
+      copyText: `Protein intake estimate: ${formatGrams(lower)} to ${formatGrams(upper)} per day, with a middle target around ${formatGrams(midpoint)}.`,
+    });
+  }
+
+  function handleReset() {
+    setWeight("70");
+    setUnit("kg");
+    setGoal("general");
+    setActivity("moderate");
+    setOutcome(null);
+  }
+
+  return (
+    <ToolWorkspace
+      tool={tool}
+      helper="Enter your body weight, goal, and activity level to estimate a practical protein range you can translate into meals."
+      outcome={outcome}
+      form={
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Field label="Body weight">
+              <Input
+                type="number"
+                min="25"
+                step="0.1"
+                value={weight}
+                onChange={(event) => setWeight(event.target.value)}
+                required
+              />
+            </Field>
+            <Field label="Unit">
+              <ToolSelect value={unit} onChange={setUnit}>
+                <option value="kg">Kilograms</option>
+                <option value="lb">Pounds</option>
+              </ToolSelect>
+            </Field>
+            <Field label="Goal">
+              <ToolSelect value={goal} onChange={setGoal}>
+                <option value="general">General fitness</option>
+                <option value="maintenance">Maintenance</option>
+                <option value="fat-loss">Fat loss</option>
+                <option value="muscle-gain">Muscle gain</option>
+              </ToolSelect>
+            </Field>
+            <Field label="Activity level">
+              <ToolSelect value={activity} onChange={setActivity}>
+                <option value="low">Low</option>
+                <option value="moderate">Moderate</option>
+                <option value="high">High</option>
+              </ToolSelect>
+            </Field>
+          </div>
+          <ToolActions submitLabel="Estimate protein range" onReset={handleReset} />
+        </form>
+      }
+    />
+  );
+}
+
 function WaterIntakeCalculator({ tool }: ToolInterfaceProps) {
   const [weight, setWeight] = useState("70");
   const [activity, setActivity] = useState("moderate");
@@ -985,6 +1087,126 @@ function OneRepMaxCalculator({ tool }: ToolInterfaceProps) {
             </Field>
           </div>
           <ToolActions submitLabel="Estimate one-rep max" onReset={handleReset} />
+        </form>
+      }
+    />
+  );
+}
+
+function WorkoutCalorieBurnEstimator({ tool }: ToolInterfaceProps) {
+  const [weight, setWeight] = useState("70");
+  const [unit, setUnit] = useState("kg");
+  const [duration, setDuration] = useState("45");
+  const [activity, setActivity] = useState("strength");
+  const [intensity, setIntensity] = useState("moderate");
+  const [outcome, setOutcome] = useState<ToolOutcome | null>(null);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const weightInput = Number(weight);
+    const weightKg = unit === "lb" ? weightInput * 0.453592 : weightInput;
+    const durationMinutes = Number(duration);
+    const baseMet =
+      activity === "walking"
+        ? 3.5
+        : activity === "cycling"
+          ? 6.5
+          : activity === "circuit"
+            ? 7
+            : activity === "gym"
+              ? 5
+              : 4.5;
+    const intensityMultiplier =
+      intensity === "easy" ? 0.82 : intensity === "hard" ? 1.18 : 1;
+    const met = baseMet * intensityMultiplier;
+    const calories = (met * 3.5 * weightKg * durationMinutes) / 200;
+    const lower = calories * 0.82;
+    const upper = calories * 1.18;
+
+    setOutcome({
+      headline: `${formatKcal(lower)} - ${formatKcal(upper)}`,
+      summary: `This session likely burns roughly ${formatKcal(lower)} to ${formatKcal(upper)}, depending on pace, rest periods, technique, and true effort.`,
+      stats: [
+        { label: "Estimated burn", value: `${formatKcal(lower)} - ${formatKcal(upper)}` },
+        { label: "Middle estimate", value: formatKcal(calories) },
+        { label: "Session length", value: `${durationMinutes} min` },
+      ],
+      meaning:
+        "Workout calorie burn is always approximate. The number is useful for context, but fat loss still depends on total weekly activity, nutrition habits, recovery, and consistency.",
+      advice:
+        "Use this estimate to understand the session, not to chase punishment. A sustainable plan combines strength work, walking or conditioning, and a nutrition structure you can repeat.",
+      highlights: [
+        "Different trackers can show very different calorie numbers.",
+        "Strength sessions vary widely because rest time and effort change the result.",
+        "Do not treat one workout estimate as a guarantee of fat loss.",
+      ],
+      note:
+        "Educational estimate only. If you have health concerns, pain, or exercise restrictions, get qualified medical guidance before changing training intensity.",
+      copyText: `Workout calorie burn estimate: ${formatKcal(lower)} to ${formatKcal(upper)} for a ${durationMinutes}-minute session.`,
+    });
+  }
+
+  function handleReset() {
+    setWeight("70");
+    setUnit("kg");
+    setDuration("45");
+    setActivity("strength");
+    setIntensity("moderate");
+    setOutcome(null);
+  }
+
+  return (
+    <ToolWorkspace
+      tool={tool}
+      helper="Choose a common training type, session length, and intensity to estimate workout calorie burn without treating the number as exact."
+      outcome={outcome}
+      form={
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Field label="Body weight">
+              <Input
+                type="number"
+                min="25"
+                step="0.1"
+                value={weight}
+                onChange={(event) => setWeight(event.target.value)}
+                required
+              />
+            </Field>
+            <Field label="Unit">
+              <ToolSelect value={unit} onChange={setUnit}>
+                <option value="kg">Kilograms</option>
+                <option value="lb">Pounds</option>
+              </ToolSelect>
+            </Field>
+            <Field label="Session duration (minutes)">
+              <Input
+                type="number"
+                min="5"
+                max="240"
+                value={duration}
+                onChange={(event) => setDuration(event.target.value)}
+                required
+              />
+            </Field>
+            <Field label="Activity type">
+              <ToolSelect value={activity} onChange={setActivity}>
+                <option value="strength">Strength training</option>
+                <option value="circuit">Circuit training</option>
+                <option value="walking">Walking</option>
+                <option value="cycling">Cycling</option>
+                <option value="gym">General gym session</option>
+              </ToolSelect>
+            </Field>
+            <Field label="Intensity">
+              <ToolSelect value={intensity} onChange={setIntensity}>
+                <option value="easy">Easy</option>
+                <option value="moderate">Moderate</option>
+                <option value="hard">Hard</option>
+              </ToolSelect>
+            </Field>
+          </div>
+          <ToolActions submitLabel="Estimate calorie burn" onReset={handleReset} />
         </form>
       }
     />
@@ -1697,12 +1919,16 @@ function renderTool(tool: ToolDefinition) {
       return <MacroCalculator tool={tool} />;
     case "protein-calculator":
       return <ProteinCalculator tool={tool} />;
+    case "protein-intake-calculator":
+      return <ProteinIntakeCalculator tool={tool} />;
     case "water-intake-calculator":
       return <WaterIntakeCalculator tool={tool} />;
     case "body-fat-estimator":
       return <BodyFatEstimator tool={tool} />;
     case "one-rep-max-calculator":
       return <OneRepMaxCalculator tool={tool} />;
+    case "workout-calorie-burn-estimator":
+      return <WorkoutCalorieBurnEstimator tool={tool} />;
     case "ideal-weight-range-calculator":
       return <IdealWeightRangeCalculator tool={tool} />;
     case "pace-and-cardio-zone-calculator":

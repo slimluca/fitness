@@ -22,21 +22,16 @@ export function ReviewGrid({ items, compact = false }: ReviewGridProps) {
     return null;
   }
 
-  const gridClass = compact
-    ? items.length <= 2
-      ? "grid grid-equal premium-card-grid gap-4 md:grid-cols-2"
-      : items.length === 4
-        ? "grid grid-equal premium-card-grid gap-4 md:grid-cols-2"
-        : "grid grid-equal premium-card-grid gap-4 md:grid-cols-2 xl:grid-cols-3"
-    : items.length <= 2
-      ? "grid grid-equal premium-card-grid gap-4 md:grid-cols-2"
-      : "grid grid-equal premium-card-grid gap-4 md:grid-cols-2 xl:grid-cols-3";
+  const gridClass =
+    items.length <= 2 || items.length === 4
+      ? "grid premium-card-grid gap-4 md:grid-cols-2"
+      : "grid premium-card-grid gap-4 md:grid-cols-2 xl:grid-cols-3";
 
   return (
     <div className={gridClass}>
       {items.map((item) => (
-        <Card key={`${item.name}-${item.quote}`} className="flex h-full min-w-0 flex-col gap-4">
-          <div className="grid min-h-[3rem] gap-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
+        <Card key={`${item.name}-${item.quote}`} className="flex min-w-0 flex-col gap-4">
+          <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
             <div className="flex min-w-0 flex-wrap content-start gap-1.5">
               {item.sourceLabel ? <Badge variant="muted">{item.sourceLabel}</Badge> : null}
               {item.serviceUsed ? <Badge variant="muted">{item.serviceUsed}</Badge> : null}
@@ -50,7 +45,7 @@ export function ReviewGrid({ items, compact = false }: ReviewGridProps) {
             ) : null}
           </div>
 
-          <div className="flex min-h-0 flex-1 flex-col gap-4">
+          <div className="flex min-h-0 flex-col gap-4">
             {item.headline ? (
               <h3
                 className={
@@ -74,13 +69,13 @@ export function ReviewGrid({ items, compact = false }: ReviewGridProps) {
             </blockquote>
 
             {item.result ? (
-              <div className="mt-auto rounded-[22px] border border-white/10 bg-black/20 p-4 text-sm leading-7 text-white/68">
+              <div className="rounded-[22px] border border-white/10 bg-black/20 p-4 text-sm leading-7 text-white/68">
                 {item.result}
               </div>
             ) : null}
           </div>
 
-          <div className="mt-auto space-y-1 border-t border-white/10 pt-4">
+          <div className="space-y-1 border-t border-white/10 pt-4">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
               {getDisplayName(item)}
             </p>

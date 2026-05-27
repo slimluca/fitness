@@ -8,15 +8,21 @@ type ProofGalleryProps = {
 };
 
 export function ProofGallery({ items, className }: ProofGalleryProps) {
-  if (items[0]?.layout === "feature" && items.length > 1) {
-    const [feature, ...supporting] = items;
+  const liveItems = items.filter((asset) => asset.src);
+
+  if (liveItems.length === 0) {
+    return null;
+  }
+
+  if (liveItems[0]?.layout === "feature" && liveItems.length > 1) {
+    const [feature, ...supporting] = liveItems;
 
     return (
       <div className={cn("balanced-split grid gap-5 lg:grid-cols-[1.05fr_0.95fr]", className)}>
-        <ProofMedia asset={feature} priority className="h-full" />
-        <div className="grid h-full gap-5 sm:grid-cols-2 lg:grid-cols-1">
+        <ProofMedia asset={feature} priority />
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
           {supporting.map((asset) => (
-            <ProofMedia key={asset.id} asset={asset} className="h-full" />
+            <ProofMedia key={asset.id} asset={asset} />
           ))}
         </div>
       </div>
@@ -25,7 +31,7 @@ export function ProofGallery({ items, className }: ProofGalleryProps) {
 
   return (
     <div className={cn("grid premium-card-grid gap-5 md:grid-cols-2 xl:grid-cols-3", className)}>
-      {items.map((asset, index) => (
+      {liveItems.map((asset, index) => (
         <ProofMedia
           key={asset.id}
           asset={asset}

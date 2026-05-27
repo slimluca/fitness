@@ -98,7 +98,16 @@ export default function ToolsHubPage() {
               title={`${section.title} tools`}
               description={section.description}
             />
-            <div className="mt-7 grid grid-equal gap-5 md:grid-cols-2 xl:grid-cols-3 sm:mt-8">
+            <div
+              className={[
+                "mt-7 grid gap-5 sm:mt-8",
+                section.tools.length === 5
+                  ? "md:grid-cols-2 xl:grid-cols-5"
+                  : section.tools.length === 4
+                    ? "md:grid-cols-2"
+                    : "md:grid-cols-2 xl:grid-cols-3",
+              ].join(" ")}
+            >
               {section.tools.map((tool) => (
                 <ToolCard key={tool.slug} tool={tool} />
               ))}

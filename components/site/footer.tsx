@@ -31,11 +31,6 @@ export function Footer() {
           <div className="grid gap-1.5 text-sm text-white/62">
             <p>{siteConfig.location}</p>
             <p>WhatsApp: {siteConfig.phoneDisplay}</p>
-            <p>
-              <a href={`mailto:${siteConfig.email}`} className="transition hover:text-white">
-                {siteConfig.email}
-              </a>
-            </p>
           </div>
           <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center">
             <Button asChild>

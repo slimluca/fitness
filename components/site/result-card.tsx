@@ -16,7 +16,7 @@ export function ResultCard({ item }: ResultCardProps) {
       : item.displayName;
 
   return (
-    <Card className="flex h-full flex-col overflow-hidden p-0">
+    <Card className="flex flex-col overflow-hidden p-0">
       {item.image ? (
         <div className="relative aspect-[16/10] overflow-hidden">
           {item.image.src ? (

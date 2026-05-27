@@ -27,10 +27,10 @@ function kindLabel(kind: ToolDefinition["kind"]) {
 
 export function ToolCard({ tool }: ToolCardProps) {
   return (
-    <Card className="group h-full overflow-hidden p-0">
+    <Card className="group overflow-hidden p-0">
       <Link
         href={`/tools/${tool.slug}`}
-        className="flex h-full min-w-0 flex-col gap-4 p-5"
+        className="flex min-w-0 flex-col gap-4 p-5"
       >
         <div className="flex items-start justify-between gap-3">
           <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/20 text-[color:var(--brand-gold)]">
@@ -39,14 +39,14 @@ export function ToolCard({ tool }: ToolCardProps) {
           <Badge variant="muted">{kindLabel(tool.kind)}</Badge>
         </div>
 
-        <div className="flex flex-1 flex-col gap-3">
+        <div className="flex flex-col gap-3">
           <h3 className="font-display text-[1.45rem] leading-tight text-white sm:text-[1.62rem]">
             {tool.title}
           </h3>
           <p className="text-sm leading-7 text-white/70">{tool.summary}</p>
         </div>
 
-        <div className="mt-auto flex items-center justify-between gap-3 pt-3 text-sm font-semibold text-[color:var(--brand-gold)]">
+        <div className="flex items-center justify-between gap-3 pt-3 text-sm font-semibold text-[color:var(--brand-gold)]">
           <span>Open tool</span>
           <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </div>

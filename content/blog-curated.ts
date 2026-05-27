@@ -1,3 +1,7 @@
+import {
+  newLiveAuthorityPosts,
+  newScheduledAuthorityPosts,
+} from "@/content/blog-authority-2026";
 import type { BlogPost, LinkItem } from "@/content/types";
 
 type BlogCategoryConfig = {
@@ -117,6 +121,28 @@ const blogCategoryConfigs: BlogCategoryConfig[] = [
       { label: "Contact", href: "/contact" },
     ],
     relatedCategories: ["Online Coaching Mauritius", "Personal Trainer Mauritius"],
+  },
+  {
+    name: "Grand Baie Fitness",
+    description:
+      "Local fitness and coaching guidance for Grand Baie residents, expats, villa guests, and busy adults who want private support that fits life in the north of Mauritius.",
+    intro:
+      "Fitness in Grand Baie is often shaped by work, travel, family routines, villa stays, and the desire for privacy. These articles keep the advice local, practical, and focused on consistency.",
+    keywords: [
+      "Personal Training Grand Baie",
+      "Grand Baie Fitness",
+      "Fitness for Expats Mauritius",
+    ],
+    priorityLinks: [
+      { label: "Personal Training", href: "/personal-training" },
+      { label: "Online Coaching", href: "/online-coaching" },
+      { label: "Contact", href: "/contact" },
+    ],
+    relatedCategories: [
+      "Personal Trainer Mauritius",
+      "Online Coaching Mauritius",
+      "Private Gym Mauritius",
+    ],
   },
 ];
 
@@ -1111,7 +1137,12 @@ const scheduledBlogPosts: BlogPost[] = [
   },
 ];
 
-export const blogPosts: BlogPost[] = [...liveBlogPosts, ...scheduledBlogPosts];
+export const blogPosts: BlogPost[] = [
+  ...newLiveAuthorityPosts,
+  ...liveBlogPosts,
+  ...newScheduledAuthorityPosts,
+  ...scheduledBlogPosts,
+];
 export const editorialIdeas = [];
 
 export const blogCategories = blogCategoryConfigs.map((config) => config.name);

@@ -175,6 +175,47 @@ export const tools: ToolDefinition[] = [
     ],
   },
   {
+    slug: "protein-intake-calculator",
+    title: "Protein Intake Calculator",
+    metaTitle: "Protein Intake Calculator | Fitness by Fabrizio Mauritius",
+    metaDescription:
+      "Estimate a practical daily protein range based on body weight, goal, and activity level with this educational protein intake calculator.",
+    intro:
+      "Use this protein intake calculator to estimate a practical daily protein range from body weight, goal, and activity level. It is educational guidance only, not medical or nutrition advice.",
+    summary:
+      "Estimate a practical daily protein range for fat loss, muscle gain, or general training.",
+    group: "nutrition",
+    kind: "calculator",
+    icon: "beef",
+    keywords: [
+      "Protein Intake Calculator Mauritius",
+      "Protein Calculator Mauritius",
+      "Online Coaching Mauritius",
+    ],
+    highlights: [
+      "Works with kg or lbs",
+      "Shows a practical range instead of a rigid prescription",
+      "Useful for beginners who want clearer meal structure",
+    ],
+    faq: [
+      {
+        question: "Is this protein intake calculator medical advice?",
+        answer:
+          "No. It is an educational estimate. If you have kidney disease, a medical condition, or specific nutrition instructions, follow qualified medical guidance.",
+      },
+      {
+        question: "Should I hit the exact number every day?",
+        answer:
+          "No. Use the range as a practical target. Consistency across the week usually matters more than a perfect single day.",
+      },
+    ],
+    relatedToolSlugs: ["protein-calculator", "macro-calculator", "calorie-calculator"],
+    commercialLinks: [
+      { label: "Online Coaching", href: "/online-coaching" },
+      { label: "Personal Training", href: "/personal-training" },
+    ],
+  },
+  {
     slug: "water-intake-calculator",
     title: "Water Intake Calculator",
     metaTitle: "Water Intake Calculator | Fitness by Fabrizio Mauritius",
@@ -276,6 +317,51 @@ export const tools: ToolDefinition[] = [
     commercialLinks: [
       { label: "Personal Training", href: "/personal-training" },
       { label: "Results", href: "/results" },
+    ],
+  },
+  {
+    slug: "workout-calorie-burn-estimator",
+    title: "Workout Calorie Burn Estimator",
+    metaTitle: "Workout Calorie Burn Estimator | Fitness by Fabrizio Mauritius",
+    metaDescription:
+      "Estimate approximate workout calorie burn for strength training, circuits, walking, cycling, and general gym sessions.",
+    intro:
+      "Use this workout calorie burn estimator for a rough training-energy estimate based on body weight, session duration, activity type, and intensity. It is only an estimate, not a fat-loss guarantee.",
+    summary:
+      "Estimate approximate calories burned during common workouts and cardio sessions.",
+    group: "strength-training",
+    kind: "calculator",
+    icon: "flame",
+    keywords: [
+      "Workout Calorie Burn Estimator Mauritius",
+      "Fitness Calculator Mauritius",
+      "Personal Trainer Mauritius",
+    ],
+    highlights: [
+      "Includes strength training, circuits, walking, cycling, and gym sessions",
+      "Uses body weight, duration, and intensity for a practical estimate",
+      "Best used for context, not as permission to overeat or overtrain",
+    ],
+    faq: [
+      {
+        question: "Are calorie burn estimates accurate?",
+        answer:
+          "No estimate is exact. Calorie burn varies with fitness level, pace, technique, body size, and effort. Use this as context only.",
+      },
+      {
+        question: "Can this predict fat loss?",
+        answer:
+          "No. Fat loss depends on overall nutrition, activity, recovery, and consistency. A single workout estimate is only one small part of the picture.",
+      },
+    ],
+    relatedToolSlugs: [
+      "calorie-calculator",
+      "step-goal-calculator",
+      "pace-and-cardio-zone-calculator",
+    ],
+    commercialLinks: [
+      { label: "Personal Training", href: "/personal-training" },
+      { label: "Online Coaching", href: "/online-coaching" },
     ],
   },
   {
