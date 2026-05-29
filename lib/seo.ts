@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { siteConfig } from "@/content/site";
+import { getMetadataLanguages } from "@/lib/language-routes";
 
 type MetadataInput = {
   title: string;
@@ -32,6 +33,15 @@ export function buildMetadata({
   const url = absoluteUrl(path);
   const imageUrl = absoluteUrl(image);
   const dedupedKeywords = Array.from(new Set([...siteConfig.keywords, ...keywords]));
+  const languagePaths = getMetadataLanguages(path);
+  const languages = languagePaths
+    ? Object.fromEntries(
+        Object.entries(languagePaths).map(([language, languagePath]) => [
+          language,
+          absoluteUrl(languagePath),
+        ]),
+      )
+    : undefined;
   const baseOpenGraph = {
     title,
     description,
@@ -71,6 +81,7 @@ export function buildMetadata({
     metadataBase: new URL(siteConfig.domain),
     alternates: {
       canonical: url,
+      languages,
     },
     robots: noIndex
       ? {

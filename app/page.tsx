@@ -115,6 +115,7 @@ export default async function HomePage() {
               "Private personal training session in Grand Baie, Mauritius",
             )}
             imageObjectPosition={resolveProofAssetObjectPosition(pageHeroAssets.home)}
+            languageHref="/fr"
           />
         </section>
 

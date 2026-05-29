@@ -6,6 +6,7 @@ import {
   getPublishedBlogPosts,
   siteConfig,
 } from "@/content";
+import { frenchSitemapRoutes } from "@/lib/language-routes";
 
 export const revalidate = 3600;
 
@@ -36,6 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/terms", priority: 0.3, changeFrequency: "yearly" as const },
   ];
 
+  const frenchRoutes: SitemapEntry[] = frenchSitemapRoutes.map((route) => ({
+    route,
+    priority: route === "/fr" ? 0.9 : 0.68,
+    changeFrequency: "monthly" as const,
+  }));
+
   const toolRoutes: SitemapEntry[] = getAllTools().map((tool) => ({
     route: `/tools/${tool.slug}`,
     priority: 0.68,
@@ -55,7 +62,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.publishAt),
   }));
 
-  return [...routes, ...toolRoutes, ...categoryRoutes, ...articleRoutes].map((entry) => ({
+  return [...routes, ...frenchRoutes, ...toolRoutes, ...categoryRoutes, ...articleRoutes].map((entry) => ({
     url: `${siteConfig.domain}${entry.route}`,
     lastModified: entry.lastModified ?? new Date(),
     changeFrequency: entry.changeFrequency,

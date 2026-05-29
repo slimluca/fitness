@@ -4,6 +4,7 @@ import { footerSeoLinks, primaryNavigation, siteConfig } from "@/content/site";
 import { Logo } from "@/components/site/logo";
 import { WhatsAppButton } from "@/components/site/whatsapp-button";
 import { Button } from "@/components/ui/button";
+import { LanguageSwitcher } from "@/components/site/language-switcher";
 
 const legalLinks = [
   { label: "Privacy Policy", href: "/privacy-policy" },
@@ -71,6 +72,7 @@ export function Footer() {
                 </Link>
               ))}
             </div>
+            <LanguageSwitcher />
           </div>
         </div>
       </div>

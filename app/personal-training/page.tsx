@@ -131,6 +131,7 @@ export default function PersonalTrainingPage() {
             imageObjectPosition={resolveProofAssetObjectPosition(
               pageHeroAssets["personal-training"],
             )}
+            languageHref="/fr/entrainement-personnel"
           />
         </section>
 

@@ -58,6 +58,7 @@ export default function ResultsPage() {
               "Results-ready private coaching proof at Fitness by Fabrizio",
             )}
             imageObjectPosition={resolveProofAssetObjectPosition(pageHeroAssets.results)}
+            languageHref="/fr/resultats"
           />
         </section>
 

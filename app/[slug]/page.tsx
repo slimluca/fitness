@@ -139,6 +139,7 @@ export default async function SeoLandingPage({ params }: PageProps) {
             imageObjectPosition={resolveProofAssetObjectPosition(
               pageHeroAssets["personal-trainer-mauritius"],
             )}
+            languageHref="/fr"
           />
         </section>
 

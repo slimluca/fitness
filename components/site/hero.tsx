@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { Badge } from "@/components/ui/badge";
@@ -13,6 +14,8 @@ type HeroProps = {
   imageObjectPosition?: string;
   actions?: ReactNode;
   aside?: ReactNode;
+  languageHref?: string;
+  languageLabel?: string;
   className?: string;
 };
 
@@ -25,6 +28,8 @@ export function Hero({
   imageObjectPosition,
   actions,
   aside,
+  languageHref,
+  languageLabel = "Voir en français",
   className,
 }: HeroProps) {
   const hasAside = aside !== undefined && aside !== null;
@@ -76,6 +81,15 @@ export function Hero({
               {description}
             </p>
           </div>
+          {languageHref ? (
+            <Link
+              href={languageHref}
+              hrefLang={languageHref.startsWith("/fr") ? "fr" : "en"}
+              className="inline-flex w-fit rounded-full border border-[color:var(--brand-gold)]/25 bg-[color:var(--brand-gold)]/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--brand-gold)] transition hover:border-[color:var(--brand-gold)]/45 hover:bg-[color:var(--brand-gold)]/15"
+            >
+              {languageLabel}
+            </Link>
+          ) : null}
           {actions}
         </div>
         {aside ? (

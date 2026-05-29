@@ -56,6 +56,13 @@ export default function ToolsHubPage() {
                   These free tools help with body-weight context, calories, nutrition
                   structure, training clarity, and progress tracking in a clean, practical format.
                 </p>
+                <Link
+                  href="/fr/outils"
+                  hrefLang="fr"
+                  className="inline-flex w-fit rounded-full border border-[color:var(--brand-gold)]/25 bg-[color:var(--brand-gold)]/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--brand-gold)] transition hover:border-[color:var(--brand-gold)]/45 hover:bg-[color:var(--brand-gold)]/15"
+                >
+                  Voir en français
+                </Link>
               </div>
             </div>
 

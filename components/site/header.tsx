@@ -11,10 +11,25 @@ import { primaryNavigation } from "@/content/site";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/site/logo";
 import { WhatsAppButton } from "@/components/site/whatsapp-button";
+import { LanguageSwitcher } from "@/components/site/language-switcher";
+
+const frenchNavigation = [
+  { label: "Accueil", href: "/fr" },
+  { label: "À propos", href: "/fr/a-propos" },
+  { label: "Entraînement", href: "/fr/entrainement-personnel" },
+  { label: "En ligne", href: "/fr/coaching-en-ligne" },
+  { label: "Résultats", href: "/fr/resultats" },
+  { label: "Avis", href: "/fr/avis" },
+  { label: "Outils", href: "/fr/outils" },
+  { label: "Contact", href: "/fr/contact" },
+];
 
 export function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const isFrench = pathname === "/fr" || pathname.startsWith("/fr/");
+  const navigation = isFrench ? frenchNavigation : primaryNavigation;
+  const consultationHref = isFrench ? "/fr/contact" : "/contact?intent=consultation";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -35,7 +50,7 @@ export function Header() {
       <div className="page-section flex items-center justify-between gap-3 py-3 sm:gap-4 sm:py-3.5">
         <Logo />
         <nav className="hidden items-center gap-4 lg:flex xl:gap-5">
-          {primaryNavigation.map((link) => (
+          {navigation.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -48,11 +63,14 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className="hidden items-center gap-3 xl:flex">
-          <Button asChild>
-            <Link href="/contact?intent=consultation">Book Consultation</Link>
-          </Button>
-          <WhatsAppButton label="WhatsApp Now" />
+        <div className="hidden items-center gap-3 lg:flex">
+          <LanguageSwitcher />
+          <div className="hidden items-center gap-3 xl:flex">
+            <Button asChild>
+              <Link href={consultationHref}>{isFrench ? "Consultation" : "Book Consultation"}</Link>
+            </Button>
+            <WhatsAppButton label={isFrench ? "WhatsApp" : "WhatsApp Now"} />
+          </div>
         </div>
         <Dialog>
           <DialogTrigger asChild className="lg:hidden">
@@ -68,7 +86,7 @@ export function Header() {
             <div className="mt-7 space-y-6 sm:mt-8">
               <Logo />
               <div className="space-y-2.5">
-                {primaryNavigation.map((link) => (
+                {navigation.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
@@ -81,11 +99,12 @@ export function Header() {
                   </Link>
                 ))}
               </div>
+              <LanguageSwitcher mobile />
               <div className="space-y-3">
                 <Button asChild className="w-full">
-                  <Link href="/contact?intent=consultation">Book Consultation</Link>
+                  <Link href={consultationHref}>{isFrench ? "Demander une consultation" : "Book Consultation"}</Link>
                 </Button>
-                <WhatsAppButton className="w-full" label="WhatsApp Now" />
+                <WhatsAppButton className="w-full" label={isFrench ? "WhatsApp" : "WhatsApp Now"} />
               </div>
             </div>
           </DialogContent>

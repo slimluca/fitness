@@ -50,6 +50,7 @@ export default function BlogPage() {
             title="Useful fitness advice for Mauritius readers who want better coaching decisions"
             description="A curated resource for people comparing private coaching, online support, weight loss strategy, and beginner-friendly training in Mauritius. The focus is clarity, useful guidance, and confident next steps."
             image={featuredPost?.featuredImage ?? "/training-session.jpeg"}
+            languageHref="/fr"
             aside={
               <div className="space-y-4">
                 <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--brand-gold)]">

@@ -69,6 +69,7 @@ export default function AboutPage() {
               "Trainer portrait for Fitness by Fabrizio in Grand Baie, Mauritius",
             )}
             imageObjectPosition={resolveProofAssetObjectPosition(pageHeroAssets.about)}
+            languageHref="/fr/a-propos"
           />
         </section>
 

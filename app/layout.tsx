@@ -17,6 +17,14 @@ export const metadata: Metadata = {
   creator: siteConfig.coachName,
   publisher: siteConfig.name,
   keywords: siteConfig.keywords,
+  alternates: {
+    canonical: siteConfig.domain,
+    languages: {
+      en: siteConfig.domain,
+      fr: `${siteConfig.domain}/fr`,
+      "x-default": siteConfig.domain,
+    },
+  },
   openGraph: {
     title: "Personal Trainer Mauritius | Fitness by Fabrizio",
     description: siteConfig.description,

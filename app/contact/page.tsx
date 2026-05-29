@@ -81,6 +81,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
               "Private contact and consultation environment in Grand Baie, Mauritius",
             )}
             imageObjectPosition={resolveProofAssetObjectPosition(pageHeroAssets.contact)}
+            languageHref="/fr/contact"
           />
         </section>
 

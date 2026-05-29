@@ -57,6 +57,7 @@ export default async function ReviewsPage() {
               "Review-ready private coaching environment in Grand Baie, Mauritius",
             )}
             imageObjectPosition={resolveProofAssetObjectPosition(pageHeroAssets.reviews)}
+            languageHref="/fr/avis"
           />
         </section>
 

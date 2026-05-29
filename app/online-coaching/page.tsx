@@ -121,6 +121,7 @@ export default function OnlineCoachingPage() {
             imageObjectPosition={resolveProofAssetObjectPosition(
               pageHeroAssets["online-coaching"],
             )}
+            languageHref="/fr/coaching-en-ligne"
           />
         </section>
 
